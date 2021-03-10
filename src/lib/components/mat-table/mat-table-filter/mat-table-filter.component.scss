@@ -1,0 +1,26 @@
+.filter-column {
+  align-items: center;
+  display: inline-flex;
+}
+
+
+.filter-column .mat-select-arrow {
+  border: 0 !important;
+}
+
+.filter-column .moh-icon {
+  color:black;
+  font-size:20px;
+  .calendar{
+    font-size:26px!important;
+  }
+}
+
+
+ .filter-container{ 
+   .mat-form-field-infix{
+      width:100%;
+    }
+
+
+}

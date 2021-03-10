@@ -1,0 +1,30 @@
+<div class="healthFooter" fxLayout="column">
+
+  <div *ngIf="showBigIcons" class="icons-row" fxLayoutAlign="center">
+    <!--fxHide.lt-md="true"-->
+    <div fxLayout="column" fxFlex="80">
+      <span class="title">{{contactUsTextValue | async}}</span>
+      <div fxLayoutAlign="space-between">
+        <a *ngFor="let menuItem of menuLinks; let i = index" href="{{menuItem.Path}}" attr.aria-label="{{menuItem.titleValue | async}}" target="_blank">
+          <img alt="{{menuItem.titleValue | async}}" src="{{this.isLtr ? menuItem.ImgUrl : menuItem.ImgUrl}}" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div role="navigation" attr.aria-label="{{footerLinksAriaLabelValue | async}}">
+    <ul fxLayout="row" fxLayoutAlign="center" fxLayoutWrap="wrap" class="links-row first">
+      <li *ngFor="let genaralMenuItem of genaralMenuLinks1">
+        <a href="{{genaralMenuItem.Path}}" title="{{genaralMenuItem.titleValue | async}}" target="{{genaralMenuItem.IsStatic?'_blank':'_self'}}">{{genaralMenuItem.titleValue | async}}</a>
+      </li>
+    </ul>
+
+    <ul fxLayout fxLayoutAlign="center" fxLayoutWrap="wrap" class="links-row second">
+      <li *ngFor="let genaralMenuItem of genaralMenuLinks2">
+        <a href="{{genaralMenuItem.Path}}" title="{{genaralMenuItem.titleValue | async}}" target="{{genaralMenuItem.IsStatic?'_blank':'_self'}}">{{genaralMenuItem.titleValue | async}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

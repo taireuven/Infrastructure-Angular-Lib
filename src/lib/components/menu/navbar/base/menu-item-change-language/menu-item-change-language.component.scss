@@ -1,0 +1,62 @@
+
+@import "../../../../../../styles/variables.v2.scss";
+.moh-menu-item-change-language{
+
+    .mat-list-item {        
+        background-color: $menu-bg !important;
+        border-bottom: 1px solid white;
+        color: $text-color;
+        font-weight: 600;
+        &:not(.expanded) {
+            &:hover, &:focus {
+            background-color: $menu-bg;
+            }
+        }
+
+        &.active {
+            background-color: $menu-bg;
+        }
+
+        .list-item-icon {
+            color: $menu-arrow-color;
+            font-size: 2.1rem;
+            width: 35px;
+            height: 20px;
+        }
+        .activeLanguageTitle{
+            color: $menu-arrow-color;
+        }
+        .list-item-moh-icon{
+            padding-left: 10px;
+            ::ng-deep html[dir="ltr"] & {
+              padding-right: 10px;
+              padding-left: 0;
+            }
+        }
+        .mat-list-item-content {
+            padding: 0 10px;
+            overflow: hidden;
+        }
+    }
+    
+    .moh-language-menu-item{
+        >.mat-list-item{
+            padding: 0 12px !important;
+            background: white !important;
+            box-shadow: none;
+            // &:before{
+            //     content: "\e906";
+            // }
+        }
+        &.activeLanguage{
+            >.mat-list-item{
+                border-right: 4px solid $menu-arrow-color;
+                color: $menu-arrow-color;
+                html[dir="ltr"] & {
+                    border-left: 4px solid $menu-arrow-color;          
+                    border-right: none !important;
+                }            
+            }
+        }
+    }
+}

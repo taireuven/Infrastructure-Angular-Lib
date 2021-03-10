@@ -1,0 +1,146 @@
+@import '../../../styles/variables.v2.scss';
+
+moh-autocomplete {
+
+  .moh-v2-input {
+    .moh-icon.select_arrow_down {
+      //float: left;
+      margin-top: -3em;
+      line-height: 4.4;
+      font-size: 0.55em;
+      color: #374f60;
+      text-align: left;
+      [dir="ltr"] & {
+        text-align: right;
+      }
+    }
+    //invalid
+    .mat-form-field.mat-input-invalid.mat-form-field-invalid {
+      .moh-icon {
+        color: $invalid-color;
+      }
+    }
+    //disabled
+    .mat-form-field.mat-form-field-disabled,
+    .mat-form-field.mat-form-field-invalid.mat-form-field-disabled {
+      .moh-icon {
+        color: $disabled-text-color;
+      }
+    }
+
+    .before-icon {
+      vertical-align: middle;
+      margin-left: 0.3em;
+      [dir="ltr"] & {
+        margin-right: 0.3em;
+        margin-left:0;
+      }
+    }
+    input.input-autocomplete {
+      text-overflow: ellipsis;
+    }
+  }
+  /*.mat-form-field-hide-placeholder.placeholder-always .mat-input-element::-webkit-input-placeholder {
+    color: rgba(0,0,0,.42) !important;
+  }*/
+}
+
+.mat-autocomplete-panel.moh-v2-autocomplete-panel[class] {
+  /*Center autocomplete panel, and let it grow but give it max-width:140%;*/
+  flex: 0 0 auto;
+  min-width: 100%;
+  width: auto;
+  max-width: calc(100% + 60px);
+  //Center autocomplete panel. Don't resize based on content, because content changes when you type.
+  //width: calc(100% + 60px);
+  margin-left: 50%;
+  margin-right: 50%;
+
+  .cdk-overlay-connected-position-bounding-box[dir="ltr"] & {
+    transform: translateX(-50%);
+  }
+
+  .cdk-overlay-connected-position-bounding-box[dir="rtl"] & {
+    transform: translateX(50%);
+  }
+
+  max-height: 18em;
+
+  .autocomplete-wrapper {
+    max-width: 90vw;
+  }
+
+  .mat-option {
+    line-height: 1;
+    min-height: 3.5em;
+    height: auto;
+    padding: 0.5em 1em;
+    font-family: 'Open Sans Hebrew';
+    border: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      border-bottom: 1px solid #efefef;
+      bottom: 0;
+      left: 1em;
+      right: 1em;
+    }
+
+    .tag {
+      // color: $disabled-text-color;
+      color: #a4a4a4;
+      font-size: 12px;
+    }
+  }
+
+  .mat-option.mat-option-disabled {
+    cursor: not-allowed;
+  }
+
+  .mat-option:not(.mat-option-disabled):hover,
+  .mat-option:not(.mat-option-disabled).mat-selected:hover {
+    background: #eff4f9;
+  }
+
+  &.isMultipleLine {
+    .mat-option {
+      white-space: normal;
+    }
+  }
+}
+
+//.mat-autocomplete-panel.moh-v2-autocomplete-panel .mat-option:not(.mat-option-disabled){background-color:blueviolet}
+
+.mat-autocomplete-panel.moh-v2-autocomplete-panel.ltr {
+  .mat-option {
+    direction: ltr;
+    text-align: left !important;
+  }
+}
+
+.mat-autocomplete-panel.moh-v2-autocomplete-panel.rtl {
+  .mat-option {
+    direction: rtl;
+    text-align: right !important;
+  }
+}
+
+// moh-select:not([isautocomplete="true"]) {
+//   .moh-v2-input {
+//     .mat-form-field-flex {
+//       cursor: pointer;
+//     }
+
+//     input {
+//       caret-color: transparent;
+//       cursor: pointer;
+//     }
+
+//     .mat-form-field.mat-input-invalid.mat-form-field-invalid {
+//       input {
+//         caret-color: transparent;
+//       }
+//     }
+//   }
+// }

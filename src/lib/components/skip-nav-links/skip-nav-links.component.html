@@ -1,0 +1,21 @@
+<div fxLayout="column">
+  <span class="linkSpan">
+    <a *ngIf="skipToMainMenu" (keydown.enter)="skipTo('mainNavMenu')" (click)="skipTo('mainMenu')" tabindex="0" class="link" fxShow="true" fxHide.lt-md="true">
+      {{skipToMainMenuTextValue | async}}
+    </a>
+    <a *ngIf="skipToMainMenu" (keydown.enter)="skipTo('mainSideMenu')" (click)="skipTo('mainMenu')" tabindex="0" class="link" fxHide.gt-sm="true">
+      {{skipToMainMenuTextValue | async}}
+    </a>
+  </span>
+  <span class="linkSpan">
+    <a *ngIf="skipToSubMenu" (keydown.enter)="skipTo('subMenu')" (click)="skipTo('subMenu')" tabindex="0" class="link">
+      {{skipToSubMenuTextValue | async}}
+    </a>
+  </span>
+  <span class="linkSpan">
+    <a *ngIf="skipToMainContent" (keydown.enter)="skipTo('mainContent')" (click)="skipTo('mainContent')" tabindex="0" class="link">
+      {{skipToMainContentTextValue | async}}
+    </a>
+  </span>
+</div>
+

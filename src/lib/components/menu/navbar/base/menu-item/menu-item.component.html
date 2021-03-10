@@ -1,0 +1,29 @@
+<mat-menu #childMenu="matMenu" [overlapTrigger]="false" [xPosition]="'before'" class="{{matMenuClass}} {{firstMatMenuClass}}">
+  <span *ngFor="let child of items">
+    <!-- Handle branch node menu items -->
+    <span *ngIf="child.children && child.children.length > 0">
+      <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu" [ngClass]="{'moh-active-link':  child.hasActiveChild }">
+        <ng-container *ngTemplateOutlet="menuItemContent;context:{child:child}"></ng-container>
+      </button>
+      <moh-menu-item #menu [items]="child.children" [showIcons]="showIcons" [matMenuClass]="matMenuClass"></moh-menu-item>
+    </span>
+    <!-- Handle leaf node menu items -->
+    <span *ngIf="!child.children || child.children.length === 0">
+      <ng-container *ngIf="child.isExternal; else internalBlock">
+        <button mat-menu-item (click)="onItemSelected(child)">
+          <ng-container *ngTemplateOutlet="menuItemContent;context:{child:child}"></ng-container>
+        </button>
+      </ng-container>
+      <ng-template #internalBlock>
+        <button mat-menu-item [routerLink]="child.url" [routerLinkActive]="['moh-active-link']">
+          <ng-container *ngTemplateOutlet="menuItemContent;context:{child:child}"></ng-container>
+        </button>
+      </ng-template>
+    </span>
+  </span>
+</mat-menu>
+
+<ng-template #menuItemContent let-item="child">
+  <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="menu-item-icon" />
+  <span>{{item.title || (item.titleValue | async)}}</span>
+</ng-template>

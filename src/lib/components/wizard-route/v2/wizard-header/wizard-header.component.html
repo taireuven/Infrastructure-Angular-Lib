@@ -1,0 +1,27 @@
+<moh-sticky-section [enabled]="this.wizardRoute.stickyMode"  [mobileHideOnScroll]="false" [fullscreen]="false">
+  <div class="nav-item-wrapper" [ngClass]="{'left-shadow' : leftCssShadow, 'right-shadow' : rightCssShadow, 'mobile-bar-header': !wizardRoute.headerStyleTabs, 'mobile-list-header': wizardRoute.headerStyleTabs, 'full-width-header': wizardRoute.fullWidthTabs}">
+    <swiper [config]="swiperConfig" (indexChange)="displayShadow($event)" #swiper>
+        <div fxLayout.xs="row"  role="listitem" *ngFor="let step of wizardRoute.steps; let lastStep = last; let i = index">
+          <button class="nav-item" role="button" [tabindex]="wizardRoute.isStepDisabled(step.path) && !wizardRoute.allowSkip? -1 : 0" fxFlex="100" attr.aria-disabled="{{wizardRoute.isStepDisabled(step.path) && !wizardRoute.allowSkip}}" (click)="wizardRoute.goToStep(step.path)"
+            [ngClass]="{'beforeActive':wizardRoute.isBeforActiveStep(step.path), 'active': i === wizardRoute.getIndexOfActiveStep()}" [disabled]="step.disabled" >
+            <div fxFlex="auto" fxLayout="column" fxLayoutAlign="space-between center" fxLayout.xs="row" fxLayoutAlign.xs="flex-start center" class="stepDiv">
+              <i *ngIf="step.icon" attr.aria-hidden="true" class="main-icon moh-icon {{step.icon}}">
+                  <i *ngIf="wizardRoute.showValidationIcons && wizardRoute.isValidStep(step.path)" class="moh-icon check_circle"></i>
+                  <i *ngIf="wizardRoute.showValidationIcons && wizardRoute.isValidStep(step.path) === false" class="moh-icon remove_circle"></i>
+              </i>
+              <span class="step-wrapper">
+                <span class="title">{{step.title || (step.titleValue | async)}}</span>
+                <i attr.aria-hidden="true" class="moh-icon chevron_right" *ngIf="this.wizardRoute.showArrowIcons && !lastStep"></i>
+                <div class="counter" fxHide fxHide.xs="false">
+                  {{wizardRoute.getLabelText('step') | async}} <span dir="ltr"> {{i + 1}} / {{wizardRoute.steps.length}}</span>
+                </div>
+              </span>
+            </div>
+            <!-- <div class="arrow-border" [ngClass]="{ 'lastArrowBorder': lastStep }">
+              <div class="arrow"></div>
+            </div> -->
+          </button>
+        </div>
+    </swiper>
+  </div>
+</moh-sticky-section>

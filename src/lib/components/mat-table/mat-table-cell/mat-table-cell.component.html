@@ -1,0 +1,43 @@
+
+<div *ngIf="editMode===false" [ngClass]="{'editable':this.editable}" (click)="onCellClick()">
+  <span class="mobile-label">{{column}}:</span>
+  <span class="text-value" *ngIf="type=='textbox' || type=='number'">{{cellValue}}</span>
+  <span class="text-value" *ngIf="type==='datepicker'">{{cellValue |  date:'dd/MM/yyyy'}}</span>
+  <span class="text-value" *ngIf="type==='select'">{{displayValue}}</span>
+</div>
+
+<div *ngIf="editMode===true">
+  <form [formGroup]="form">
+    <span class="mobile-label">{{column}}:</span>
+    <!--textbox control -->
+    <div *ngIf="type ===cellType.textbox">
+      <moh-textbox formControlName="textbox" type="text" [placeholderKey]="placeholderKey" [placeholder]="placeholder"
+                   (blur)="onBlur()" [useDefaultKey]="false" (keyUpEnter)="onBlur()" [autoFocus]="true"></moh-textbox>
+    </div>
+    <div *ngIf="type ===cellType.number">
+      <moh-textbox formControlName="number" mohNumbersOnly [placeholderKey]="placeholderKey" [placeholder]="placeholder"
+                   (blur)="onBlur()" [useDefaultKey]="false" (keyUpEnter)="onBlur()" [autoFocus]="true"></moh-textbox>
+    </div>
+    <!--[(value)]="cellValue"-->
+    <!--select control-->
+    <div *ngIf="type ===cellType.select">
+      <moh-select formControlName="select" [options]="options$" [displayField]="displayField" #select
+                  [valueField]="valueField" [placeholderKey]="placeholderKey"
+                  [placeholder]="placeholder" [useDefaultKey]="false"
+                  [parentSelect]="parentSelect"
+                  [parentSortField]="parentSortField" [childSortField]="childSortField"></moh-select>
+    </div>
+
+    <!--datepicker control-->
+    <div *ngIf="type ===cellType.datepicker">
+      <moh-datepicker formControlName="datepicker"
+                      [placeholder]="placeholder"
+                      [placeholderKey]=placeholderKey
+                      [useDefaultKey]="false" (keyUpEnter)="onDatepickerBlur()" (blur)="onDatepickerBlur()"
+                      (datepickerClosed)="onDatepickerClosed()"
+                      (datepickerOpened)="onDatepickerOpened()" [autoFocus]="true"></moh-datepicker>
+
+    </div>
+    <!--[(value)]="cellValue"-->
+  </form>
+</div>

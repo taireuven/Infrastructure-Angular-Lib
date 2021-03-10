@@ -1,0 +1,8 @@
+<div fxLayout="{{labelAbove?'column':'row'}}" class="iText">
+  <moh-label-field *ngIf="labelText || textKey" [textKey]="textKey" [text]="labelText" [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <div class="inputDiv">
+    <input type="{{type}}" class="inputText" placeholder="{{placeholder || (placeholderValue | async)}}" [formControl]="baseAbstractControl"
+           (blur)="onBlur()" (focus)="onFocus()" maxlength="{{maxlength}}" attr.aria-label="{{ariaLabel | async}}"
+           [attr.aria-required]="MarkAsRequired" /> <!--[attr.disabled]="isDisabled?'':null"-->
+  </div>
+</div>

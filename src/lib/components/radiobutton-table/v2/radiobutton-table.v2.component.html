@@ -1,0 +1,31 @@
+<form [formGroup]="baseAbstractControl" fxLayout=column>
+  <div fxLayout=row>
+    <div fxFlex=20>
+      <moh-label-field id="rbt-main-title" class="moh-bold" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+      <moh-error-message *ngIf="formSubmitted" [control]="baseAbstractControl"></moh-error-message>
+    </div>
+    <div fxFlex fxLayout="row">
+      <div fxFlex fxLayoutAlign="center center" *ngFor="let option of options; let i=index;">
+        <moh-label-field id="rbt-sub-title{{i}}" class="moh-bold" *ngIf="option.textKey || option.textValue" [text]="option.textValue" [textKey]="option.textKey" [textParams]="option.textParams"></moh-label-field>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let q of questions; let j=index;" fxLayout="row">
+
+    <div fxFlex=20 fxLayoutAlign="center start" fxLayout="column">
+      <moh-label-field id="rbt-qu{{j}}" *ngIf="q.textValue ||q.textKey" [text]="q.textValue" [textKey]="q.textKey" [textParams]="q.textParams" [isRequired]="q.validation"></moh-label-field>
+      <moh-error-message *ngIf="questionControl(q.code).touched || formSubmitted" [control]="questionControl(q.code)"></moh-error-message>
+    </div>
+    <mat-radio-group [formControlName]="q.code" fxFlex fxLayout="row" [attr.aria-required]="MarkAsRequired" attr.aria-labelledby="rbt-main-title rbt-qu{{j}}">
+      <!-- rbt-qu{{j}}-->
+      <div fxFlex=outo fxLayoutAlign="center center" *ngFor="let option of options; let i=index;">
+        <mat-radio-button disableRipple="true"
+                          [disabled]="isDisabled"
+                          [value]="option.code"
+                          aria-describedby="rbt-main-title rbt-qu{{j}} rbt-sub-title{{i}}"
+                          role="button">
+        </mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+</form>

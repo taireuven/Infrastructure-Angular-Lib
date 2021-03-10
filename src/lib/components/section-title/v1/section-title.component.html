@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutAlign="start center" role="heading" aria-level="4">
+
+  <img src={{imgSrc}} *ngIf="imgSrc!=null" />
+  <mat-icon *ngIf="icnName!=null">{{icnName}}</mat-icon>
+  <span class="bold" *ngIf="number">{{number}}.</span>
+  <span class="bold">{{title || (textValue| async)}} </span>
+  <span>{{extention}}</span>
+</div>

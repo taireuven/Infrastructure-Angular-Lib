@@ -1,0 +1,8 @@
+<div class="moh-form-card" ngClass.xs="xs">
+  <div class="section-title" *ngIf="title || titleKey">
+    <moh-section-title [title]="title" [textKey]="titleKey" [icnName]="icnName"></moh-section-title>
+  </div>
+  <div class="moh-form-card-content">
+      <ng-content></ng-content>
+  </div>
+</div>

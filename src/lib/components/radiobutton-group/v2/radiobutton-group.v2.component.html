@@ -1,0 +1,41 @@
+<div *ngIf="!freeTextOption" fxLayout="{{labelAbove?'column':'row'}}" class="radio-wrapper" ngClass.xs="moh-radiogroup-xs">
+  <moh-label-field fxFlex="{{labelAbove?'auto':'40%'}}" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <mat-radio-group fxFlex="{{labelAbove?'auto':'60%'}}" fxLayoutWrap="wrap" fxLayout="{{layout ? layout : 'column'}} wrap"
+                   [formControl]="baseAbstractControl" [attr.aria-required]="MarkAsRequired">
+    <!-- (change)="onCheckedChanged" -->
+    <mat-radio-button disableRipple="true"
+                      [ngClass]="layout"
+                      [disabled]="isDisabled"
+                      *ngFor="let item of options"
+                      [value]="valueField ? item[valueField] : item">
+
+      <span class="wrap-mat-radio-label" [innerHTML]="displayFn(item)"></span>
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+
+<form *ngIf="freeTextOption" [formGroup]="baseAbstractControl">
+  <div fxLayout="{{labelAbove?'column':'row'}}" class="radio-wrapper" ngClass.xs="moh-radiogroup-xs">
+    <moh-label-field fxFlex="{{labelAbove?'auto':'40%'}}" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+    <mat-radio-group fxFlex="{{labelAbove?'auto':'60%'}}" fxLayoutWrap="wrap" fxLayout="{{layout ? layout : 'column'}} wrap"
+                     formControlName="radioGroup" [attr.aria-required]="MarkAsRequired">
+      <!-- (change)="onCheckedChanged" -->
+      <mat-radio-button disableRipple="true"
+                        [ngClass]="layout"
+                        [disabled]="isDisabled"
+                        *ngFor="let item of options"
+                        [value]="valueField ? item[valueField] : item">
+
+        <span class="wrap-mat-radio-label" [innerHTML]="displayFn(item)"></span>
+      </mat-radio-button>
+    </mat-radio-group>
+    <moh-textbox *ngIf="isAnotherChecked" fxFlex="90" formControlName="freeText" type="text" id="textbox" placeholderKey="freeText" [MarkAsRequired]=freeTextMarkAsRequired></moh-textbox>
+    <moh-error-message *ngIf="baseAbstractControl.get('freeText').touched || formSubmitted" [control]="baseAbstractControl.get('freeText')"></moh-error-message>
+  </div>
+</form>
+
+
+
+
+

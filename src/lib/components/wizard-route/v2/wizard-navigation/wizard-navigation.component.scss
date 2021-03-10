@@ -1,0 +1,45 @@
+moh-wizard-route{
+    moh-wizard-navigation{
+        .card-footer {
+            background-color: #fff;
+            border-top: 0 none;
+            padding: 1.5rem 1.7rem;
+            box-shadow: -2.1px -2.1px 27px 0 rgba(18, 18, 18, 0.08);
+            .next-area {
+                > * {
+                    html[dir="rtl"] & {
+                    padding-right: 1em;
+                    }
+
+                    html[dir="ltr"] & {
+                    padding-left: 1em;
+                    }
+
+                    &.confirm-message {
+                    text-align: left;
+                    font-family: 'Open Sans Bold';
+                    max-width: 19.375em;
+                    max-height: 2.75em;
+                    overflow:hidden;
+                        html[dir="ltr"] & {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .moh-wizard-route-xs moh-wizard-navigation{
+        .card-footer {
+            padding: 1.5rem 1rem;
+            .form-detail:nth-child(2) {
+                margin-right: auto;
+                margin-left: auto;
+                html[dir="ltr"] & {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}

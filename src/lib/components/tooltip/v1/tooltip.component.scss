@@ -1,0 +1,50 @@
+@import '../../../../styles/variables';
+
+moh-tooltip {
+
+  mat-icon {
+    color: #002D56;
+  }
+
+  mat-icon:hover {
+    color: #011323;
+  }
+}
+
+mat-tooltip-component {
+  .mat-tooltip {
+    background-color: #011323;
+    font-size: 1.4em;
+    color: #FFFFFF;
+    border-radius: 0;
+    font-family: Open Sans Hebrew;
+  }
+}
+
+mat-tooltip-component .mat-tooltip {
+  word-break: break-all;
+}
+
+
+//draw arrow after a tooltip
+html[dir=rtl] mat-tooltip-component .mat-tooltip:after {
+  left: 100%;
+  content: ' ';
+  position: absolute;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  border-left: $arrow-size solid #011323;
+  top: 50%;
+  transform: translateY(-$arrow-size);
+}
+
+html[dir=ltr] mat-tooltip-component .mat-tooltip:after {
+  right: 100%;
+  content: ' ';
+  position: absolute;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  border-right: $arrow-size solid #011323;
+  top: 50%;
+  transform: translateY(-$arrow-size);
+}

@@ -1,0 +1,20 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" [floatLabel]="!labelText && !textKey ? 'never': 'auto'" [ngClass]="{'mat-form-field-disabled':isDisabled || inputDisabled, 'mat-input-invalid mat-form-field-invalid moh-form-field-invalid': markAsInvalid}">
+    <mat-label *ngIf="labelText || textKey">
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+    <input matInput #dateInput [matDatepicker]="picker" (dateChange)="dateChanged($event)" [min]="minDate" [max]="maxDate"
+           [formControl]="baseAbstractControl"
+           attr.aria-label="{{ariaLabel | async}}  dd/MM/yyyy {{explain | async}}" autocomplete="off" [disabled]="isDisabled || inputDisabled"
+           placeholder="{{placeholder || (placeholderValue | async)}}" (focus)="onFocus()"
+           (keyup.enter)="onKeyUpEnter()" (blur)="onBlur()">
+    <mat-datepicker-toggle matSuffix [for]="picker" disabled="{{popupDisabled || !!isDisabled}}">
+      <i matDatepickerToggleIcon class="moh-icon calendar"></i>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker [startAt]="startDate" [panelClass]="'moh-calendar-panel'" [disabled]="isDisabled"
+                    (closed)="onDatepickerClosed()" (opened)="onDatepickerOpened()">
+    </mat-datepicker>
+  </mat-form-field>
+</div>
+<!--[(ngModel)]="value" (ngModelChange)="onModelChange($event)"-->

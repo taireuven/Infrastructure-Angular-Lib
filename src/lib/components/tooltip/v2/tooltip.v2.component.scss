@@ -1,0 +1,56 @@
+@import '../../../../styles/variables.v2.scss';
+
+i.moh-tooltip-icon {
+  color: $text-color;
+  font-size: 22px;
+
+  &:hover {
+    color: $tooltip-hover-color;
+  }
+}
+
+::ng-deep {
+  mat-tooltip-component {
+    .mat-tooltip {
+      background: #fff;
+      color: $text-color !important;
+      box-shadow: 0 0 7px 0 rgba(18, 18, 18, 0.07);
+      font-size: 1em;
+      font-weight: 600;
+      border-radius: 5px;
+      font-family: Open Sans Hebrew;
+      word-break: break-word;
+    }
+  }
+}
+
+
+
+::ng-deep html[dir="rtl"] mat-tooltip-component {
+  .mat-tooltip {
+    text-align: right;
+
+    &:after {
+      left: 100%;
+      content: ' ';
+      position: absolute;
+      border-top: $arrow-size solid transparent;
+      border-bottom: $arrow-size solid transparent;
+      border-left: $arrow-size solid #ffff;
+      top: 50%;
+      transform: translateY(-$arrow-size);
+    }
+  }
+}
+
+
+::ng-deep html[dir=ltr] mat-tooltip-component .mat-tooltip:after {
+  right: 100%;
+  content: ' ';
+  position: absolute;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  border-right: $arrow-size solid #ffff;
+  top: 50%;
+  transform: translateY(-$arrow-size);
+}

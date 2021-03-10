@@ -1,0 +1,5 @@
+<div  fxLayout="row" fxFlex="0 0 auto" fxLayoutAlign="start start">
+  <mat-icon matPrefix>info_outline</mat-icon>
+  <span> &nbsp; {{text || (textValue | async)}}</span>
+  <ng-content></ng-content>
+</div>

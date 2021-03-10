@@ -1,0 +1,216 @@
+@import '../../../../styles/variables';
+
+moh-select[isautocomplete="true"] {
+  .mat-input-element {
+    padding-left: 0.6em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+  }
+}
+
+[dir="ltr"] {
+  moh-select {
+    .mat-input-element {
+      padding-top: 1em;
+      padding-right: 1.8em;
+      padding-bottom: 1em;
+      padding-left: 0.9em;
+      margin-left: -0.7em;
+    }
+  }
+
+  moh-select[isautocomplete="true"] {
+    .mat-input-element {
+      padding-bottom: 1em;
+      padding-top: 1em;
+      padding-right: 0.8em;
+    }
+  }
+}
+
+moh-select {
+  width: 100%;
+
+  .mat-form-field-prefix, .mat-form-field-suffix {
+    z-index: 999;
+  }
+
+  .mat-form-field-invalid .mat-form-field-label {
+    color: rgba(0,0,0,.54);
+  }
+
+  .mat-form-field-empty.mat-form-field-label {
+    margin-top: 0.8em;
+  }
+
+  .mat-input-element {
+    padding-top: 1em;
+    padding-left: 1.7em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    margin-right: -1em;
+  }
+
+
+
+  div.mat-form-field-flex {
+    height: 4.2em;
+  }
+
+  .mat-input-flex.mat-form-field-flex .mat-input-element {
+    &:focus {
+      outline: $browser-focus;
+    }
+  }
+
+  .dark {
+
+    .mat-select {
+      background-color: #C9D5D6;
+    }
+
+    .mat-select:hover {
+      background-color: #C3CFD0;
+    }
+
+    .mat-select-content {
+      background-color: #C9D5D6;
+    }
+
+    .mat-option-text {
+      color: #252525;
+    }
+
+    .mat-selected .mat-select-value-text {
+      color: greenyellow;
+    }
+  }
+
+  .cdk-overlay-pane {
+    pointer-events: none;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  mat-form-field.mat-input-container {
+    width: 100%;
+  }
+
+  .mat-select-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+    background-color: transparent;
+  }
+
+  *.mat-select-panel:not([class*=mat-elevation-z]) .mat-select-panel.mat-select-panel-done-animating.ng-star-inserted .ng-tns-c20-0.ng-trigger.ng-trigger-transformPanel {
+    min-width: 100% !important;
+  }
+
+  .mat-form-field-disabled {
+    pointer-events: none;
+    cursor: default;
+
+    .mat-input-flex {
+      background-color: rgb(235, 235, 228);
+
+      .mat-form-field-suffix .mat-icon {
+        cursor: default;
+      }
+    }
+  }
+
+  .mat-form-field-flex {
+    padding: 0.5em 1.2em 0.5em 0.8em;
+    border: 1px $input-border-color solid;
+    background-color: white;
+    align-items: center;
+    flex: 1 1 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    max-width: 100%;
+  }
+
+  .cdk-overlay-pane {
+    right: inherit;
+    margin-top: inherit;
+    margin-right: inherit;
+  }
+
+  .mat-form-field-infix {
+    border-top: 0;
+    width: 100%;
+  }
+
+  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+    margin-top: 0.5em;
+  }
+
+  .mat-form-field-suffix .mat-icon {
+    cursor: pointer;
+  }
+
+  .mat-input-element {
+    vertical-align: super !important;
+    font-size: 1.4em;
+    font-family: Open Sans Hebrew;
+    color: $black !important;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-invalid .mat-input-element {
+    caret-color: black;
+  }
+}
+/*.cdk-overlay-pane {
+  .mat-autocomplete-panel.mat-autocomplete-visible {
+    min-width: 110% !important;
+    
+  }
+}*/
+
+//https://stackoverflow.com/questions/11173106/apply-style-only-on-ie
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  moh-select {
+    .mat-input-element {
+      padding-top: 0.4em;
+      padding-left: 1.4em;
+      padding-bottom: 1em;
+      padding-right: 1em;
+      margin-right: -0.8em;
+    }
+  }
+
+  moh-select[isautocomplete="true"] {
+    .mat-input-element {
+      padding-left: 0.4em;
+      padding-bottom: 0.6em;
+      padding-top: 0.8em;
+    }
+  }
+
+  [dir='ltr'] {
+    moh-select {
+      .mat-input-element {
+        padding-top: 0.4em;
+        padding-right: 1.2em;
+        padding-bottom: 1em;
+        padding-left: 1.2em;
+        margin-left: -0.5em;
+      }
+    }
+
+    moh-select[isautocomplete="true"] {
+      .mat-input-element {
+        padding-right: 0.4em;
+        padding-bottom: 0.6em;
+        padding-top: 0.8em;
+        padding-left:0.9em;
+      }
+    }
+  }
+}

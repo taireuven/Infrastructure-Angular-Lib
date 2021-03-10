@@ -1,0 +1,14 @@
+.editable {
+  cursor: pointer;
+}
+.text-value{
+  min-height: 1.375em;
+  display: inline-block;
+}
+
+:host:not(.editing) {
+  width: 100%;
+  max-width: 180px; /*Input width*/
+  margin-left: 10px;
+  margin-right: 10px;
+}

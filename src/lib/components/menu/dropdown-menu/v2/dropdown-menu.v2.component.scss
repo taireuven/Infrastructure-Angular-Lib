@@ -1,0 +1,62 @@
+@import '../../../../../styles//variables.scss';
+
+
+#subMenu {
+  &:focus {
+    outline: transparent;
+  }
+}
+
+.dropdown-menu {
+  .mat-button {
+    background-color: #c9d5d6;
+    color: #002d56;
+    border-radius: 0px;
+  }
+
+  .mat-button[disabled],
+  .mat-button[disabled]:hover {
+    background-color: #C8D5D6;
+    color: #555555;
+  }
+
+  .mat-button:hover {
+    background-color: #c3cfd0;
+    color: #002d56;
+  }
+
+  .mat-button {
+    &:focus {
+      border: $browser-focus;
+    }
+  }
+
+  .mat-button.open {
+    background-color: #c9d5d6;
+  }
+
+  img {
+    margin-left: 0.3em;
+  }
+}
+
+
+.mat-menu-panel.dropdown-menu-mat-menu {
+  .mat-menu-content {
+    padding: 0px;
+
+    a.mat-menu-item {
+      background-color: #c9d5d6;
+
+      &:hover {
+        background-color: #9ebcbe;
+      }
+    }
+  }
+}
+
+a.mat-menu-item.ng-star-inserted {
+  &:focus {
+    border: $browser-focus;
+  }
+}

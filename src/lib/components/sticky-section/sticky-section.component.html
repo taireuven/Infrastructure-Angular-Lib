@@ -1,0 +1,6 @@
+<div #spacer></div>
+<div class="fixed-wrapper"  [ngClass]="{ 'showAnimation': showAnimation && isSticky, 'displayShadow': (this.stickyService.lastElement$| async) === this.stickyElement}" fxLayout="row" fxLayoutAlign="center" #wrapper>
+  <span class="fullscreen-wrapper" [ngClass]="{'fullscreen':fullscreen}" [style.max-width]="this.width + 'px'" fxFlex="100%">
+    <ng-content></ng-content>
+  </span>
+</div>

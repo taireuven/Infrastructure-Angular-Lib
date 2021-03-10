@@ -1,0 +1,141 @@
+@import "./variables.v2.scss";
+
+.moh-v2-input {
+  font-family: 'Open Sans Hebrew';
+
+  .mat-form-field {
+    line-height: 1.556;
+    margin-bottom: -0.81em;
+    /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    .mat-form-field-underline {
+      background-color: $underline-bg-color;
+      height: 1px;
+      transform: perspective(1px);
+    }
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      font-family: 'Open Sans Hebrew';
+      color: $text-color;
+      font-size: 1.124em;
+      font-weight: 400;
+
+      > span {
+        color: rgba(0,0,0,0.42);
+      }
+    }
+
+    .mat-input-element {
+      font-size: 1.124em;
+      font-family: Open Sans Hebrew;
+    }
+
+    &:hover {
+      /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+      .mat-form-field-underline {
+        height: 2px;
+        /*Same as selector: '.mat-input-ripple.mat-form-field-ripple' from angular material 5 selector*/
+        .mat-form-field-ripple {
+          height: 2px;
+        }
+      }
+    }
+  }
+  //focused
+  .mat-form-field.mat-focused {
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      color: $placeholder-active-color;
+    }
+    /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    .mat-form-field-underline {
+      background-color: $underline-active-bg-color;
+
+      .mat-form-field-ripple {
+        background-color: $underline-active-bg-color;
+      }
+    }
+  }
+  //invalid
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid,
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid {
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      color: $required-color;
+    }
+    /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    .mat-form-field-underline {
+      background-color: $required-color;
+      /*Same as selector: '.mat-input-ripple.mat-form-field-ripple' from angular material 5 selector*/
+      .mat-form-field-ripple {
+        background-color: $required-color;
+      }
+    }
+  }
+  //disabled
+  .mat-form-field.mat-form-field-disabled, .mat-form-field.mat-form-field-invalid.mat-form-field-disabled,
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid.mat-form-field-disabled {
+    /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    .mat-form-field-underline {
+      background-color: $disabled-underline-bg-color;
+      background-size: 0;
+      /*Same as selector: '.mat-input-ripple.mat-form-field-ripple' from angular material 5 selector*/
+      .mat-form-field-ripple {
+        background-color: $disabled-underline-bg-color;
+      }
+    }
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      color: $disabled-text-color;
+    }
+
+    .mat-input-element {
+      color: $disabled-text-color;
+    }
+
+    .requiredMarker {
+      color: $disabled-text-color;
+    }
+
+    &:hover {
+      /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+      .mat-form-field-underline {
+        height: 1px;
+        transform: perspective(1px);
+        background-color: $disabled-underline-bg-color;
+        /*Same as selector: '.mat-input-ripple.mat-form-field-ripple' from angular material 5 selector*/
+        .mat-form-field-ripple {
+          height: 1px;
+          transform: perspective(1px);
+        }
+      }
+    }
+  }
+
+  .mat-form-field.mat-form-field-should-float.mat-form-field-disabled {
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      color: $disabled-text-color;
+    }
+  }
+  //touched
+  .mat-form-field.mat-form-field-should-float {
+    /*Same as selector: 'label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder' from angular material 5 selector*/
+    label.mat-form-field-label {
+      color: $placeholder-active-color;
+    }
+  }
+
+  .requiredMarker {
+    color: $required-color;
+  }
+
+  .mat-form-field-hide-placeholder.placeholder-always {
+    .mat-input-element::-webkit-input-placeholder {
+      color: rgba(0,0,0,.42) !important;
+    }
+
+    .mat-input-element:-ms-input-placeholder {
+      color: rgba(0,0,0,.42) !important;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+moh-address {
+  ::-ms-reveal {
+    display: none;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .error_det {
+    vertical-align: super
+  }
+
+  .form-detail {
+    margin: 0 1%;
+
+    .select-zip-code{
+      padding-top:10px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<form [formGroup]="baseAbstractControl">
+  <div fxLayout="{{labelAbove?'column':'row'}}">
+    <moh-label-field *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+    <div class="row-rtl" fxLayout="row" fxLayoutAlign="space-between">
+      <div fxFlex="32%">
+        <moh-select *ngIf="!isInputYear" [useDefaultKey]="false" formControlName="year" placeholderKey="year" [options]="yearsList" ariaLabelKey="year" [MarkAsRequired]="MarkAsRequired"></moh-select>
+        <moh-textbox *ngIf="isInputYear" [useDefaultKey]="false" formControlName="year" ariaLabelKey="year" [MarkAsRequired]="MarkAsRequired"></moh-textbox>
+      </div>
+      <div fxFlex="32%">
+        <moh-select formControlName="month" [useDefaultKey]="false" placeholderKey="month" [displayField]="'text'" [options]="monthesList" ariaLabelKey="month" [MarkAsRequired]="MarkAsRequired"></moh-select>
+      </div>
+      <div fxFlex="32%">
+        <moh-select formControlName="day" [useDefaultKey]="false" placeholderKey="day" [options]="daysList" *ngIf="displayDay" ariaLabelKey="day" [MarkAsRequired]="MarkAsRequired"></moh-select>
+      </div>
+    </div>
+    <moh-error-message *ngIf="(baseAbstractControl.touched&&!baseAbstractControl.get('year').value && !baseAbstractControl.get('month').value && !baseAbstractControl.get('day').value)
+                       || formSubmitted" [control]="baseAbstractControl"></moh-error-message>
+
+  </div>
+</form>
+

@@ -1,0 +1,74 @@
+mat-row.hasCollapse,
+.mat-row.hasCollapse{
+  //Set Row CSS.
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  cursor: pointer;
+  &:focus{
+    z-index: 1; /*For :focus outline to work properly.*/
+  }
+  mat-cell{
+    min-width: 1px;
+  }
+  moh-mat-table-mobile-accordion{
+    //Set Default CSS. And Hidden CSS.
+    width:100%;
+    flex: 1 1 100%;
+    max-height: 0;
+    overflow: hidden;
+    order: 2;
+    .content{
+      display: none;
+      padding: 2.5em 0 0.5em;
+      cursor: auto;
+    }
+    .arrow{
+      display: none;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top:-0.75em;
+      pointer-events: none;
+      [dir='ltr'] &{
+        left:auto;
+        right:5px;
+        .moh-icon{
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  &.isEnabled{
+    .arrow{
+      display: block;
+    }
+    &.isCollapsed{
+      moh-mat-table-mobile-accordion{
+        /*Set Accordion to open.*/
+        max-height: 10000px;
+        transition: all 10s linear;
+        .content{
+          display: block;
+        }
+        .arrow{
+          .moh-icon{
+            transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+// .mobile-label{ mobile-label already exists.
+//   min-width: 100px;
+//   display: inline-block;
+//   margin-bottom: 0.3em;
+//   margin-top: 0.3em;
+// }

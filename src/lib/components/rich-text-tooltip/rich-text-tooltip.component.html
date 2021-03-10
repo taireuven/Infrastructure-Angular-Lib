@@ -1,0 +1,13 @@
+<div class="outer-wrapper">
+  <ng-content></ng-content>
+  <div class="tooltip">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-wrapper">
+      <!-- <div class="content" [innerHTML]="this.html"></div> -->
+      <div class="content">
+        <div *ngIf="this.html" [innerHTML]="this.html"></div>
+        <ng-content select="[tooltip-content-section]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

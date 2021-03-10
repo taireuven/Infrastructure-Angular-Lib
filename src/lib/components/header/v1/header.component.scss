@@ -1,0 +1,27 @@
+.moh-header {
+  padding: 1.25em 2.25em;
+  background-color: white;
+
+  /*img {
+    &.main-logo {
+      content: url("/assets/images/MainLogo.png");
+    }
+
+    &.icon-kol {
+      content: url("/assets/images/icon_kol.png");
+    }
+  }*/
+}
+.moh-header-xs {
+  padding: 1.25em 0.5em;
+}
+
+/*[dir="ltr"] {
+  .moh-header {
+    img {
+      &.main-logo {
+        content: url("/assets/images/MainLogo.png");
+      }
+    }
+  }
+}*/

@@ -1,0 +1,22 @@
+//@import '../../../../styles/variables.scss';
+
+moh-skip-nav-links {
+
+  .link {
+    font-size: 0;
+
+    &:focus {
+      font-size: 14px;
+    }
+  }
+
+  .linkSpan {
+    font-size: 0;
+  }
+
+  .linkSpan:focus-within {
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+}

@@ -1,0 +1,52 @@
+<moh-sticky-section [order]="-2" [enabled]="stickyMode" [showAnimation]="true" [alwaysSticky]="isMobile" [mobileHideOnScroll]=" !this.navService || !(this.navService.isOpen$ | async)" [fullscreen]="true">
+  <div class="moh-header" ngClass.xs="moh-header-xs" ngClass.gt-sm="moh-header-gt-sm" fxLayout="column" fxLayoutAlign="space-between">
+    <div class="footerLine"></div>
+    <div fxLayout="row" class="mainHeader">
+      <div fxLayout="row" fxLayoutAlign="start center" fxFlex="none" class="mainLogo-wrapper">
+        <a href="http://www.health.gov.il">
+          <img class="mainLogo" fxHide.lt-md src="{{this.isLtr ? '/assets/images/MainLogoV2.svg' : '/assets/images/MainLogoV2.svg'}}"
+               alt="{{mainLogoAltValue | async}}" />
+          <img class="mainLogoXs" fxHide.gt-sm src="{{this.isLtr ? '/assets/images/logo_mobile_en.png' : '/assets/images/logo_mobile_heb.png'}}"
+               alt="{{mainLogoAltValue | async}}" />
+        </a>
+      </div>
+      <div class="seperatedLine" fxHide.lt-md></div>
+      <div class="header-text" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center start" fxLayout="row" fxLayoutAlign="start center">
+        <label class="header-main-site-name" fxHide.lt-md>{{mainSiteValue | async}}</label>
+        <h1 class="header-current-site-name" fxLayoutAlign="start center" fxLayout="row"> {{currentSiteValue | async}} </h1>
+        <div class="header-page-title-name" *ngIf="pageTitleKey && displayPageTitle" fxLayoutAlign="start center" fxLayout="row" fxHide.lt-md>
+          <span class="spacer"> - </span>
+          <label>{{pageTitleValue$ | async}}</label>
+        </div>
+        <label class="header-institution-name" *ngIf="institutionName" fxHide.gt-sm>{{institutionName}}</label>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center end" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div *ngIf="showSelectLanguage" fxHide.lt-md fxLayout=row fxLayoutAlign="center end">
+            <div>
+              <moh-select-language [currentLang]="currentLang" [languagesListApps]="languagesListApps" [languagesList]="languagesList" [labelTextKey]="selectLanguageLabelKey" [displayWith]="languageDisplayWith"></moh-select-language>
+            </div>
+          </div>
+          <ng-content select="app-login-cube"></ng-content>
+          <ng-content select="aad-login-cube"></ng-content>
+          <div *ngIf="showMenuToggleButton" fxHide.gt-sm class="humburger-btn">
+            <button mat-button (click)="toggleButton()" id="mainSideMenu">
+              <i [ngClass]="(this.navService.isOpen$ | async)?'close1':'menu'" class="moh-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxFlex *ngIf="showButtonInHeader">
+          <moh-button textKey="{{(headerButtonValue$ | async)}}" iconName="ic-back" position="right" (click)="redirect()"
+                      role="link"></moh-button>
+        </div>
+        <div class="header-navbar" *ngIf="(this.menuItems || this.navMenuId) && this.isMobile">
+          <moh-navbar [showSelectLanguage]="showSelectLanguage" [menuId]="this.navMenuId" [menuItems]="this.menuItems" [hideMobileToggleButton]="true"></moh-navbar>
+        </div>
+      </div>
+    </div>
+  </div>
+</moh-sticky-section>
+<div class="header-navbar" *ngIf="(this.menuItems || this.navMenuId) && !(this.isMobile)">
+  <moh-navbar [showSelectLanguage]="showSelectLanguage" [menuId]="this.navMenuId" [menuItems]="this.menuItems" [languagesListApps]="languagesListApps" [languagesList]="languagesList" [hideMobileToggleButton]="true"></moh-navbar>
+</div>

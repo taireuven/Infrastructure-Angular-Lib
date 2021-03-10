@@ -1,0 +1,21 @@
+<div>
+  <div *ngFor="let control of formArray.controls; let i = index" fxLayout="row" fxLayoutAlign="space-between">
+    <div fxFlex="100">
+      <ng-container *ngTemplateOutlet="templateRef; context: { $implicit:{ control:control, index:i }}"></ng-container>
+    </div>
+    <div *ngIf="shouldEnableRemove(i)" fxFlex="5" fxFlex.xs="7" fxLayoutAlign="end" class="removeRow">
+      <i class="moh-icon delete" (click)="removeControl(i)" (keydown.enter)="removeControl(i)" tabindex="0"
+         attr.aria-label="{{removeTextValue | async}}" title="{{removeTextValue | async}}"></i>
+    </div>
+  </div>
+  <div fxLayoutAlign="start center">
+    <div class="addRow" [ngClass]="{'disableAdd':maxLength == formArray.length}">
+      <i fxLayoutAlign="center center" class="moh-icon add_circle" (click)="addControl()" (keydown.enter)="addControl()" tabindex="0"
+         attr.aria-label="{{addButtonTextValue | async}}"></i>
+    </div>
+    <div class="add-row-label">
+      <label>{{addButtonTextValue | async}}</label>
+    </div>
+
+  </div>
+</div>

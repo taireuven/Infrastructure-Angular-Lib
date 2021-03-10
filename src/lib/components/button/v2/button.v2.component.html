@@ -1,0 +1,8 @@
+<div class="moh-v2-button">
+  <button [disabled]="isDisabled" mat-button disableRipple="true" (click)="onClick($event)" class="moh-button-{{buttonStyle}}"
+          [ngClass]="{'button_without_icon': !iconName,'icon_on_left': position=='left' && iconName,'icon_on_right': position=='right' && iconName}" [type]="type">
+    <i *ngIf="iconName && position=='right'" matPrefix class="moh-icon {{iconName}}"></i>
+    <span class="button_text">{{ text || (textValue | async)}}</span>
+    <i *ngIf="iconName && position=='left'" matSuffix class="moh-icon {{iconName}}"></i>
+  </button>
+</div>

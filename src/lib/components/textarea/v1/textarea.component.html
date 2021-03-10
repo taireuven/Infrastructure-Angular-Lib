@@ -1,0 +1,24 @@
+<div fxLayout="{{labelAbove?'column':'row'}}">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <!--<moh-label-field *ngIf="labelText" [text]="labelText" [isRequired]=MarkAsRequired></moh-label-field>-->
+    <moh-label-field *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+
+    <mat-hint fxLayoutAlign="end" [ngClass]="{'invalid':commentModel.value?.length > maxChars}">
+      <span>{{commentModel.value?.length || 0}}/{{maxChars}} &nbsp;</span>
+      <span>{{allowedCharactersTextValue | async}}</span>
+    </mat-hint>
+  </div>
+
+  <mat-form-field>
+    <textarea matInput #commentModel [formControl]="baseAbstractControl"
+              matTextareaAutosize
+              maxlength={{maxChars}}
+              matAutosizeMinRows={{minRows}}
+              matAutosizeMaxRows={{maxRows}}
+              class="txtArea"
+              (blur)="onTouched()"
+              attr.aria-label="{{ariaLabel | async}}"
+              [attr.aria-required]="MarkAsRequired"><!--    maxlength={{maxChars}} -->
+</textarea>
+  </mat-form-field>
+</div>

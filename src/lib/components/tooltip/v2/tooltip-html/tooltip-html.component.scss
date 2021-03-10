@@ -1,0 +1,120 @@
+@import '../../../../../styles/variables.v2.scss';
+
+i.moh-tooltip-icon {
+  color: $text-color;
+  font-size: 22px;
+
+  &:hover {
+    color: $tooltip-hover-color;
+  }
+}
+
+
+::ng-deep {
+  .mde-popover-direction-arrow{
+    display: none;  
+  }
+  mat-card.mat-card.tooltipHtml {
+      background: #fff;
+      color: $text-color !important;
+      box-shadow: 0 0 7px 0 rgba(18, 18, 18, 0.07);
+      font-weight: 600;
+      border-radius: 5px;
+      font-family: Open Sans Hebrew;
+      word-break: break-word;
+      padding: 6px 8px;
+      mat-card-content{
+        font-size: 1em;
+      }
+    }
+}
+
+
+
+::ng-deep html[dir="rtl"] mat-card .mat-card.tooltipHtml {
+    text-align: right;
+
+    &:after {
+      left: 100%;
+      content: ' ';
+      position: absolute;
+      border-top: $arrow-size solid transparent;
+      border-bottom: $arrow-size solid transparent;
+      border-left: $arrow-size solid #ffff;
+      top: 50%;
+      transform: translateY(-$arrow-size);
+    }
+}
+
+
+::ng-deep html[dir=ltr] mat-card.mat-card.tooltipHtml:after {
+  right: 100%;
+  content: ' ';
+  position: absolute;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  border-right: $arrow-size solid #ffff;
+  top: 50%;
+  transform: translateY(-$arrow-size);
+}
+
+
+//for ng2-tooltip
+// ::ng-deep {
+//   tooltip {
+//     &.tooltip-shadow {
+//       box-shadow: 0 0 7px 0 rgba(18,18,18,.07) !important;
+//     }
+
+//     &.tooltip {
+//       background-color: #fff;
+
+//       &::after {
+//         border-style: none !important;
+//       }
+//     }
+
+//     div {
+//       background: #fff;
+//       color: $text-color !important;
+//       box-shadow: none;
+//       font-size: 1em;
+//       font-weight: 600;
+//       border-radius: 5px;
+//       font-family: Open Sans Hebrew;
+//       word-break: break-word;
+//     }
+//   }
+// }
+
+
+
+// ::ng-deep html[dir="rtl"] tooltip {
+//   div {
+//     text-align: right;
+
+//     &:after {
+//       left: 100%;
+//       content: ' ';
+//       position: absolute;
+//       border-top: $arrow-size solid transparent;
+//       border-bottom: $arrow-size solid transparent;
+//       border-left: $arrow-size solid #ffff;
+//       top: 50%;
+//       transform: translateY(-$arrow-size);
+//       border-style: none;
+//     }
+//   }
+// }
+
+
+// ::ng-deep html[dir=ltr] tooltip div:after {
+//   right: 100%;
+//   content: ' ';
+//   position: absolute;
+//   border-top: $arrow-size solid transparent;
+//   border-bottom: $arrow-size solid transparent;
+//   border-right: $arrow-size solid #ffff;
+//   top: 50%;
+//   transform: translateY(-$arrow-size);
+// }

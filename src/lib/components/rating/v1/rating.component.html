@@ -1,0 +1,32 @@
+<div fxLayout=row class=rating>
+  <moh-label-field class=label  *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <div *ngFor="let item of options ;let i=index;let last=last" fxLayout=row fxLayoutAlign="start start" class=option>
+   <div  fxLayout=column >
+     <div fxLayout=row fxLayoutAlign="center center">
+       <button fxLayoutAlign="center center"  (click)="click(item.code)" [ngClass]="baseAbstractControl.value==item.code?'rating-circle-selected':'rating-circle'" disabled="{{isDisabled}}">
+           {{i+1}}
+       </button>
+       <div *ngIf="!last" fxLayout=row>
+         <div *ngFor="let item of array(7)" class="dots">
+         </div>
+      </div>
+     </div>
+     <div class=optionLabel>
+     <moh-label-field  *ngIf="item.textValue || item.textKey" [text]="item.textValue" [textKey]="item.textKey" [textParams]="item.textParams" ></moh-label-field>
+     </div>
+   </div>
+  </div>
+   <div *ngIf=notRelevantOption fxLayout=row fxLayoutAlign="start start" class=NROption>
+   <div  fxLayout=column >
+     <div fxLayout=row  fxLayoutAlign="center center" >
+       <button fxLayoutAlign="center center"  (click)="click(notRelevantOption.code)" [ngClass]="baseAbstractControl.value==notRelevantOption.code?'rating-circle-selected':'rating-circle'" disabled="{{isDisabled}}">
+       </button>
+     </div>
+     <div >
+      <moh-label-field  *ngIf="notRelevantOption.textValue || notRelevantOption.textKey" [text]="notRelevantOption.textValue" [textKey]="notRelevantOption.textKey" [textParams]="notRelevantOption.textParams" ></moh-label-field>
+     </div>
+   </div>
+  </div>
+ 
+ </div>
+ 

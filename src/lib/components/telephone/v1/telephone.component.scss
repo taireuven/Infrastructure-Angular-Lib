@@ -1,0 +1,21 @@
+moh-telephone {
+  .error_icon {
+    color: red;
+  }
+
+  .error_det {
+    vertical-align: super
+  }
+
+  moh-textbox input{
+    text-align:left;
+  }
+
+
+}
+
+[dir="ltr"] {
+  moh-telephone div.row-rtl {
+    flex-direction: row-reverse !important;
+  }
+}

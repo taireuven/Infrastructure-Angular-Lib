@@ -1,0 +1,239 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import '../../../../styles/variables.scss';
+
+[dir="ltr"] {
+  moh-file-upload {
+    moh-textbox {
+      .inputDiv {
+        margin-right: 1em;
+        margin-left: 0em;
+      }
+    }
+  }
+}
+
+moh-file-upload {
+
+  moh-button {
+    button {
+      height: 3.2em;
+
+      &:focus {
+        border: $browser-focus;
+      }
+    }
+
+    div {
+      overflow: hidden;
+    }
+
+    .mat-raised-button.mat-primary {
+      background-color: #002D56;
+      color: #ffffff;
+    }
+
+    .mat-raised-button.mat-primary[disabled],
+    .mat-raised-button.mat-primary[disabled]:hover {
+      background-color: #25414C;
+      color: #889A9E;
+    }
+
+    .mat-raised-button.mat-primary:hover {
+      background-color: #01182D;
+      color: #ffffff;
+    }
+  }
+
+  moh-textbox {
+    .inputDiv {
+      margin-left: 1em;
+    }
+  }
+
+  .inputFile {
+    display: none;
+  }
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+
+.gfu-file-extension-wrapper {
+  color: #999 !important;
+  border-color: #999 !important;
+}
+
+.uploader-li {
+  list-style-type: none;
+  //no success
+  margin-top: 10px;
+  height: 6em;
+  // margin-top:0.5%;
+}
+
+.k-file-extension {
+  margin-right: .2em;
+  margin-bottom: .3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.gfu-file-extension-wrapper, .gfu-file-invalid-extension-wrapper, .gfu-file-name-size-wrapper, .gfu-multiple-files-extension-wrapper, .gfu-multiple-files-invalid-extension-wrapper {
+  display: inline-block;
+}
+
+.gfu-file-extension-wrapper:before, .gfu-file-invalid-extension-wrapper:before, .gfu-multiple-files-extension-wrapper:before, .gfu-multiple-files-invalid-extension-wrapper:before {
+  background-color: #fff;
+  border-color: transparent transparent #999 #999;
+  top: -1px;
+  right: -1px;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  margin-top: -1px;
+  margin-right: -1px;
+}
+
+.gfu-file-extension-wrapper:before, .gfu-file-invalid-extension-wrapper:before, .gfu-multiple-files-extension-wrapper:after, .gfu-multiple-files-extension-wrapper:before, .gfu-multiple-files-invalid-extension-wrapper:after, .gfu-multiple-files-invalid-extension-wrapper:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  border-style: solid;
+}
+
+.k-file-name {
+  display: block;
+  position: relative;
+  min-width: 10em;
+  max-width: 16.667em;
+  /*vertical-align: middle;*/
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.k-file-size {
+  color: #999 !important;
+  line-height: 1.2em;
+}
+
+.gfu-file-extension-wrapper, .gfu-file-invalid-extension-wrapper, .gfu-multiple-files-extension-wrapper, .gfu-multiple-files-invalid-extension-wrapper {
+  position: relative;
+  width: 24px;
+  height: 34px;
+  border-width: 2px;
+  border-style: solid;
+  vertical-align: top;
+  font-size: .60em !important;
+  text-transform: uppercase;
+}
+
+.k-file-extension {
+  margin-right: .2em;
+  margin-bottom: .3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.k-file-extension, .k-file-invalid-icon {
+  position: absolute;
+  bottom: 0;
+  line-height: normal;
+}
+
+.btn-cancel, .btn-remove, btn-download {
+  float: left;
+}
+
+.btn-remove, btn-download {
+  margin-left: 5px;
+}
+
+.progress-bar {
+  background-color: darkblue !important;
+}
+
+.progress-bar-sccess {
+  background-color: green;
+}
+
+.glyphicon-ok {
+  color: limegreen;
+}
+
+.glyphicon-remove {
+  color: red;
+}
+
+.InfoImg {
+  height: 2.1875em;
+}
+/*.file-name-input {
+    height: 51px;
+    width: 370px;
+  }*/
+ul {
+  padding: 0px !important;
+}
+
+.btn-remove {
+  color: red
+}
+
+.glyphicon-ban-circle {
+  color: goldenrod;
+}
+/*.btn-remove {
+    background-color: red
+  }*/
+.file-list .file-prop {
+  border: solid 1px #909899;
+  border-bottom: none;
+}
+
+.progress {
+  height: 0.25em;
+  overflow: hidden;
+  background-color: #BED4D6;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-success {
+  height: 0.25em;
+  overflow: hidden;
+  background-color: #20AC58;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-uploading {
+  height: 0.25em;
+  overflow: hidden;
+  background-color: #BED4D6; //#002D56;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.info-label-upload {
+  color: #252525;
+}
+
+.info-label-success {
+  color: #20AC58;
+}
+
+.info-label-error {
+  color: red;
+}

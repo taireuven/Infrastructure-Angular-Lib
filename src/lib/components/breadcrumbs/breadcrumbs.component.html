@@ -1,0 +1,18 @@
+<div class="moh-breadcrumbs">
+  <ol class="moh-breadcrumbs-list">
+    <li *ngFor="let breadcrumb of breadcrumbs$ | async"
+        class="breadcrumb-item">
+
+      <ng-container *ngIf="breadcrumb.isExternal; else internalBlock">
+        <a [href]="breadcrumb.url" [target]="breadcrumb.isStatic?'_blank':'_self'">{{ getLabelText(breadcrumb.labelKey)|async }}</a>
+      </ng-container>
+
+      <ng-template #internalBlock>
+        <a [routerLink]="[breadcrumb.url]"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          {{ getLabelText(breadcrumb.labelKey)|async }}
+        </a>
+      </ng-template>
+
+    </li>
+  </ol>
+</div>

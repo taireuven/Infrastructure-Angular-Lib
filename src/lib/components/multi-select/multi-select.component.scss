@@ -1,0 +1,109 @@
+@import '../../../styles/variables.v2.scss';
+
+moh-multi-select {
+
+  .moh-v2-input {
+    .moh-icon.select_arrow_down {
+      //float: left;
+      margin-top: -3em;
+      line-height: 4.4;
+      font-size: 0.55em;
+      color: #374f60;
+      text-align: left;
+    }
+
+    .before-icon {
+      vertical-align: middle;
+      margin-left: 0.3em;
+    }
+  }
+
+  mat-select.mat-select {
+    font-family: 'Open Sans Hebrew';
+
+    &:focus {
+      outline: 0;
+    }
+
+    .mat-select-arrow {
+      border-top: 0;
+      border-left: 0;
+      margin: 0;
+    }
+  }
+}
+
+
+.mat-select-panel.moh-v2-select-panel {
+  margin-top: 35px;
+  margin-bottom: 42px;
+  /*fix panel position */
+  min-width: calc(100% + 16px) !important;
+
+  .cdk-overlay-connected-position-bounding-box[dir="ltr"] & {
+    margin-right: -40px;
+    margin-left: 40px;
+  }
+
+  .cdk-overlay-connected-position-bounding-box[dir="rtl"] & {
+    margin-right: 40px;
+    margin-left: -40px;
+  }
+
+  &.ltr {
+    .mat-option {
+      text-align: left !important;
+      direction: ltr;
+    }
+
+    .mat-option-pseudo-checkbox {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+  }
+
+  &.rtl {
+    .mat-option {
+      text-align: right !important;
+      direction: rtl;
+
+      .mat-option-pseudo-checkbox {
+        margin-left: 8px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .mat-option {
+    height: 2.8em;
+    line-height: 2.8em;
+    border-bottom: 1px solid #d4dee7;
+    font-family: 'Open Sans Hebrew';
+
+    &:hover:not(.mat-option-disabled) {
+      background: #eff4f9;
+    }
+  }
+
+  .mat-option.mat-selected {
+    &:hover:not(.mat-option-disabled) {
+      background: #eff4f9;
+    }
+  }
+}
+
+[dir="ltr"] {
+  moh-multi-select {
+    .moh-v2-input {
+      .moh-icon.select_arrow_down {
+        //float: right;
+        margin-top: -3em;
+        text-align: right;
+      }
+
+      .before-icon {
+        margin-right: 0.3em;
+      }
+    }
+  }
+}

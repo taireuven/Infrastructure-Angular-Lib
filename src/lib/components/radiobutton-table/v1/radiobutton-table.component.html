@@ -1,0 +1,30 @@
+<form [formGroup]="baseAbstractControl" fxLayout=column>
+  <div fxLayout=row>
+    <div fxFlex=20>
+      <moh-label-field class="moh-bold" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+      <moh-error-message *ngIf="formSubmitted" [control]="baseAbstractControl"></moh-error-message>
+    </div>
+    <div fxFlex fxLayout="row">
+      <div fxFlex fxLayoutAlign="center center" *ngFor="let option of options">
+        <moh-label-field class="moh-bold" *ngIf="option.textKey || option.textValue" [text]="option.textValue" [textKey]="option.textKey" [textParams]="option.textParams"></moh-label-field>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let q of questions; let i=index;" fxLayout="row">
+
+    <div fxFlex=20 fxLayoutAlign="center start" fxLayout="column">
+      <moh-label-field *ngIf="q.textValue ||q.textKey" [text]="q.textValue" [textKey]="q.textKey" [textParams]="q.textParams" [isRequired]="q.validation"></moh-label-field>
+      <moh-error-message *ngIf="questionControl(q.code).touched || formSubmitted" [control]="questionControl(q.code)"></moh-error-message>
+    </div>
+
+    <mat-radio-group [formControlName]="q.code" fxFlex fxLayoutWrap="wrap" fxLayout="row"
+                     [attr.aria-required]="MarkAsRequired">
+      <mat-radio-button fxFlex=outo fxLayoutAlign="center center"
+                        disableRipple="true"
+                        [disabled]="isDisabled"
+                        *ngFor="let option of options"
+                        [value]="option.code">
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</form>

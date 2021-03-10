@@ -1,0 +1,53 @@
+/**
+moh overrides
+*/
+
+/*.getting-started, .additional-page, [data-target="#additional-pages"]+ ul, #c-readme{
+    direction:rtl;
+}*/
+.additional-page .content-data {
+  direction: rtl;
+  /*max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;*/
+}
+/*.additional-page th{
+text-align: right;
+}
+
+ul.index-list {
+    column-count:auto;
+}
+
+#constructor, #constructor + .table-bordered, h3[id="index"], h3[id="index"]+table{
+    display: none;
+}
+
+.tab-pane section:first{
+    display: none;
+}*/
+
+.code-toolbar{
+    direction: ltr;
+}
+
+/*.content.component #c-info section:first-of-type, .content.component #c-info section:last-of-type{
+    display: none;
+}
+
+.content.component #methods,.content.component #methods~table{
+    display: none;
+}
+
+#c-example iframe {
+    width: 80vh !important;
+}*/
+
+.content{
+    font-size: 16px;
+}
+
+.content ul, .content ol {
+  padding-right: 20px;
+  /*padding-left: 20px;*/
+}

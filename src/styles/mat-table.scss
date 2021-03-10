@@ -1,0 +1,65 @@
+mat-cell {
+    font-size: 1.124em;
+    font-family: Open Sans Hebrew;
+    word-break: break-all;
+  }
+
+mat-footer-row, mat-header-row, mat-row {
+  border-bottom-width:0px!important;
+}
+  
+.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-header-cell {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: bold;
+  }
+  mat-header-row {
+    background-color: #f0f4f7!important;
+  }
+  mat-row:nth-child(even) {
+    background-color: #fff;
+  }
+  mat-row:nth-child(odd) {
+    background-color: #f0f4f7;
+  }
+ 
+  
+  mat-header-cell {
+    border-bottom-style: none!important;
+    font-size: 1.120em!important;
+    font-family: Open Sans Hebrew;
+    font-weight:bold;
+    word-wrap:break-word;
+  }
+
+  .mobile-label {
+    display: none;
+  }
+  
+  @media(max-width: 600px) {
+    .mobile-label {
+      width: 80px;
+      display: inline-block;
+          font-weight: bold;
+    }
+  
+    .mat-header-row {
+      display: none;
+    }
+  
+    .mat-row { 
+      flex-direction: column;
+      align-items: start;
+      padding: 8px 24px;
+    }
+   
+    mat-cell:first-of-type{
+      padding-right: 0!important;
+      padding-left: 0!important;
+    }
+
+  }

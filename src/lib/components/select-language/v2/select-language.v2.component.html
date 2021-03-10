@@ -1,0 +1,7 @@
+<div class="moh-select-language-2" fxLayout=row fxLayoutAlign="end center">
+  <i class="moh-icon lang" fxHide.lt-md></i>
+  <moh-select role="list" [formControl]="select" ngClass.gt-sm=mohSelect ngClass.lt-md=mohSelectMobile
+              displayField="displayName" [useDefaultKey]="false" ariaLabelKey="{{labelTextKey}}"
+              [options]="languages" [displayWith]="displayWith" panelClass="moh-v2-select-language"></moh-select>
+</div>
+

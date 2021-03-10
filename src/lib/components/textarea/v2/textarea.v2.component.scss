@@ -1,0 +1,21 @@
+@import "../../../../styles/variables.v2.scss";
+
+moh-textarea {
+
+  .moh-v2-input {
+
+    .mat-form-field {
+      .mat-hint {
+        color: $disabled-text-color;
+        font-size: 1.15em;
+      }
+    }
+
+    .mat-form-field.mat-form-field-should-float.mat-form-field-disabled {
+      .mat-form-field-underline {
+        background: $disabled-underline-bg-color;
+        background-size: 0;
+      }
+    }
+  }
+}

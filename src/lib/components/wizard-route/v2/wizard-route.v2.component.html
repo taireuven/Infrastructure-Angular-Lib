@@ -1,0 +1,10 @@
+<div class="card moh-wizard-route" ngClass.xs="moh-wizard-route-xs" fxLayout="column">
+  <div class="card-header wizard-header" role="navigation" attr.aria-label="{{wizardMainAriaLabelValue | async}}">
+    <moh-wizard-header></moh-wizard-header>
+  </div>
+  <moh-wizard-navigation attr.aria-hidden="true" *ngIf="showTopButtons"></moh-wizard-navigation>  
+  <div class="card-block moh-row wizard-inner">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+  <moh-wizard-navigation  *ngIf="showBottomButtons"></moh-wizard-navigation>
+</div>

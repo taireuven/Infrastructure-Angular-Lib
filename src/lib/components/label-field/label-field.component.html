@@ -1,0 +1,7 @@
+<div>
+  <label class="{{labelStyle}}">
+    <!--[attr.for]="identifer"-->
+    {{ text || (textValue | async)}}
+    <span class="star" *ngIf="isRequired">*</span>
+  </label>
+</div>

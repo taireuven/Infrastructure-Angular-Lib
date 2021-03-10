@@ -1,0 +1,32 @@
+ 
+ <div [ngStyle]="{'background-color':color}">
+
+ <div class="container"
+     fxLayout ="row" > 
+
+  <div class="paginator" fxLayoutAlign="center"  *ngIf="pageSize && pageSize>0 && length && length>0">
+
+    <button class="moh-icon grid_ar_next2 page-button" (click)="updatePageData(0)" [disabled]="paginator.pageIndex == 0"></button>
+    <button class="moh-icon grid_ar_next  page-button" (click)="this.goToPrev()"></button>
+    <button *ngIf="firstIndexPageBtn > 0"
+            (click)="firstIndexPageBtn = ((firstIndexPageBtn-buttonsMenuSize) >= 0 ? firstIndexPageBtn-buttonsMenuSize : 0)"
+            class="page-button">
+      ...
+    </button>
+    <button *ngFor="let item of getPageButtons(firstIndexPageBtn)"
+            (click)="updatePageData(item)" class="page-button" [ngClass]="{'selected-page-button': item==paginator.pageIndex}">
+      {{item + 1 }}
+    </button>
+    <button *ngIf="paginator.getNumberOfPages() > lastIndexPageBtn+1"
+            (click)="firstIndexPageBtn=lastIndexPageBtn+1" class="page-button">
+      ...
+    </button>
+    <button class="moh-icon grid_ar_prev page-button" (click)="this.goToNext()" [disabled]="paginator.pageIndex == (paginator.getNumberOfPages()-1)"></button>
+    <button class="moh-icon grid_ar_prev2 page-button" (click)="updatePageData(paginator.getNumberOfPages()-1)" [disabled]="paginator.pageIndex == (paginator.getNumberOfPages()-1)"></button>
+
+  </div>
+  <mat-paginator style="display:none" [pageSize]="pageSize" [length]="length"></mat-paginator>
+
+ 
+</div>
+</div>

@@ -1,0 +1,48 @@
+@import "../../../styles/variables.v2.scss";
+
+.moh-breadcrumbs {
+  /*background-color: #8d0000;*/
+  /*padding: 20px;*/
+  ol.moh-breadcrumbs-list {
+    padding: 0;
+    margin: 0;
+
+    li.breadcrumb-item {
+      list-style-type: none;
+      display: inline-block;
+
+      & + li:before {
+        content: " ";
+        border: solid $text-color;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3.5px;
+        margin: 0 7px 0 15px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+
+      a {
+        color: $text-color;
+
+        &.active {
+          font-family: 'Open Sans Bold';
+        }
+      }
+    }
+  }
+}
+
+[dir=ltr] {
+  .moh-breadcrumbs {
+    ol.moh-breadcrumbs-list {
+      li.breadcrumb-item {
+        & + li:before {
+          margin: 0 15px 0 7px;
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

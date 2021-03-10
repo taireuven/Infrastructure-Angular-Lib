@@ -1,0 +1,5 @@
+<div  class="upload-btn-wrapper">
+  <moh-button [text]="text" [textKey]="textKey"></moh-button>
+  <input type="file" (change)="importExcel($event)" onclick="this.value=null;" accept=".xls,.xlsx"/>
+</div>
+

@@ -1,0 +1,6 @@
+<div fxLayout="{{labelAbove?'column':'row'}}" class="iText">
+  <moh-label-field *ngIf="labelText || textKey" [textKey]="textKey" [text]="labelText" [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <ckeditor [formControl]="baseAbstractControl" [readonly]="isDisabled" [config]="config"></ckeditor>
+
+</div>
+

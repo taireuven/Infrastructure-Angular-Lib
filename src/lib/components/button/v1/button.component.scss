@@ -1,0 +1,27 @@
+@import '../../../../styles/variables.scss';
+
+moh-button {
+  .mat-raised-button.mat-primary {
+    background-color: #C8D5D6;
+    color: #252525;
+  }
+
+  .mat-raised-button {
+    border-radius: 0px !important;
+
+    &:focus {
+      outline: $browser-focus;
+    }
+  }
+
+  .mat-raised-button.mat-primary[disabled],
+  .mat-raised-button.mat-primary[disabled]:hover {
+    background-color: #C8D5D6;
+    color: #555555;
+  }
+
+  .mat-raised-button.mat-primary:hover {
+    background-color: #DAE5E5;
+    color: #252525;
+  }
+}

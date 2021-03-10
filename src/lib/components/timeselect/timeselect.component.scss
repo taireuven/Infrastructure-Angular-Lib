@@ -1,0 +1,39 @@
+moh-timeselect {
+
+  .ngx-timepicker__control--third {
+    order: 1 !important;
+  }
+
+  .ngx-timepicker__control--second {
+    order: 2 !important;
+  }
+
+  .ngx-timepicker__control--first {
+    order: 3 !important;
+  }
+  .ngx-timepicker--disabled{
+    background: none !important;
+    pointer-events: none !important;
+    color: #6e6e6e;
+  }
+
+  .ngx-timepicker {
+    padding-top: 1.45em;
+    border-bottom: 1.5px solid #111d26 !important;
+  }
+  .ngx-timepicker:hover {
+    border-bottom: 2px solid #111d26 !important;
+  }
+    .label{
+    position:absolute;
+  }
+  .ngx-timepicker-control__input {
+    font-size: 1.124em !important;
+    font-family: Open Sans Hebrew !important;
+  }
+  .ngx-timepicker-control--active,
+  .ngx-timepicker-control--active:after {
+    background-color: transparent !important;
+  }
+}
+

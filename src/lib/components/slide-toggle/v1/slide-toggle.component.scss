@@ -1,0 +1,47 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/variables.scss';
+
+// colors
+$bg-color: #F9F9F9;
+$stroke-color: #909899;
+$hover-bg-color: #EFEFEF;
+$font-color: #6C7273;
+
+moh-slide-toggle {
+  .mat-button-toggle-group {
+    height: 2.22em;
+    background-color: $bg-color;
+    border: 1px solid $stroke-color;
+    border-radius: 27px !important;
+    box-shadow: none;
+    font-size: 1.8em;
+    color: $font-color;
+
+    &:hover {
+      //background-color: $hover-bg-color;
+    }
+
+    .mat-button-toggle {
+      text-align: center;
+
+      .mat-button-toggle-label-content{
+        padding:0;
+        width:100%;
+      }
+    }
+  }
+
+  .mat-button-toggle-checked {
+    color: $white;
+    background-color: $toggle-blue;
+    border-radius: 26px;
+  }
+
+  .mat-button-toggle-focus-overlay {
+    border: $browser-focus;
+  }
+
+  .mat-button-toggle-disabled {
+    background-color: #f9f9f9;
+  }
+}

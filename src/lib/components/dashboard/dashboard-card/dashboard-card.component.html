@@ -1,0 +1,27 @@
+
+<mat-card class="dashboard-card" >
+    <mat-card-header fxLayout="row">
+      <div class="card-icon {{this.iconColor}}" *ngIf="this.icon" fxFlexOrder="-1">
+        <i class="moh-icon {{this.icon}}"></i>
+      </div>
+      <mat-card-title>
+        <div *ngIf="menuItems">
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+
+            <a mat-menu-item *ngFor="let item of menuItems" (click)="onItemSelected(item)">
+              {{item.title || (item['titleValue'] | async)}}
+            </a>
+          </mat-menu>
+        </div>
+        {{this.title}}
+
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content {{this.center? 'center' : ''}} ">
+      <ng-content></ng-content>
+    </mat-card-content>
+  </mat-card>

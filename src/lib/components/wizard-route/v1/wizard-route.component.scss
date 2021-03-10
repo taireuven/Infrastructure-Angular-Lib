@@ -1,0 +1,204 @@
+@import '../../../../styles/variables';
+
+moh-wizard-route {
+
+  a:focus {
+    outline: none;
+
+    .stepDiv {
+      outline: $browser-focus;
+    }
+  }
+
+  .stepDiv {
+    height: 100%;
+  }
+
+  .card-block {
+    overflow-y: auto;
+  }
+
+  .card-footer {
+    /*background-color: #fff;*/
+    border-top: 0 none;
+
+    moh-button.submit {
+      .mat-raised-button.mat-primary {
+        background-color: #002D56;
+        color: #ffffff;
+        border-radius: 0px !important;
+
+        &:hover {
+          background-color: #01182D;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: black;
+    background-color: $wizard-step;
+
+    .mat-icon {
+      margin-left: 0.2em;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    > div:first-child {
+      //margin: auto;
+    }
+
+    .arrow {
+      height: 0;
+      width: 0;
+      border-left: 0 solid transparent;
+      border-right: 30px solid $wizard-step;
+      border-bottom: 40px solid transparent;
+      border-top: 40px solid transparent;
+      position: absolute;
+      top: -40px;
+      right: -33px;
+    }
+
+    .lastArrowBorder {
+      .arrow {
+        right: -30px
+      }
+    }
+
+    .arrow-border {
+      height: 0;
+      width: 0;
+      border-left: 0 solid transparent;
+      border-right: 30px solid white;
+      border-bottom: 40px solid transparent;
+      border-top: 40px solid transparent;
+      position: relative;
+    }
+    /*&.enabled {
+      cursor: pointer;
+      background-color: $wizard-step;
+    }
+
+    &.disabled {
+      background-color: $wizard-step;
+    }
+
+    &.completed {
+      cursor: default;
+    }*/
+    &.beforeActive {
+      .arrow-border {
+        border-bottom: 40px solid $active-wizard-step;
+        border-top: 40px solid $active-wizard-step;
+      }
+    }
+
+    &.active {
+      font-weight: bold;
+      color: black;
+      background-color: $active-wizard-step;
+
+      .arrow {
+        border-right: 30px solid $active-wizard-step;
+      }
+
+      .arrow-border {
+        border-left: 0px solid $wizard-step;
+        border-bottom: 40px solid $wizard-step;
+        border-top: 40px solid $wizard-step;
+      }
+
+      .lastArrowBorder {
+        border-left: 10px solid $background-gray;
+        border-bottom: 40px solid $background-gray;
+        border-top: 40px solid $background-gray;
+      }
+    }
+  }
+}
+
+moh-wizard-route .nav-item .lastArrowBorder {
+  border-left: 10px solid $background-gray;
+  border-bottom: 40px solid $background-gray;
+  border-top: 40px solid $background-gray;
+}
+
+[dir="rtl"] {
+  moh-wizard-route {
+    .stepDiv {
+      margin-right: -2em;
+    }
+
+    .card-header {
+      div[role="list"] > :first-child {
+        a .stepDiv {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+[dir="ltr"] {
+  moh-wizard-route {
+    .nav-item {
+      .arrow-border {
+        border-left: 30px solid #fff;
+        border-right: 0px solid $wizard-step;
+      }
+
+      .arrow {
+        right: 3px;
+        border-right: 0 solid transparent;
+        border-left: 30px solid $wizard-step;
+      }
+
+      .lastArrowBorder {
+        .arrow {
+          right: 0px;
+        }
+      }
+
+      &.beforeActive .arrow-border {
+        border-right: 10px solid $active-wizard-step;
+      }
+
+      &.active {
+        border-left: 30px solid $active-wizard-step;
+        border-right: transparent;
+
+        .stepDiv {
+          margin-left: -5em;
+        }
+
+        .arrow {
+          border-left: 30px solid $active-wizard-step;
+        }
+      }
+
+      .stepDiv {
+        margin-left: -2em;
+      }
+    }
+
+    .card-header {
+      div[role="list"] > :first-child {
+        a {
+          .stepDiv {
+            margin-left: 0;
+          }
+
+          &.active .stepDiv {
+            margin-left: -2em;
+          }
+        }
+      }
+    }
+  }
+}

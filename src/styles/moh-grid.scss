@@ -1,0 +1,238 @@
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material";
+
+@media (max-width: 575px) {
+
+  .ag-header {
+    height: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .ag-cell {
+    position: inherit;
+    right: 0;
+    display: contents;
+
+    label {
+      margin-left: 1em;
+    }
+  }
+
+
+  .ag-cell .moh-link {
+    white-space: initial !important;
+    word-break: break-word;
+  }
+
+ .ag-cell.ag-cell-not-inline-editing.ag-cell-with-height.ag-cell-no-focus.ag-cell-value {
+    line-height: 2.5em;
+  }
+
+  .ag-row-position-absolute {
+    position: unset;
+  }
+
+   .ag-row {
+    height: auto !important;
+    transform: none !important;
+    padding: 1em;
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+
+  .ag-cell .moh-ag-cell-outer-div:before {
+    content: attr(data-title);
+    font-weight: bold;
+    margin-left:1em;
+  }
+
+  .moh-ag-cell-outer-div {
+    width: fit-content;
+    display:flex;
+  }
+
+  .moh-ag-cell-inner-div {
+    float: left;
+
+    label {
+      white-space: pre-line;
+      display: block;
+    }
+  }
+
+  .ag-cell.ag-cell-not-inline-editing.ag-cell-with-height.ag-cell-value.ag-cell-focus {
+    line-height: 2.5em;
+  }
+  .ag-body-container
+  {
+    width:auto!important;
+
+  }
+
+}
+
+/*.ag-cell {
+  position: initial;
+}*/
+.ag-root-wrapper {
+  border: 1px solid #e0e0e0;
+}
+
+.ag-header-row {
+  height: 100% !important;
+}
+
+.ag-theme-material .ag-row {
+  border: none;
+}
+
+.ag-row-even {
+  background-color: #fff;
+}
+
+.ag-row-odd {
+  background-color: #f0f4f7;
+}
+
+.ag-theme-material .ag-ltr .ag-cell-focus {
+  border: none;
+}
+
+.ag-theme-material .ag-rtl .ag-cell-focus {
+  border: none;
+}
+
+.ag-theme-material .ag-header-cell,
+.ag-theme-material .ag-header-group-cell {
+  color: #111d26;
+  font-weight: bold;
+  border-bottom: #111d26 solid 1px;
+  background-color: #f0f4f7;
+}
+
+.ag-theme-material .ag-icon-asc {
+  background-image: url("/assets/images/ic_arrow_up.svg");
+  background-position:inherit;
+}
+/*.ag-header-cell
+{
+  position: unset;
+}*/
+.ag-theme-material .ag-icon-desc {
+  background-image: url("/assets/images/ic_arrow_down.svg");
+  background-position: inherit;
+}
+
+.ag-header-cell-text {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.ag-theme-material .ag-cell {
+  line-height: 4em;
+  font-size: 1.2em;
+}
+
+.ag-theme-material .ag-rtl .ag-cell-focus {
+  border: none;
+}
+
+.ag-theme-material .ag-row {
+  border: none;
+}
+
+.ag-theme-material .ag-header-cell-menu-button .ag-icon-menu {
+  height: 5em;
+}
+
+.moh-ag-cell-outer-div {
+  height: 100%;
+}
+
+.moh-ag-cell-inner-div {
+  height: 100%;
+}
+
+
+.ag-theme-material .ag-icon-asc,
+.ag-theme-material .ag-icon-desc,
+.ag-theme-material .ag-icon-filter {
+  width: 3.5em;
+}
+
+.ag-paging-row-summary-panel {
+  display: none;
+}
+
+.ag-paging-page-summary-panel {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  min-width: 20%;
+}
+
+.ag-theme-material .ag-paging-panel {
+  justify-content: center;
+  background-color: #f0f4f7;
+}
+
+.ag-theme-material .ag-floating-filter-full-body input {
+  background-image: url("/assets/images/filter-tool-black-shape.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+.ag-theme-material .ag-cell-inline-editing {
+  padding-top: 0px !important;
+}
+.ag-theme-material .ag-floating-filter-full-body input {
+  padding-right: 1em;
+}
+.ag-theme-material .ag-header-cell .ag-floating-filter-full-body
+{
+  line-height:20px;
+}
+.ag-theme-material .ag-header-cell
+{
+  line-height: 40px;
+}
+.ag-header
+{
+   max-height:97px;
+}
+
+[dir="rtl"] {
+  .ag-rtl {
+    direction: rtl;
+  }
+
+  .ag-ltr {
+    direction: rtl;
+  }
+
+  .ag-paging-panel {
+    direction: rtl;
+  }
+
+  .ag-paging-page-summary-panel {
+    flex-direction: row !important;
+  }
+}
+[dir="ltr"] {
+  .ag-rtl {
+    direction: ltr;
+  }
+
+  .ag-ltr {
+    direction: ltr;
+  }
+
+  .ag-paging-page-summary-panel {
+    flex-direction: row-reverse !important;
+  }
+
+  .ag-paging-panel {
+    direction: ltr;
+  }
+}

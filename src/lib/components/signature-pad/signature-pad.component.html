@@ -1,0 +1,20 @@
+<div class="signature-pad-card raised">
+  <div class="signature-pad">
+    <!--<canvas tabindex="0" class="signature-pad-canvas" #signatureCanvas></canvas>-->
+    <canvas class="signature-pad-canvas" #sigPad [width]="width" [height]="height" (mousedown)="onMouseDown($event)" (touchstart)="onMouseDown($event)"
+            (mousemove)="onMouseMove($event)" (touchmove)="onMouseMove($event)"></canvas>
+  </div>
+  <moh-button (onButtonClick)="clear()" textKey="signaturePadClear" buttonStyle="basic" [isDisabled]="!baseAbstractControl.value"></moh-button>
+</div>
+
+
+
+<!--<canvas #sigPad width="300" height="150" (mousedown)="onMouseDown($event)"
+        (mousemove)="onMouseMove($event)"></canvas>
+<br />
+<button (click)="clear()">clear</button>
+<button (click)="save()">save</button>
+<br />
+<img [src]="img">
+<br />
+<span>{{img}}</span>-->

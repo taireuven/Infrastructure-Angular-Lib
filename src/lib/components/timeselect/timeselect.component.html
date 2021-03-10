@@ -1,0 +1,20 @@
+
+<div class="moh-v2-input" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" fxLayout="{{labelAbove?'column':'row'}}">
+
+
+  <mat-label *ngIf="labelText || textKey" class="label">
+    {{ labelText || (textValue | async)}}
+    <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+  </mat-label>
+
+  <ngx-timepicker-field [formControl]="baseAbstractControl"
+                        [controlOnly]="true"
+                        [format]="format"
+                        [disabled]="isDisabled"
+                        [min]="min"
+                        [max]="max"
+                        [defaultTime]="defaultTime"
+                        (timeChanged)="onTimeChanged($event)"
+                        (blur)="onTouched()">
+  </ngx-timepicker-field>
+</div>

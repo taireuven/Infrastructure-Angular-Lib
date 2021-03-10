@@ -1,0 +1,70 @@
+<form [formGroup]="baseAbstractControl">
+
+  <div fxLayout="column">
+    <div fxLayout="{{labelAbove?'column':'row'}}">
+
+      <moh-label-field *ngIf="fieldText || fieldTextKey" [text]=fieldText [textKey]="fieldTextKey" [isRequired]=MarkAsRequired></moh-label-field>
+
+      <div fxLayout="row">
+        <div *ngIf="uploaderSettings.hasDescription" fxFlex="100">
+          <moh-textbox type="text" formControlName="inputDesc" [useDefaultKey]="false" [MarkAsRequired]=uploaderSettings.isDescriptionRequired ariaLabelKey="{{fieldText || fieldTextKey}}"></moh-textbox>
+        </div>
+        <div>
+          <input type="file" class="inputFile" ng2FileSelect text="filesGuids" [uploader]="uploader"
+                 [accept]="this.uploaderSettings.allowMimeTypes.toString()" multiple formArrayName="myUploader" [attr.aria-required]="uploaderSettings.isRequired"/>
+          <moh-button class="submit" [text]="buttonText" [textKey]="buttonTextKey" (onButtonClick)="clickInput($event)"></moh-button>
+        </div>
+        <div>
+          <moh-tooltip *ngIf="tooltipText || tooltipTextKey" fxLayoutAlign="center end" [text]="tooltipText" [textKey]="tooltipTextKey" [textParams]="tooltipTextParams"></moh-tooltip>
+          <moh-tooltip *ngIf="tooltipText == undefined && tooltipTextKey == undefined" fxLayoutAlign="center end"
+                       textKey="fileUploadToolip"
+                       [textParams]="{ allowMimeTypes: uploaderSettings.allowMimeTypes.toString(), formatBytesV: formatBytesV }"></moh-tooltip>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start end">
+      <span *ngIf="additionalInfoTextKey">{{getLabelText(additionalInfoTextKey,additionalInfoTextParams) | async}}</span>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start end">
+      <span *ngIf="this.errorMsgKey != ''" class="info-label-error">{{getLabelText(errorMsgKey,errorMsgParams) | async}}</span>
+    </div>
+
+    <ul class="file-list flex-container" fxLayout="column">
+      <li class="uploader-li" *ngFor="let item of uploader.queue">
+        <div fxLayout="column">
+          <div class="file-prop">
+            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+            <span class="gfu-file-extension-wrapper">
+              <span class="k-file-extension" style="font-size:1em">{{item.file.name| split:".":1}}</span>
+              <span class="k-file-state"></span>
+            </span>
+            <span class="gfu-file-name-size-wrapper">
+              <span class="k-file-name" title="{{item.file.name}}">{{item.file.name| split:".":0}}</span>
+              <small class="k-file-size">{{item.file.size | fileSize:3}}</small>
+            </span>
+            <button *ngIf="item.isSuccess || item.isError" type="button" class="btn btn-danger btn-xs btn-remove"
+                    (click)="item.remove();removeGuid(item.file.rawFile);" attr.aria-label="{{getLabelText('removeFile') | async}}">
+              <span class="glyphicon glyphicon-trash">X</span>
+            </button>
+          </div>
+          <div [ngClass]="(item.isSuccess)?'progress-success':((item.isUploading)?'progress-uploading':'progress')">
+            <div [ngClass]="(item.isSuccess)?'progress-bar-sccess':'progress-bar'" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+          </div>
+          <div role="alert">
+            <span class="info-label-upload" *ngIf="item.isUploading">{{getLabelText('uploadingFile') | async}}</span>
+            <span class="info-label-success" *ngIf="item.isSuccess">{{getLabelText('successUploadMessage') | async}}</span>
+            <span class="info-label-error" *ngIf="item.isError">{{getLabelText('failureUploadMessage') | async}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <moh-error-message *ngIf="baseAbstractControl.get('inputDesc').touched || formSubmitted" [control]="baseAbstractControl.get('inputDesc')"></moh-error-message>
+  <moh-error-message *ngIf="baseAbstractControl.get('myUploader').touched&&!baseAbstractControl.get('myUploader').value || formSubmitted" [control]="baseAbstractControl.get('myUploader')"></moh-error-message>
+  <!--</div>-->
+</form>

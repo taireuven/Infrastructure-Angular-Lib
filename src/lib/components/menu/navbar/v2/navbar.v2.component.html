@@ -1,0 +1,71 @@
+<div class="moh-navbar-v2">
+  <nav mat-tab-nav-bar [disableRipple]="true">
+    <div fxShow="true" fxHide.lt-md="true">
+      <ng-container *ngFor="let item of menuItems; let i=index">
+        <ng-container *ngIf="item.children && item.children.length > 0">
+          <a mat-tab-link [disableRipple]="true" [mat-menu-trigger-for]="menu.childMenu" [disabled]="item.disabled" [attr.id]="i==0?'mainNavMenu':''"
+             [routerLinkActive]="['moh-active-navbar-link', 'moh-active-link']" [ngClass]="{'moh-active-link moh-active-navbar-link':item.hasActiveChild}">
+            <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="tab-link-icon" />{{item.title || (item.titleValue | async)}}
+          </a>
+          <moh-menu-item #menu [items]="item.children" [showIcons]="showIcons" [firstMatMenuClass]="'moh-navbar-first-menu'" [matMenuClass]="'moh-navbar-menu-item'"></moh-menu-item>
+        </ng-container>
+        <ng-container *ngIf="!item.children || item.children.length === 0">
+          <ng-container *ngIf="item.isExternal; else internalBlock">
+            <a mat-tab-link [href]="item.url" [target]="item.isStatic?'_blank':'_self'" [attr.id]="i==0?'mainNavMenu':''">
+              <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="tab-link-icon" />{{item.title || (item.titleValue | async)}}
+            </a>
+
+          </ng-container>
+        </ng-container>
+
+        <ng-template #internalBlock>
+          <a mat-tab-link [routerLink]="item.url" [routerLinkActive]="['moh-active-navbar-link', 'moh-active-link']" [attr.id]="i==0?'mainNavMenu':''">
+            <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="tab-link-icon" />{{item.title || (item.titleValue | async)}}
+          </a>
+        </ng-template>
+
+      </ng-container>
+
+
+    </div>
+
+    <!--MOBILE-->
+
+    <div *ngIf="!hideMobileToggleButton" fxShow="true" fxHide.gt-sm="true">
+      <button mat-button (click)="toggleNav()" id="mainSideMenu">
+        <i class="moh-icon menu"></i>
+      </button>
+    </div>
+
+  </nav>
+
+  <mat-sidenav-container fxFlexFill>
+
+    <mat-sidenav #appDrawer fxLayout="column">
+      <!-- #sidenav fxLayout="column" -->
+      <!--<div fxLayout="column">
+
+        <a routerLink="{{item.url}}" (click)="sidenav.toggle()" mat-button *ngFor="let item of menuItems">{{item.title}}</a>
+
+      </div>-->
+      <mat-nav-list>
+        <!-- <a mat-button></a> -->
+        <moh-menu-list-item *ngFor="let item of menuItems" [item]="item" [showIcons]="showIcons"></moh-menu-list-item>
+        <moh-menu-item-change-language [languagesListApps]="languagesListApps" [languagesList]="languagesList" *ngIf="showSelectLanguage"></moh-menu-item-change-language>
+      </mat-nav-list>
+
+      <!-- <div *ngIf="showSelectLanguage" fxLayout=row fxLayoutAlign="center end">
+        <div class=langSelect fxFlex="70">
+          <moh-select-language [currentLang]="'he'"></moh-select-language>
+        </div>
+      </div> -->
+
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>

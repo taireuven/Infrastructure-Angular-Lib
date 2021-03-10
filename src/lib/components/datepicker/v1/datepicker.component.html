@@ -1,0 +1,12 @@
+<div class="moh-datepicker" fxLayout="{{labelAbove?'column':'row'}}">
+  <moh-label-field *ngIf="labelText || textKey" [textKey]="textKey" [text]="labelText" [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <mat-form-field color="accent" [ngClass]="{'disabled':isDisabled||inputDisabled, 'hide-placeholder':!!dateInput.value}">
+    <div fxLayout="row">
+      <input matInput #dateInput [matDatepicker]="picker" (dateChange)="dateChanged($event)" [min]="minDate" [max]="maxDate"
+             placeholder="{{placeholder || (placeholderValue | async)}}" [formControl]="baseAbstractControl" (blur)="onTouched();"
+             attr.aria-label="{{ariaLabel | async}}" [attr.aria-required]="true" [disabled]="isDisabled">
+      <mat-datepicker-toggle matSuffix [for]="picker" disabled="{{popupDisabled || !!isDisabled}}"></mat-datepicker-toggle>
+      <mat-datepicker #picker [startAt]="startDate" [disabled]="isDisabled"></mat-datepicker>
+    </div>
+  </mat-form-field>
+</div>

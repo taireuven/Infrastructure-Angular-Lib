@@ -1,0 +1,46 @@
+<div fxLayout="row wrap" fxLayout.xs="column" class="moh-rating" ngClass.xs="mobile" [ngClass]="{'moh-rating-disabled':isDisabled}">
+  <div fxFlex="100">
+    <moh-label-field id="rate-title" class="label" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams"
+                     [isRequired]=MarkAsRequired></moh-label-field>
+  </div>
+
+  <mat-radio-group [formControl]="baseAbstractControl" [attr.aria-required]="MarkAsRequired" fxFlex="100" fxLayout.xs="column"  aria-labelledby="rate-title">
+    <!--[attr.aria-required]="MarkAsRequired"-->
+    <div *ngFor="let item of options ;let i=index;let last=last" fxLayoutAlign="start start"
+         class="option" fxFlex="1 1 auto">
+      <div fxLayout="column" fxLayout.xs="row" fxFlex="1 1 auto">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxFlex.xs="auto">
+          <mat-radio-button fxLayoutAlign="center center" disableRipple="true" [disabled]="isDisabled" [value]="item.code" aria-describedby="rate-title lbl-option{{i}}"></mat-radio-button>
+          <div *ngIf="!last" fxLayout="row" fxFlex="1 1 auto">
+            <div class="connector"></div>
+          </div>
+        </div>
+        <div class="optionLabel" fxFlex="1 1 auto" fxFlex.xs="85">
+          <moh-label-field id="lbl-option{{i}}" *ngIf="item.textValue || item.textKey" [text]="item.textValue" [textKey]="item.textKey" [textParams]="item.textParams"></moh-label-field>
+        </div>
+        <!--accessibility-->
+        <moh-label-field [hidden]="true" id="lbl-option{{i}}" *ngIf="item.textValue || item.textKey" [text]="item.textValue" [textKey]="item.textKey" [textParams]="item.textParams"></moh-label-field>
+      </div>
+    </div>
+    <div *ngIf="notRelevantOption" fxLayoutAlign="start start" class="option special" fxFlex="1 1 auto">
+      <!--<div fxLayout="column" fxLayout.xs="row" >-->
+      <div fxLayout="column" fxLayout.xs="row" fxLayoutAlign="start center" fxFlex="1 1 auto">
+        <mat-radio-button fxFlex.xs="auto" fxLayoutAlign="center center" disableRipple="true" [disabled]="isDisabled" [value]="notRelevantOption.code" aria-describedby="rate-title lbl-notrelevant"></mat-radio-button>
+        <div class="optionLabel" fxFlex="1 1 auto" fxFlex.xs="85">
+          <moh-label-field id="lbl-notrelevant" fxFlex="100" *ngIf="notRelevantOption.textValue || notRelevantOption.textKey" [text]="notRelevantOption.textValue" [textKey]="notRelevantOption.textKey"></moh-label-field>
+        </div>
+      </div>
+      <!--</div>-->
+    </div>
+    <div *ngIf="unknownOption" fxLayoutAlign="start start" class="option special" fxFlex="1 1 auto">
+      <!--<div fxLayout="column" fxLayout.xs="row" >-->
+      <div fxLayout="column" fxLayout.xs="row" fxLayoutAlign="start center" fxFlex="1 1 auto">
+        <mat-radio-button fxFlex.xs="auto" fxLayoutAlign="center center" disableRipple="true" [disabled]="isDisabled" [value]="unknownOption.code" aria-describedby="rate-title lbl-unknown"></mat-radio-button>
+        <div class="optionLabel" fxFlex="1 1 auto" fxFlex.xs="85">
+          <moh-label-field id="lbl-unknown" *ngIf="unknownOption.textValue || unknownOption.textKey" [text]="unknownOption.textValue" [textKey]="unknownOption.textKey"></moh-label-field>
+        </div>
+      </div>
+      <!--</div>-->
+    </div>
+  </mat-radio-group>
+</div>

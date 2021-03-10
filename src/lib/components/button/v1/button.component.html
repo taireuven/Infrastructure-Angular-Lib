@@ -1,0 +1,7 @@
+<div>
+  <button fxFlex="1 0 auto" disableRipple="true" mat-raised-button disabled="{{isDisabled}}" color="primary" (click)="onClick($event)">
+    <span>{{ text || (textValue | async)}}</span>
+    <!-- *ngIf="text || textKey"-->
+    <mat-icon *ngIf="iconName" matSuffix>{{iconName}}</mat-icon>
+  </button>
+</div>

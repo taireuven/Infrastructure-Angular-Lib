@@ -1,0 +1,17 @@
+@import '../../../../styles/variables.v2.scss';
+
+
+moh-wizard-route {
+
+  .card-block {
+    overflow-y: auto;
+  }
+  .wizard-inner {
+    background-color: $wizard-bg;
+    padding: 1.7rem;
+  }
+
+}
+
+.moh-wizard-route-xs {
+}

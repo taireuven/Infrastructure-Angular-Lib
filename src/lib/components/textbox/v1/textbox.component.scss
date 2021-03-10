@@ -1,0 +1,14 @@
+@import '../../../../styles/variables';
+
+.iText {
+  .inputText {
+    height: 3.2em;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    color: $black;
+    padding-right: 0.8em;
+    padding-left:0.8em;
+  }
+}

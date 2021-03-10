@@ -1,0 +1,31 @@
+@import '../../../../styles/variables';
+
+moh-section-title {
+  div {
+    background-color: $sectionTitle-gray;
+
+    span {
+      font-size: 1.8em;
+      color: #252525;
+
+      &:first-of-type {
+        padding-right: 0.8em;
+      }
+    }
+
+    mat-icon {
+      min-width: 1em;
+      min-height: 1em;
+      background-color: $sectionTitle-blue;
+    }
+
+    .material-icons {
+      font-size: 4em;
+    }
+  }
+}
+
+[dir="ltr"] moh-section-title span:first-of-type{
+  padding-left:0.8em;
+  padding-right:0;
+}

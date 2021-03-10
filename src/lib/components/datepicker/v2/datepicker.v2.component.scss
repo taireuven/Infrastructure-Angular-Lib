@@ -1,0 +1,222 @@
+@import "../../../../styles/variables.v2.scss";
+
+moh-datepicker .moh-v2-input {
+
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid .mat-input-element .mat-datepicker-toggle-active {
+    color: $required-color !important;
+  }
+
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid .mat-input-element {
+    caret-color: $required-color;
+  }
+
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder, moh-datepicker .moh-v2-input .mat-form-field.mat-input-invalid.mat-form-field-invalid i.calendar {
+    color: $disabled-text-color // !important;
+  }
+
+  .mat-form-field.mat-form-field-disabled, .mat-form-field.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid.mat-form-field-disabled, .mat-form-field.mat-form-field-disabled.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid {
+
+    i.calendar {
+      color: $disabled-text-color !important;
+    }
+
+    label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder {
+      color: $disabled-text-color !important;
+    }
+  }
+
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid.moh-form-field-invalid {
+    i.calendar {
+      color: $invalid-color;
+    }
+  }
+  //remove material invalid class
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid {
+    .mat-input-element {
+      caret-color: $text-color;
+    }
+
+    label.mat-form-field-label.mat-input-placeholder.mat-form-field-placeholder, i.calendar {
+      color: $text-color;
+    }
+  }
+
+  .mat-form-field.mat-input-invalid.mat-form-field-invalid:not(.mat-form-field-disabled) {
+    .mat-input-underline.mat-form-field-underline {
+      background-color: $underline-bg-color;
+
+      .mat-input-ripple.mat-form-field-ripple {
+        background-color: $underline-bg-color;
+      }
+    }
+  }
+
+  .mat-input-suffix.mat-form-field-suffix {
+    margin-top: 0.1em;
+    margin-left: -0.3em;
+    font-size: 1.7em;
+  }
+
+  .mat-button-focus-overlay, .mat-button-ripple {
+    position: static;
+    display: none;
+  }
+
+  .mat-datepicker-toggle-active {
+    color: $text-color;
+  }
+}
+
+.mat-datepicker-content .mat-calendar.moh-calendar-panel {
+  height: 100%;
+  font-family: Open Sans Hebrew;
+  // width: 27.13em;
+  width: 18em;
+  //height: 22.56em;
+  .mat-calendar-header {
+    background-color: #374f60;
+    color: #ffffff;
+    height: 2.43em;
+    font-size: 1.3125em;
+    padding: 0;
+
+    .mat-calendar-period-button {
+      width: 70%;
+      margin-right: 2.9em;
+      margin-left: 0;
+      font-size: 1em;
+
+      &:hover {
+        .mat-button-ripple.mat-ripple {
+          display: none;
+        }
+
+        .mat-button-focus-overlay {
+          display: none;
+        }
+      }
+    }
+
+    .mat-calendar-previous-button {
+      position: fixed;
+    }
+  }
+
+  .mat-calendar-content {
+    padding: 8px 8px 8px 8px;
+  }
+
+  .mat-calendar-controls {
+    height: 100%;
+    margin: 0;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+
+    .mat-button-wrapper {
+      font-family: Open Sans Hebrew;
+    }
+
+    .mat-icon-button {
+      width: 45px;
+      height: 45px;
+      margin-top: 0.3em;
+    }
+  }
+
+  .mat-calendar-arrow {
+    display: none;
+  }
+
+  .mat-calendar-table-header {
+    color: $text-color;
+
+    .mat-button-wrapper {
+      font-size: 0.95em;
+    }
+
+    th {
+      font-size: 1.1em;
+    }
+  }
+
+  .mat-calendar-table-header-divider {
+    padding-bottom: 0;
+  }
+
+  .mat-calendar-table-header-divider::after {
+    background: $text-color;
+    right: 0.8em;
+    left: 0.8em;
+  }
+
+  .mat-calendar-body-selected {
+    background-color: #a9d0da;
+    color: $text-color;
+  }
+
+  mat-multi-year-view, mat-year-view {
+    .mat-calendar-table-header-divider::after {
+      display: none;
+    }
+  }
+
+  tbody {
+    .mat-calendar-body-label {
+      color: transparent;
+    }
+
+    tr > td.mat-calendar-body-label:only-child {
+      display: none;
+    }
+
+    .mat-calendar-body-cell {
+      // padding: 1.85em !important;
+    }
+
+    .mat-calendar-body-cell-content {
+      font-size: 1.2em;
+      width: 87.5%;
+      left: 15%;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .mat-calendar.moh-calendar-panel {
+    direction: rtl;
+  }
+}
+
+[dir="ltr"] {
+  .cdk-overlay-pane {
+    .mat-calendar.moh-calendar-panel {
+      .mat-calendar-header .mat-calendar-period-button {
+        margin-left: 2.9em;
+        margin-right: 0;
+      }
+    }
+  }
+
+  moh-datepicker .moh-v2-input {
+    .mat-input-suffix.mat-form-field-suffix {
+      margin-right: -0.3em;
+    }
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+  [dir="rtl"] .cdk-overlay-pane {
+    .mat-datepicker-content .mat-calendar.moh-calendar-panel .mat-calendar-header .mat-calendar-previous-button {
+      position: absolute;
+      right: 0.3em;
+    }
+  }
+
+  [dir="ltr"] .cdk-overlay-pane {
+    .mat-datepicker-content .mat-calendar.moh-calendar-panel .mat-calendar-header .mat-calendar-previous-button {
+      position: absolute;
+      left: 0.3em;
+    }
+  }
+}

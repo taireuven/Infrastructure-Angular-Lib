@@ -1,0 +1,62 @@
+@import "../../../../../../styles/variables.v2.scss";
+
+.mat-list-item {
+  background-color: $menu-bg !important;
+  border-bottom: 1px solid white;
+  color: $text-color;
+  font-weight: 600;
+  box-sizing: border-box;
+
+  &:not(.expanded) {
+
+    &:hover, &:focus {
+      background-color: $menu-bg;
+    }
+  }
+
+  &.active {
+    background-color: $menu-bg;
+  }
+
+  .list-item-icon {
+    color: $menu-arrow-color;
+    font-size: 2.1rem;
+    width: 35px;
+    height: 20px;
+  }
+  .list-item-moh-icon{
+    padding-left: 10px;
+    // font-size: 1.1em;
+    ::ng-deep html[dir="ltr"] & {
+      padding-right: 10px;
+      padding-left: 0;
+    }
+  }
+
+  ::ng-deep .mat-list-item-content {
+    padding: 0 10px;
+    overflow: hidden;
+  }
+}
+
+.sub-item {
+  .mat-list-item {
+    background-color: $sub-menu-bg !important;
+
+    &.active {
+      border-right: 4px solid $menu-arrow-color;
+      color: $menu-arrow-color;
+
+      ::ng-deep html[dir="ltr"] & {
+        border-left: 4px solid $menu-arrow-color;
+        border-right: none !important;
+      }
+    }
+  }
+
+  &:first-child {
+    .mat-list-item {
+      box-shadow: inset 0px 1px 4px 0 rgba(0, 0, 0, 0.18);
+    }
+  }
+}

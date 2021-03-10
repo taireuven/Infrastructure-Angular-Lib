@@ -1,0 +1,9 @@
+<div fxLayout="{{labelAbove?'column':'row'}}">
+  <moh-label-field *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+  <mat-button-toggle-group [formControl]="baseAbstractControl" #group="matButtonToggleGroup" [attr.aria-required]="MarkAsRequired">
+    <mat-button-toggle *ngFor="let option of options" [value]="option.value" fxFlex="50%" [disabled]="buttonDisabled" aria-label="{{option.text}}">
+      <i *ngIf="option.matIconName" class="moh-icon {{option.matIconName}}"></i>
+      <span *ngIf="option.text">{{option.text}}</span>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

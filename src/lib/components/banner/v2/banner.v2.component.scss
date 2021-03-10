@@ -1,0 +1,57 @@
+@import "../../../../styles/variables.v2.scss";
+
+moh-banner {
+
+  .moh-banner-v2 {
+    position:relative; /*Contain Breadcrumbs*/
+    height: 14.1875em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .with-gradient {
+      background: rgb(222,232,243);
+      background: linear-gradient(90deg, rgba(222,232,243,0) 0%, rgba(222,232,243,1) 75%);
+    }
+
+    div.banner-content {
+      /*padding-top: 3em;*/
+      height: 100%;
+
+      &.light {
+        color: #ffffff;
+
+        moh-breadcrumbs {
+          a {
+            color: #ffffff !important;
+          }
+
+          li:before {
+            border-color: white !important;
+          }
+        }
+      }
+
+      &.dark {
+        color: $text-color;
+      }
+
+      moh-breadcrumbs {
+        position: absolute;
+        top: 1.375em;
+      }
+
+      .main-title {
+        font-size: 3.437em;
+        font-family: Open Sans Bold;
+        /*color: #111d26;*/
+        font-weight: 700;
+        line-height: 0.8;
+      }
+
+      span.sub-title {
+        font-size: 2.6em;
+      }
+    }
+  }
+}

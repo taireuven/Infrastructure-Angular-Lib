@@ -1,0 +1,9 @@
+<mat-selection-list [formControl]="baseAbstractControl" [attr.aria-required]="MarkAsRequired">
+  <mat-list-option [disabled]="isDisabled"
+                   *ngFor="let item of options"
+                   [value]="valueField ? item[valueField] : item">
+    <span class="wrap-mat-radio-label">
+      {{displayFn(item)}}
+    </span>
+  </mat-list-option>
+</mat-selection-list>

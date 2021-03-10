@@ -1,0 +1,37 @@
+moh-address {
+  ::-ms-reveal {
+    display: none;
+  }
+
+  .error_icon {
+    color: red;
+  }
+
+  .error_det{vertical-align:super}
+}
+
+
+
+
+/* start for design responsive css
+ moh-select .mat-form-field-flex {
+  padding: 3px 0px 5px 8px !important;
+  width: 97% !important;
+}
+
+.mat-form-field-infix {
+  width: 97% !important;
+}
+
+mat-form-field {
+  width: 97% !important;
+}
+
+input {
+  width: 97% !important;
+}
+
+.small-input-xs {
+  width: 100px;
+}
+/* end for design responsive css*/

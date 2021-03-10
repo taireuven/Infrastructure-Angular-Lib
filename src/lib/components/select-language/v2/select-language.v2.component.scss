@@ -1,0 +1,114 @@
+moh-select-language {
+  .moh-select-language-2 {
+    //color: #111D26;
+
+    // .mohSelect {
+    //   width: 6.87em;
+    // }
+
+    // .moh-v2-input .mat-form-field .mat-input-element {
+    //   font-size: 1em;
+    // }
+
+    // .moh-icon {
+    //   padding: 0.5em;
+    // }
+
+    // .moh-v2-input .mat-form-field {
+    //   margin-bottom: 0;
+    // }
+    /*Same as selector: '.moh-v2-input .mat-form-field .mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    // .moh-v2-input .mat-form-field .mat-form-field-underline {
+    //   background-color: #B0B0B0;
+    // }
+
+    // .mat-form-field-infix {
+    //   padding: 0;
+    // }
+
+    // moh-select .moh-v2-input .moh-icon {
+    //   margin-top: -4.5em;
+    //   padding-bottom: 1em;
+    //   font-size: 0.4em;
+    // }
+
+    // .mohSelectMobile {
+    //   .mat-form-field-wrapper {
+    //     padding-bottom: 0.8em;
+    //   }
+
+    //   .mat-form-field-subscript-wrapper {
+    //     display: none;
+    //   }
+
+    //   .mat-form-field {
+    //     /*Same as selector: '.mat-input-underline.mat-form-field-underline' from angular material 5 selector*/
+    //     .mat-form-field-underline {
+    //       display: none;
+    //     }
+    //     /*Same as selector: '.mat-input-infix.mat-form-field-infix' from angular material 5 selector*/
+    //     .mat-form-field-infix {
+    //       width: 0;
+    //     }
+    //   }
+
+    //   /*.moh-v2-input .mat-form-field .mat-input-element {
+    //     width: 0px;
+    //   }*/
+
+    //   i.moh-icon.select_arrow_down {
+    //     font-size: calc(1.8em + 3.5vw ) !important;
+    //     margin: 0em !important;
+    //     padding-bottom: 0.1em !important;
+    //     padding-left: 0;
+    //     padding-right: 0;
+    //     line-height: 0.8em;
+
+    //     &::before {
+    //       content: "\e906";
+    //       display: contents;
+    //     }
+    //   }
+
+    //   i .moh-icon.select_arrow_down .mat-form-field-infix {
+    //     width: auto;
+    //   }
+    //}
+  }
+}
+
+.mat-autocomplete-panel.moh-v2-select-panel.moh-v2-select-language.mat-autocomplete-visible:before {
+  position: absolute;
+  left: 45%;
+  top: -12px;
+  width: 0;
+  height: 0;
+  content: '';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #d0dbe5;
+}
+
+.mat-autocomplete-panel.moh-v2-select-panel.moh-v2-select-language.mat-autocomplete-visible {
+  overflow: visible;
+  margin-top: 20px;
+  border-top: #d0dbe5 6px solid;
+}
+
+.mat-autocomplete-panel.moh-v2-select-panel.moh-v2-select-language .mat-option:not(.mat-option-disabled) {
+  height: 2.43em;
+  //background-color: #f8fafc;
+}
+
+.mat-autocomplete-panel.moh-v2-select-language .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+  font-weight: bold;
+}
+
+.mat-autocomplete-panel .mat-option.mat-hover:not(.mat-option-disabled) {
+  background-color: #eaf0f5;
+}
+
+//change between angular 5 to angular 8
+/*.cdk-overlay-container .cdk-overlay-pane{
+  display: -webkit-box!important;
+}*/

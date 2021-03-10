@@ -1,0 +1,42 @@
+@import '../../../../styles/variables.v2.scss';
+
+moh-checkbox {
+  span.star {
+    padding-left: 0.3em;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: $shape-fill;
+  }
+
+  .mat-checkbox-inner-container {
+    background-color: $shape-fill;
+  }
+
+  .mat-checkbox-frame {
+    border-color: $shape-border;
+    border-width: 1px !important;
+  }
+
+  .mat-checkbox-checkmark-path {
+    stroke: $checkbox-blue !important;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: transparent;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: transparent;
+  }
+
+  .mat-checkbox-background, .mat-checkbox-frame {
+  }
+
+  .mat-checkbox-layout {
+    white-space: normal !important;
+  }
+}

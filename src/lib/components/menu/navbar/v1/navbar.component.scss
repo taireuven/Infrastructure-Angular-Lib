@@ -1,0 +1,46 @@
+@import '../../../../../styles/variables.scss';
+
+#mainMenu {
+  &:focus {
+    outline: transparent;
+  }
+}
+
+.moh-navbar {
+
+  nav.mat-tab-nav-bar.mat-primary {
+    border-top: 3px solid #0078b9;
+
+    a.mat-tab-link {
+      border-left: 1px solid rgba(0,0,0,.12);
+      opacity: inherit;
+
+      &:focus {
+        border: $browser-focus;
+      }
+
+      &:not(.mat-tab-disabled):focus {
+        background-color: inherit;
+      }
+
+      &.active:not(.mat-tab-disabled) {
+        background-color: rgba(1,120,186,.25);
+        border-bottom: 3px solid #0078b9;
+      }
+
+      .tab-link-icon {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  .mat-drawer-container {
+    background-color: inherit;
+  }
+
+  #mainSideMenu {
+    &:focus {
+      border: $browser-focus;
+    }
+  }
+}

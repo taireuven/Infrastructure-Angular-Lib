@@ -1,0 +1,36 @@
+@import '../../../../styles/variables.scss';
+moh-checkbox-group {
+:focus
+{
+outline: none;
+  &:not(.focus-visible)  {
+  box-shadow: none;
+ }
+}
+.focus-visible{
+  box-shadow: 0 0 0pt 9pt pink;
+}
+
+  span.star {
+    padding-left: 0.3em;
+  }
+
+  .mat-pseudo-checkbox-checked{
+    background-color: $transparent;
+    color: black;
+
+  }
+ .mat-pseudo-checkbox-checked::after{
+  color: black;
+  top: 4px !important;
+  left: 2px !important;
+ }
+  .mat-pseudo-checkbox,.mat-pseudo-checkbox-checked {
+    border-color: $shape-border;
+    border: 1px solid #909899 !important;
+  }
+
+  .mat-pseudo-checkbox {
+    white-space:  normal !important;
+  }
+}

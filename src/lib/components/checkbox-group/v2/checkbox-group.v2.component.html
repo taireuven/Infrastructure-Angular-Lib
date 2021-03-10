@@ -1,0 +1,12 @@
+<div fxLayout="{{labelAbove?'column':'row'}}" fxFlex="0 0 auto">
+  <moh-label-field id="cbg-lbl" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired aria-label="textKey"></moh-label-field>
+  <mat-selection-list [formControl]="baseAbstractControl" [attr.aria-required]="MarkAsRequired"
+                      [ngStyle.gt-xs]="{'max-height.px': rows*48,'height.px': options?options.length*48:0}"
+                      fxLayout.gt-xs="column wrap" fxLayout.xs="column" fxLayoutAlign="start start">
+    <mat-list-option *ngFor="let item of options" [disabled]="isDisabled" [value]="valueField ? item[valueField] : item">
+      <span class="wrap-mat-radio-label" aria-describedby="cbg-lbl">
+        {{displayFn(item)}}
+      </span>
+    </mat-list-option>
+  </mat-selection-list>
+</div>

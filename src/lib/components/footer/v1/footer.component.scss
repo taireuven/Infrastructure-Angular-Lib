@@ -1,0 +1,51 @@
+@import '../../../../styles/variables';
+
+moh-footer {
+  .healthFooter {
+    background-color: #D8E6E7; //$footer-light-gray;
+    .icons-row {
+      padding: 5em 0;
+
+      .title {
+        padding-bottom: 1em;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+      }
+
+
+      &.links-row {
+
+        &.first {
+          background-color: $footer-light-gray;
+        }
+
+        &.second {
+          background-color: $footer-dark-gray;
+        }
+
+        li {
+
+          a {
+            font-size: 1.4em;
+            text-decoration: none;
+            color: $black;
+            line-height: 2.5em;
+          }
+
+          &:not(:last-child) {
+            a:after {
+              content: ' | ';
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" hideRequiredMarker>
+    <textarea matInput #commentModel [formControl]="baseAbstractControl"
+              maxlength={{maxChars}}
+              (blur)="onTouched()"
+              attr.aria-label="{{ariaLabel | async}}"></textarea><!--[required]="MarkAsRequired"-->
+    <!--<mat-placeholder>
+    {{labelText || (textValue | async)}}
+    <span *ngIf="MarkAsRequired" class="requiredMarker"> *</span>
+  </mat-placeholder>-->
+    <mat-label>
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+
+    <mat-hint align="end">
+      <span attr.aria-label="{{allowedCharactersExplainTextValue | async}}">{{commentModel.value?.length || 0}}/{{maxChars}}</span>
+    </mat-hint>
+
+  </mat-form-field>
+</div>

@@ -1,0 +1,14 @@
+ <mde-popover mdePopoverPositionX="{{PosX}}" mdePopoverPositionY="{{PosY}}" #appPopover="mdePopover" [mdePopoverOverlapTrigger]="false">
+  <mat-card class="tooltipHtml">
+    <!--style="max-width: 300px"-->
+    <mat-card-content *ngIf="(text || (textValue | async ))" [innerHTML]="(text || (textValue | async ) | safeHtml)">
+    </mat-card-content>
+    <mat-card-content *ngIf="!(text || (textValue | async ))">
+      <ng-content></ng-content>
+    </mat-card-content>
+  </mat-card>
+</mde-popover>
+
+
+<i role="button" mdePopoverTriggerOn="hover" [mdePopoverTriggerFor]="appPopover" tabindex="0" class="moh-tooltip-icon moh-icon help_tooltip"
+    aria-hidden="false"></i>

@@ -1,0 +1,74 @@
+@import '../../../../styles/variables.v2.scss';
+
+// colors
+$hover-bg-color: #e6f0f5;
+$disabled-color: #e3e6e8;
+
+moh-slide-toggle {
+  .mat-button-toggle-group {
+    /*height: 2.625em;*/
+    background-color: white;
+    border: 1px solid $moh-blue;
+    border-radius: 27px !important;
+    box-shadow: none;
+    color: $moh-blue;
+
+    &.mat-button-toggle-group-disabled {
+      border-color: $disabled-color;
+    }
+    /*&:not(.mat-button-toggle-group-selected) {
+      .mat-button-toggle {
+        &:hover {
+          background-color: $hover-bg-color;
+          border-radius: 26px;
+        }
+      }
+    }*/
+    .mat-button-toggle {
+      text-align: center;
+      font-family: Open Sans Hebrew;
+      color: $moh-blue;
+      border: none !important;
+
+      &:hover {
+        background-color: $hover-bg-color;
+        border-radius: 26px;
+      }
+
+      &.mat-button-toggle-checked {
+        color: white;
+        background-color: $moh-blue;
+        border-radius: 26px;
+        font-family: 'Open Sans Bold';
+
+        &.mat-button-toggle-disabled {
+          background-color: $disabled-color;
+        }
+      }
+
+      &.cdk-keyboard-focused .mat-button-toggle-focus-overlay,
+      &.cdk-program-focused .mat-button-toggle-focus-overlay {
+        /*for accessibilty*/
+        /*border: $browser-focus;*/
+        opacity: 0;
+      }
+
+      &.mat-button-toggle-disabled {
+        background-color: white;
+        color: $disabled-text-color;
+      }
+
+      .mat-button-toggle-button {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .mat-button-toggle-label-content {
+        padding: 0;
+        width: 100%;
+        line-height: 2.4em;
+      }
+    }
+  }
+}
+

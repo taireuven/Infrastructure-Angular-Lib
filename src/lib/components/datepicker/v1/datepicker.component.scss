@@ -1,0 +1,144 @@
+@import '../../../../styles/variables.scss';
+
+.moh-datepicker {
+
+  .mat-form-field {
+
+    .mat-form-field-flex {
+      height: 4.2em;
+      background-color: white;
+    }
+
+    &.disabled .mat-form-field-flex {
+      background-color: rgb(235, 235, 228);
+    }
+
+    .mat-input-placeholder {
+      top: 2.2em;
+      padding-right: 0.8em;
+    }
+
+    &.hide-placeholder .mat-input-placeholder {
+      visibility: hidden;
+    }
+
+    &.mat-focused {
+      .mat-input-placeholder {
+        visibility: hidden;
+      }
+
+      .mat-form-field-underline {
+        display: none;
+      }
+    }
+  }
+
+  .mat-form-field-underline {
+    visibility: hidden;
+    height: 0px;
+    position: initial;
+  }
+
+  .mat-form-field-wrapper {
+    border: 1px #909899 solid;
+    padding: 0;
+  }
+
+  .mat-form-field-infix {
+    margin-top: -1.2em;
+    font-size: 1.4em;
+    font-family: Open Sans Hebrew;
+    color: black;
+  }
+
+  .mat-form-field-ripple {
+    height: 0px;
+  }
+
+  .mat-accent .mat-input-element {
+    caret-color: black;
+    height: 3.15em;
+    padding-right: 1em;
+    padding-left: 0;
+    margin-top: -0.15em;
+    margin-right: -0.2em;
+    margin-bottom: -0.1em;
+
+    &:focus {
+      outline: $browser-focus;
+    }
+  }
+
+  .mat-form-field-invalid:not(.mat-focused) .mat-form-field-underline .mat-form-field-ripple {
+    height: 0px;
+  }
+
+  .mat-input-invalid {
+
+    .mat-input-placeholder {
+      color: rgba(0,0,0,.54);
+    }
+
+    .mat-form-field-underline {
+      color: transparent
+    }
+  }
+
+  .mat-icon-button {
+    background-color: lightgray;
+    border-radius: 0;
+    margin-top: -0.1em;
+    height: 3em;
+    width: 2.7em;
+
+    &:focus {
+      outline: $browser-focus;
+      outline-offset: -0.1em;
+    }
+  }
+}
+
+[dir="ltr"] {
+  .mat-accent .mat-input-element {
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-left: -0.1em;
+    margin-right: 0em;
+  }
+}
+
+//https://stackoverflow.com/questions/11173106/apply-style-only-on-ie
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .moh-datepicker {
+    .mat-accent .mat-input-element {
+      height: 2.9em;
+      margin-top: 0em;
+      margin-right: 0.1em;
+      margin-bottom: 0em;
+      margin-left: 0.2em;
+    }
+  }
+
+  .moh-datepicker {
+    .mat-icon-button {
+      margin-top: -0.05em;
+    }
+  }
+
+  [dir='ltr'] {
+    .mat-accent .mat-input-element {
+      margin-right: 0.2em;
+      margin-left: 0;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .mat-calendar {
+    direction: rtl;
+  }
+
+  .cdk-overlay-pane[dir="ltr"] .mat-calendar-next-button, .cdk-overlay-pane[dir="ltr"] .mat-calendar-previous-button {
+    transform: rotate(180deg);
+  }
+}

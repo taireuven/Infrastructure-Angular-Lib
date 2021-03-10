@@ -1,0 +1,7 @@
+<div [class.loader-hidden]="!((loaderState$ | async)?.show)">
+  <div class="loading-indicator-background"></div>
+  <div class="loading-indicator">
+    <mat-spinner *ngIf="(loaderState$ | async)?.show"></mat-spinner>
+  </div>
+</div>
+

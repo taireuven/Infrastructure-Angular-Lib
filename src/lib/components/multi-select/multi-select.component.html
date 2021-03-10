@@ -1,0 +1,44 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" color="primary" [floatLabel]="!labelText && !textKey ? 'never': 'auto'" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" hideRequiredMarker>
+
+    <mat-label *ngIf="labelText || textKey">
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+    <i *ngIf="iconName" class="moh-icon {{iconName}} before-icon" matPrefix></i>
+    <i class="moh-icon select_arrow_down" matSuffix></i>
+    <mat-select [formControl]="baseAbstractControl"
+                [disabled]="isDisabled"
+                [aria-label]="ariaLabel | async"
+                (openedChange)="onOpenedChange($event)"
+                (selectionChange)="onSelectionChange($event)"
+                [disableOptionCentering]="true"
+                panelClass="moh-v2-select-panel {{optionsDirection ? optionsDirection : ''}}"
+                (infiniteScroll)="getNextBatch()"
+                [complete]="offset === length"
+                [compareWith]="compareWith"
+                msInfiniteScroll
+                multiple>
+
+      <!-- simple options -->
+      <ng-container *ngIf="!groupsOptions; else selectGroups">
+        <mat-option *ngFor="let option of options$ | async"
+                    [value]="valueField ? option[valueField] : option"
+                    [disabled]="option ? option.disabled : false">{{getDisplayValue(option)}}</mat-option>
+      </ng-container>
+
+      <!-- groups options-->
+      <ng-template #selectGroups>
+        <mat-optgroup *ngFor="let group of options$ | async"
+                      [label]="group.title"
+                      [disabled]="group ? group.disabled : false">
+          <mat-option *ngFor="let option of group.options"
+                      [value]="valueField ? option[valueField] : option"
+                      [disabled]="option ? option.disabled : false">{{getDisplayValue(option)}}</mat-option>
+
+        </mat-optgroup>
+      </ng-template>
+
+    </mat-select>
+  </mat-form-field>
+</div>

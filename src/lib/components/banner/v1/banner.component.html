@@ -1,0 +1,7 @@
+<div class={{textType}} fxLayoutAlign="center" ngClass.xs="moh-banner-xs" [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')'}">
+  <div fxLayout="column" fxFlex="92" role="heading" aria-level="1">
+    <label class="main-title">{{mainText || (mainTextValue | async)}}</label>
+    <span class="sub-title">{{subText || (subTextValue | async)}}</span>
+    <ng-content></ng-content>
+  </div>
+</div>

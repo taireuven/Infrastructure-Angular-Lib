@@ -1,0 +1,62 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" color="primary" [floatLabel]="!labelText && !textKey ? 'never': 'auto'" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" hideRequiredMarker>
+
+    <mat-label *ngIf="labelText || textKey">
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+
+    <input #input matInput
+           (keypress)="true"
+           aria-autocomplete="list"
+           class="input-autocomplete"
+           [formControl]="baseAbstractControl"
+           [matAutocomplete]="auto"
+           attr.aria-label="{{ariaLabel | async}}"
+           placeholder="{{placeholder || (placeholderValue | async)}}"
+           (blur)="onInputBlur()" />
+    <i *ngIf="iconName" class="moh-icon {{iconName}} before-icon" matPrefix></i>
+    <i class="moh-icon select_arrow_down" matSuffix></i>
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="displayWith || displayWithFn.bind(this)"
+                      class="moh-v2-autocomplete-panel {{!isStaticPanelWidth ? 'isMultipleLine' : ''}} {{optionsDirection ? optionsDirection : ''}}
+                      {{autocompleteClass ? autocompleteClass : ''}}"
+                      (optionSelected)="onOptionSelected($event)"
+                      (closed)="onClosed()"
+                      (opened)="onOpened()">
+
+      <div class="autocomplete-wrapper">
+
+      <!-- simple autoComplete -->
+        <ng-container *ngIf="!groupsOptions; else autoCompleteGroups">
+          <mat-option *ngFor="let option of filteredOptions | async"
+                      [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+            <div *ngIf="tagField" class="tag">
+              <div [innerHTML]="highlightSearch ? (option[tagField] | mohHighlight: inputText) : option[tagField]"></div>
+            </div>
+            <div [innerHTML]="highlightSearch ? (getDisplayValue(option) | mohHighlight: inputText) : getDisplayValue(option)"></div>
+
+          </mat-option>
+          <mat-option *ngIf="showOtherOption" [value]="otherOptionValue">
+            <div [innerHTML]="highlightSearch ? (otherOptionTextValue | mohHighlight: inputText) : otherOptionTextValue"></div>
+          </mat-option>
+        </ng-container>
+
+      <!-- autoComplete with groups -->
+      <ng-template #autoCompleteGroups>
+          <mat-optgroup *ngFor="let group of filteredGroups | async" [label]="group.title" [disabled]="group ? group.disabled : false">
+            <mat-option *ngFor="let option of group.options"
+                        [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+                        <div [innerHTML]="highlightSearch ? (getDisplayValue(option) | mohHighlight: inputText) : getDisplayValue(option)"></div>
+            </mat-option>
+          </mat-optgroup>
+          <mat-option *ngIf="showOtherOption" [value]="otherOptionValue">
+            <div [innerHTML]="highlightSearch ? (otherOptionTextValue | mohHighlight: inputText) : otherOptionTextValue"></div>
+          </mat-option>
+        </ng-template>
+
+      </div>
+
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

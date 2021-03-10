@@ -1,0 +1,5 @@
+<div fxLayout="row">
+  <span class="star" *ngIf="MarkAsRequired">*</span>
+  <mat-checkbox [formControl]="baseAbstractControl" [attr.aria-required]="MarkAsRequired"
+                disableRipple="true" (blur)="onTouched()">{{text || (textValue | async)}}</mat-checkbox>
+</div>

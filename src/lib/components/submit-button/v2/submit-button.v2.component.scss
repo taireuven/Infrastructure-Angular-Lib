@@ -1,0 +1,23 @@
+.moh-submit-button {
+
+  .mat-raised-button.mat-primary {
+    background-color: #002D56;
+    color: #ffffff;
+  }
+
+  .mat-raised-button {
+    border-radius: 0px !important;
+    /*line-height: 3em;*/
+  }
+
+  .mat-raised-button.mat-primary[disabled],
+  .mat-raised-button.mat-primary[disabled]:hover {
+    background-color: #25414C;
+    color: #889A9E;
+  }
+
+  .mat-raised-button.mat-primary:hover {
+    background-color: #01182D;
+    color: #ffffff;
+  }
+}

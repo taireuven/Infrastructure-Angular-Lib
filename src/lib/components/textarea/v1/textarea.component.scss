@@ -1,0 +1,52 @@
+@import '../../../../styles/variables';
+
+moh-textarea {
+  width: 100%;
+
+  .mat-hint {
+    &.invalid span {
+      color: red;
+    }
+
+    span {
+      color: black;
+    }
+  }
+
+  .mat-input-element {
+    font: 14px Open Sans Hebrew;
+  }
+
+  textarea.txtArea {
+    height: 3.2em;
+    background-color: white;
+    border: 1px #909899 solid;
+    padding: 0.5em 0.8em;
+    overflow-y: scroll;
+    flex: 1 1 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    max-width: 100%;
+
+    &:focus{
+      outline: $browser-focus;
+    }
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-input-flex {
+  }
+
+  .mat-form-field-infix {
+    padding: 0;
+    border: none;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+}

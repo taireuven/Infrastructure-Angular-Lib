@@ -1,0 +1,36 @@
+@import '../../../../styles//variables';
+
+mat-radio-button.mat-radio-button {
+  display: flex;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $radio-blue;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $radio-gray;
+}
+
+.mat-radio-outer-circle {
+  border-color: $radio-gray;
+}
+
+.mat-radio-button::after {
+  content: "  ";
+  white-space: pre;
+}
+
+.mat-radio-label {
+  display: inline !important;
+}
+
+.mat-radio-label-content {
+  //display: table-caption !important;
+  vertical-align: top;
+}
+
+.wrap-mat-radio-label {
+  white-space: normal;
+}
+/*.radio-wrapper{height:100%;}*/

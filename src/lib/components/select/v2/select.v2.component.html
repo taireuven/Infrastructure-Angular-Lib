@@ -1,0 +1,76 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" color="primary" [floatLabel]="!labelText && !textKey ? 'never': 'auto'" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" hideRequiredMarker>
+
+    <mat-label *ngIf="labelText || textKey">
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+
+    <input #input (keypress)="isAutoComplete" matInput attr.aria-autocomplete="{{isAutoComplete?'list':'none'}}"
+           [formControl]="baseAbstractControl" [matAutocomplete]="auto" attr.aria-label="{{ariaLabel | async}}"
+           placeholder="{{placeholder || (placeholderValue | async)}}" (blur)="onInputBlur()" /><!--(blur)="validateValue()"-->
+    <!--[required]="MarkAsRequired"-->
+    <i *ngIf="iconName" class="moh-icon {{iconName}} before-icon" matPrefix></i>
+    <i class="moh-icon select_arrow_down" matSuffix></i>
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="displayWith || displayWithFn.bind(this)"
+                      class="moh-v2-select-panel {{optionsDirection ? optionsDirection : ''}}
+                       {{autocompleteClass ? autocompleteClass : ''}}"
+                      (optionSelected)="onOptionSelected($event)"
+                      (closed)="onClosed()"
+                      (opened)="onOpened()">
+
+      <!--{{panelClass}}-->
+      <!-- autoComplete mode -->
+      <div *ngIf="isAutoComplete; else selectOptions">
+
+        <!-- simple autoComplete -->
+        <ng-container *ngIf="!groupsOptions$; else autoCompleteGroups">
+          <mat-option *ngFor="let option of options$ | async | filter: baseAbstractControl.value : displayField : minLength"
+                      [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+            {{ getDisplayValue(option) }}
+          </mat-option>
+        </ng-container>
+
+        <!-- autoComplete with groups -->
+        <ng-template #autoCompleteGroups>
+          <mat-optgroup *ngFor="let group of groupsOptions$ | async | filterGroup: baseAbstractControl.value : displayField : minLength" [label]="group.title" [disabled]="group ? group.disabled : false">
+            <mat-option *ngFor="let option of group.options"
+                        [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+              {{ getDisplayValue(option) }}
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+      </div>
+
+      <!-- select mode -->
+      <ng-template #selectOptions>
+
+        <!-- simple select -->
+        <ng-container *ngIf="!groupsOptions$; else selectGroups">
+          <mat-option *ngFor="let option of options$ | async" [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+            {{ getDisplayValue(option) }}
+          </mat-option>
+        </ng-container>
+
+        <!-- select with groups -->
+        <ng-template #selectGroups>
+          <mat-optgroup *ngFor="let group of groupsOptions$ | async" [label]="group.title" [disabled]="group ? group.disabled : false">
+            <mat-option *ngFor="let option of group.options"
+                        [value]="valueField ? option[valueField] : option" [disabled]="option ? option.disabled : false">
+              {{ getDisplayValue(option) }}
+            </mat-option>
+          </mat-optgroup>
+        </ng-template>
+
+      </ng-template>
+    </mat-autocomplete>
+    <!-- workaround - duplicate mat-hint for each align -->
+    <mat-hint align="start" *ngIf="(startHintLabel || startHintLabelKey) && showHint">
+      <span attr.aria-label="{{startHintLabel || (startHintLabelValue | async)}}">{{startHintLabel || (startHintLabelValue | async)}}</span>
+    </mat-hint>
+    <mat-hint align="end" *ngIf="(endHintLabel || endHintLabelKey) && showHint">
+      <span attr.aria-label="{{endHintLabel || (endHintLabelValue | async)}}">{{endHintLabel || (endHintLabelValue | async)}}</span>
+    </mat-hint>
+  </mat-form-field>
+</div>

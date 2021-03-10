@@ -1,0 +1,11 @@
+moh-date-select {
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+}
+
+[dir="ltr"] {
+  moh-date-select div.row-rtl {
+    flex-direction: row-reverse !important;
+  }
+}

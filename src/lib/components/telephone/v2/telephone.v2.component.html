@@ -1,0 +1,57 @@
+<form [formGroup]="baseAbstractControl" id="telForm">
+
+  <div class="telephone-header" [ngClass]="{ 'disabled-phone': isDisabled, 'invalid-phone': ((baseAbstractControl.get('phoneNumber').touched || formSubmitted || showErrorMessage) && baseAbstractControl.get('phoneNumber').invalid)
+                                  ||((formSubmitted
+                                  || showErrorMessage
+                                  ||(baseAbstractControl.get('phoneNumber').touched && baseAbstractControl.get('prefix').touched)
+                                  ||(baseAbstractControl.touched&&!baseAbstractControl.get('phoneNumber').value&& !baseAbstractControl.get('prefix').value))
+                                  &&!baseAbstractControl.get('phoneNumber').errors) && baseAbstractControl.invalid && !ignoreInvalidStyle }">
+    {{ labelText || (getLabelText(textKey,textParams) | async)}}
+    <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+  </div>
+
+
+  <div class="row-rtl moh-v2-input" fxLayout="row" fxLayoutAlign="space-between">
+    <!--  [displayPlaceholderOnBlur]="true" -->
+    <moh-select id="telPrefix" fxFlex="28%" fxFlex.md="40" formControlName="prefix" [useDefaultKey]="false" placeholderKey="prefix" [displayField]="prefixDisplayField"
+                [valueField]="prefixValueField" [forceSelect]=false [options]="codes" ariaLabelKey="prefix"
+                [MarkAsRequired]="MarkAsRequired" [isDisabled]="isDisabled"
+                (blur)="markAsTouched()"
+                [markAsInvalid]="((baseAbstractControl.get('phoneNumber').touched || formSubmitted || showErrorMessage) && baseAbstractControl.get('phoneNumber').invalid)
+                                  ||((formSubmitted
+                                  ||showErrorMessage
+                                  ||(baseAbstractControl.get('phoneNumber').touched && baseAbstractControl.get('prefix').touched)
+                                  ||(baseAbstractControl.touched&&!baseAbstractControl.get('phoneNumber').value&& !baseAbstractControl.get('prefix').value))
+                                  &&!baseAbstractControl.get('phoneNumber').errors) && baseAbstractControl.invalid && !ignoreInvalidStyle"></moh-select>
+    <!--  [displayPlaceholderOnBlur]="true" -->
+    <moh-textbox id="tel" fxFlex="65%" formControlName="phoneNumber" [useDefaultKey]="false" placeholderKey="phoneNumber" [maxlength]="7" ariaLabelKey="tel" mohNumbersOnly
+                 [MarkAsRequired]="MarkAsRequired" [isDisabled]="isDisabled"
+                 (blur)="markAsTouched()"
+                 [markAsInvalid]="((baseAbstractControl.get('phoneNumber').touched || formSubmitted || showErrorMessage) && baseAbstractControl.get('phoneNumber').invalid)
+                                  ||((formSubmitted
+                                  ||showErrorMessage
+                                  ||(baseAbstractControl.get('phoneNumber').touched && baseAbstractControl.get('prefix').touched)
+                                  ||(baseAbstractControl.touched&&!baseAbstractControl.get('phoneNumber').value&& !baseAbstractControl.get('prefix').value))
+                                  &&!baseAbstractControl.get('phoneNumber').errors) && baseAbstractControl.invalid && !ignoreInvalidStyle"></moh-textbox>
+  </div>
+  <moh-error-message *ngIf="baseAbstractControl.get('phoneNumber').touched || formSubmitted || showErrorMessage" [control]="baseAbstractControl.get('phoneNumber')"></moh-error-message>
+  <!--<span>baseAbstractControl.get('phoneNumber').touched{{baseAbstractControl.get('phoneNumber').touched}}</span>
+  <br />
+  <span>
+    baseAbstractControl.get('prefix').touched{{baseAbstractControl.get('prefix').touched}}
+  </span>
+  <span>
+    baseAbstractControl.touched:{{baseAbstractControl.touched}}
+  </span>-->
+  <moh-error-message *ngIf="
+                       (showErrorMessage
+                       ||formSubmitted
+                       ||(baseAbstractControl.get('phoneNumber').touched && baseAbstractControl.get('prefix').touched)
+                       ||(baseAbstractControl.touched&&!baseAbstractControl.get('phoneNumber').value&& !baseAbstractControl.get('prefix').value))
+                       && !baseAbstractControl.get('phoneNumber').errors"
+                     [control]="baseAbstractControl"></moh-error-message>
+
+  <div *ngIf="this.errorflag">
+    <i matPrefix class="moh-icon error"></i> <span class="error_det">{{errorGetListTextValue | async}}</span>
+  </div>
+</form>

@@ -1,0 +1,77 @@
+@import '../../../../styles/variables.v2.scss';
+
+// colors
+$hover-bg-color: #e6f0f5;
+$disabled-color: #e3e6e8;
+
+moh-filter-slide-toggle {
+  .mat-button-toggle-group {
+    margin-bottom: 1em;
+    /*height: 2.625em;*/
+    background-color: white;
+    border: none !important;
+    box-shadow: none;
+    color: $moh-blue;
+    white-space: normal;
+    flex-wrap: wrap;
+
+    &.mat-button-toggle-group-disabled {
+      border-color: $disabled-color;
+    }
+    .mat-button-toggle {
+      margin-right: 2em;
+      margin-bottom: 1em;
+      text-align: center;
+      font-family: Open Sans Hebrew;
+      color: #0A0A0A; //$moh-blue;
+      border-radius: 26px;
+      border: 1px solid currentColor !important; //$moh-blue;
+      white-space: normal;
+      &:hover {
+        background-color: #ffffff;
+        border-radius: 26px;
+      }
+      html[dir="rtl"] & {
+        margin-left: 2em;
+        margin-right: 0;
+      }
+      &.mat-button-toggle-checked {
+        color: $moh-blue;
+        border: 1px solid $moh-blue;
+        background-color: #ffffff;
+        border-radius: 26px;
+        font-family: 'Open Sans Bold';
+
+        &.mat-button-toggle-disabled {
+          background-color: $disabled-color;
+        }
+      }
+
+      &.cdk-keyboard-focused .mat-button-toggle-focus-overlay,
+      &.cdk-program-focused .mat-button-toggle-focus-overlay {
+        /*for accessibilty*/
+        /*border: $browser-focus;*/
+        //opacity: 0;
+      }
+
+      &.mat-button-toggle-disabled {
+        background-color: white;
+        color: $disabled-text-color;
+      }
+
+      .mat-button-toggle-button{
+        height: 100%;
+      }
+      .mat-button-toggle-label-content {
+        padding: 0 0.5em;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 2.4em;
+        line-height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './icon-style.css';
+
+@import "./variables.scss";
+@import "./moh-grid.scss";
+
+@font-face {
+  font-family: 'Open Sans Hebrew';
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Regular.eot') format('embedded-opentype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Regular.otf') format('opentype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Regular.svg') format('svg');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.eot') format('embedded-opentype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.otf') format('opentype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.svg') format('svg');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.ttf') format('truetype');
+  src: url('/assets/fonts/OpenSansHebrew/OpenSansHebrew-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bold {
+  font-family: 'Open Sans Bold'
+}
+
+.star {
+  color: red;
+}
+
+html, body {
+  font-family: Open Sans Hebrew;
+  font-size: 10px;
+  margin: auto;
+  padding: 0;
+  background-color: #f1f5f6;
+}
+
+img {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 1.8em;
+  font-family: 'Open Sans Bold';
+}
+
+
+a, p, input, span, button, label {
+  font-size: 14px;
+  font-family: Open Sans Hebrew;
+}
+
+.swal2-info span {
+  font-size: 3.75em !important;
+}
+
+.swal2-error span, .swal2-success span {
+  font-size: inherit !important;
+}
+
+input {
+  stroke: #909899;
+  stroke-width: 1px;
+}
+
+
+a {
+  cursor: pointer;
+}
+
+.moh-row {
+  padding-bottom: 2em;
+}
+
+:focus {
+  outline: $browser-focus;
+}
+
+
+[dir="ltr"] {
+  .cdk-overlay-pane {
+    > div {
+      direction: ltr;
+    }
+
+    .mat-option, .mat-menu-item {
+      text-align: left
+    }
+  }
+}
+
+[dir="rtl"] {
+  .cdk-overlay-pane {
+    > div {
+      direction: rtl;
+    }
+
+    .mat-option, .mat-menu-item {
+      text-align: right
+    }
+  }
+
+  .cdk-overlay-pane[dir="ltr"] {
+    .mat-calendar-next-button, .mat-calendar-previous-button {
+      transform: initial;
+    }
+
+    .mat-calendar-body-label{
+      text-align:left;
+    }
+  }
+}

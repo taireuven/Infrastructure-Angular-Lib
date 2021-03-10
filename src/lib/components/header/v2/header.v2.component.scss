@@ -1,0 +1,174 @@
+.moh-header { 
+  // border-bottom: #D0DBE5 1px solid;
+  #mainSideMenu {
+    min-width: 0;
+    padding: 0;
+  }
+  .header-main-site-name,
+  .header-current-site-name,
+  .header-page-title-name{
+    color: #016294;
+  }
+  .spacer{
+    padding: 0 1em;
+  }
+  &.moh-header-gt-sm {
+    .mainHeader{
+      padding: 0 4.3em;
+    }
+    .header-text{
+      .header-page-title-name {
+        font-size: 1.62em;
+      }  
+      .header-main-site-name {
+        line-height: 1.25;
+        max-width: 7.5em;
+        font-size:1em;
+        padding-top: 0.5rem;
+      }
+      .header-current-site-name {
+        font-size: 1.62em;
+        white-space: nowrap;
+        padding: 0 3rem 0 0;
+        html[dir="ltr"] & {
+          padding: 0 0 0 3rem;
+        }
+      }
+      .header-institution-name{
+
+      }
+    }
+  }
+
+  &.moh-header-xs {
+    .mainHeader{
+      position: relative;
+      z-index: 2;
+      // border-bottom: #d0dbe5 0.1em solid;
+      padding: 0 0.5em;
+    }
+    .header-text{
+      padding: 0 1em;
+      .header-current-site-name {
+        font-size: 1em;
+        padding: 0;
+        font-weight: bold;      
+      }
+      .header-institution-name{
+        font-size: 1em;
+        color: inherit;
+      }
+      .header-main-site-name{
+      }
+      .header-page-title-name{
+
+      }
+
+    }
+  }
+
+
+
+  .mainLogo {
+    padding: 0.7em 0; /*1em 1em 0 1em;*/
+    /*max-width: 80%;*/
+  }
+
+  .mainLogoXs {
+    /*padding: 1em 0.5em 0 0.5em;*/
+    padding-top: 1em;
+    padding-bottom: 1em;
+    max-width: 100%;
+    width: 65px;
+    height:31px;
+  }
+
+  .footerLine {
+    height: 0.3em;
+    background: -webkit-linear-gradient( 0deg, #077e94 0%, #29c7b7 0%, #0eb5d2 40%, #d6e58a 71% );
+    background: -moz-linear-gradient( 0deg, #077e94 0%, #29c7b7 0%, #0eb5d2 40%, #d6e58a 71% );
+    background: -o-linear-gradient( 0deg, #077e94 0%, #29c7b7 0%, #0eb5d2 40%, #d6e58a 71% );
+    background: -ms-linear-gradient( 0deg, #077e94 0%, #29c7b7 0%, #0eb5d2 40%, #d6e58a 71% );
+    background: linear-gradient( 90deg, #077e94 0%, #29c7b7 0%, #0eb5d2 40%, #d6e58a 71% );
+  }
+
+  .seperatedLine {
+    background: -webkit-linear-gradient( 90deg, #ffffff 10%, #86bbdc 37%, #86bbdc 67%, #ffffff 80% );
+    background: -moz-linear-gradient( 90deg, #ffffff 10%, #86bbdc 37%, #86bbdc 67%, #ffffff 80% );
+    background: -o-linear-gradient( 90deg, #ffffff 10%, #86bbdc 37%, #86bbdc 67%, #ffffff 80% );
+    background: -ms-linear-gradient( 90deg, #ffffff 10%, #86bbdc 37%, #86bbdc 67%, #ffffff 80% );
+    background: linear-gradient( 0deg, #ffffff 10%, #86bbdc 37%, #86bbdc 67%, #ffffff 80% );
+    width: 0.1em;
+    margin: 0 0.6875em;
+  }
+
+  .langSelect {
+    width: 100%
+  }
+
+  .moh-icon.ic-back {
+    font-size: 16px;
+  }
+}
+
+/*We style the Header's navbar from here. The header's navbar is special, because it's
+* a. Inside a moh-sticky-section
+* b. It has no contents, so we must give it a height and animation manually.
+*/
+moh-sticky-section {
+  ::ng-deep div.fixed-wrapper {
+    z-index: 2001; //Increase z-index of Header's wrapper, in order that the navbar's menu can overlay the rest of the page.
+    // border: none;
+  }
+}
+.moh-header-xs .header-navbar ::ng-deep {
+    position: absolute;
+    top: 100%;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    pointer-events: none;
+    
+    moh-navbar,
+    .moh-navbar-v2{
+      height: 100%;
+      background:none;
+      position: static;
+    }
+  .moh-navbar-v2 {
+    border-top: none;
+  }
+  .mat-drawer-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute !important;
+    background: transparent;
+
+    mat-sidenav {
+      pointer-events: auto;
+      background:transparent;
+      height: 100%;
+    }
+    .mat-drawer {
+      position: relative;
+      // box-shadow: none;
+      background: #666666;
+      &:before {
+        content: '';
+        width: 100%;
+        display: block;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0px 4px 1px rgba(69, 69, 69, 0.14);
+      }
+      .mat-nav-list{
+        padding-bottom: 125px;
+      }
+    }
+    .mat-drawer-backdrop{
+
+      pointer-events: auto;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@import '../../../../styles/variables.v2.scss';
+
+moh-select {
+
+  .moh-v2-input {
+
+    .mat-form-field {
+      .mat-hint {
+        color: $disabled-text-color;
+        font-size: 0.84rem;
+        font-family: 'Open Sans Hebrew';
+      }
+    }
+
+    .moh-icon.select_arrow_down {
+      //float: left;
+      margin-top: -3em;
+      line-height: 4.4;
+      font-size: 0.55em;
+      color: #374f60;
+      text-align: left;
+    }
+    //invalid
+    .mat-form-field.mat-input-invalid.mat-form-field-invalid {
+      .moh-icon {
+        color: $invalid-color;
+      }
+    }
+    //disabled
+    .mat-form-field.mat-form-field-disabled, .mat-form-field.mat-form-field-invalid.mat-form-field-disabled {
+      .moh-icon {
+        color: $disabled-text-color;
+      }
+    }
+
+    .before-icon {
+      vertical-align: middle;
+      margin-left: 0.3em;
+    }
+  }
+  /*.mat-form-field-hide-placeholder.placeholder-always .mat-input-element::-webkit-input-placeholder {
+    color: rgba(0,0,0,.42) !important;
+  }*/
+}
+
+moh-select:not([isautocomplete="true"]) {
+  .moh-v2-input {
+    .mat-form-field-flex {
+      cursor: pointer;
+    }
+
+    input {
+      caret-color: transparent;
+      cursor: pointer;
+    }
+
+    .mat-form-field.mat-input-invalid.mat-form-field-invalid {
+      input {
+        caret-color: transparent;
+      }
+    }
+  }
+}
+
+.mat-autocomplete-panel.moh-v2-select-panel {
+
+
+  .mat-option:not(.mat-option-disabled) {
+    height: 2.8em;
+    line-height: 2.8em;
+    border-bottom: 1px solid #d4dee7;
+    font-family: 'Open Sans Hebrew';
+
+    &:hover:not(.mat-option-disabled) {
+      background: #eff4f9;
+    }
+  }
+
+  .mat-option.mat-selected {
+    &:hover:not(.mat-option-disabled) {
+      background: #eff4f9;
+      /*border-bottom-color:aquamarine;*/
+    }
+  }
+}
+//.mat-autocomplete-panel.moh-v2-select-panel .mat-option:not(.mat-option-disabled){background-color:blueviolet}
+.mat-autocomplete-panel.moh-v2-select-panel.ltr {
+  .mat-option {
+    text-align: left !important;
+  }
+}
+
+.mat-autocomplete-panel.moh-v2-select-panel.rtl {
+  .mat-option {
+    text-align: right !important;
+  }
+}
+
+[dir="ltr"] {
+  moh-select {
+    .moh-v2-input {
+      .moh-icon.select_arrow_down {
+        //float: right;
+        margin-top: -3em;
+        text-align: right;
+      }
+
+      .before-icon {
+        margin-right: 0.3em;
+      }
+    }
+  }
+}

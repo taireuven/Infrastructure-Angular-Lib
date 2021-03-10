@@ -1,0 +1,41 @@
+<div class="dropdown-menu">
+  <ng-container *ngIf="xPosition == 'after' else beforeMenu">
+    <button mat-button [matMenuTriggerFor]="afterMenu" disabled="{{isDisabled}}" (click)="menuOpen=true" [ngClass]="{'open':menuOpen}" id="subMenu" tabindex="0">{{buttonText || (textValue | async)}}<mat-icon>{{menuOpen?'keyboard_arrow_up':'keyboard_arrow_down'}}</mat-icon></button>
+
+    <mat-menu #afterMenu="matMenu" [overlapTrigger]="false" xPosition="after" (close)="menuOpen=false" class="dropdown-menu-mat-menu">
+      <ng-container *ngTemplateOutlet="menuContent"></ng-container>
+    </mat-menu>
+  </ng-container>
+
+</div>
+
+<ng-template #beforeMenu>
+  <button mat-button [matMenuTriggerFor]="beforeMenu" disabled="{{isDisabled}}" (click)="menuOpen=true" [ngClass]="{'open':menuOpen}" id="subMenu" tabindex="0">{{buttonText || (textValue | async)}}<mat-icon>{{menuOpen?'keyboard_arrow_up':'keyboard_arrow_down'}}</mat-icon></button>
+  <mat-menu #beforeMenu="matMenu" [overlapTrigger]="false" xPosition="before" (close)="menuOpen=false" class="dropdown-menu-mat-menu">
+    <ng-container *ngTemplateOutlet="menuContent"></ng-container>
+  </mat-menu>
+</ng-template>
+
+<ng-template #menuContent>
+  <ng-container *ngFor="let item of menuItems">
+
+    <ng-container *ngIf="item.isExternal; else internalBlock">
+      <a mat-menu-item [href]="item.url" [target]="item.isStatic?'_blank':'_self'">
+        <ng-container *ngTemplateOutlet="menuItemContent;context:{item:item}"></ng-container>
+      </a>
+    </ng-container>
+
+    <ng-template #internalBlock>
+      <a mat-menu-item [routerLink]="[item.url]">
+        <ng-container *ngTemplateOutlet="menuItemContent;context:{item:item}"></ng-container>
+      </a>
+    </ng-template>
+
+  </ng-container>
+</ng-template>
+
+<ng-template #menuItemContent let-item="item">
+  <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" />{{item.title || (item.titleValue | async)}}
+</ng-template>
+
+

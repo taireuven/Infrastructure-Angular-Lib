@@ -1,0 +1,112 @@
+{
+  "menuItemsArray": [
+    {
+      "Path": "https://www.health.gov.il/Services/Pages/all-newsletters.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "harshama",
+      "ImgUrl": "/assets/images/footer/harshama.png",
+      "ImgUrlLtr": "/assets/images/footer/harshama.png",
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/PniyotHazibur/Pages/CallCenter.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "kolHabriut",
+      "ImgUrl": "/assets/images/footer/kol_habriut.png",
+      "ImgUrlLtr": "/assets/images/footer/kol_habriut.png",
+      "IsStatic": false
+    },
+    {
+      "Path": "https://www.health.gov.il/About/Phonebook/Pages/PhoneBook.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "phoneBook",
+      "ImgUrl": "/assets/images/footer/kol_habriut.png",
+      "ImgUrlLtr": "/assets/images/footer/kol_habriut.png",
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/PniyotHazibur/Pages/default.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "publicInquiries",
+      "ImgUrl": "/assets/images/footer/pniyot_hatzibur.png",
+      "ImgUrlLtr": "/assets/images/footer/pniyot_hatzibur.png",
+      "IsStatic": false
+    },
+    {
+      "Path": "https://www.health.gov.il/About/Pages/social-media.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "socialNetwork",
+      "ImgUrl": "/assets/images/footer/reshatot.png",
+      "ImgUrlLtr": "/assets/images/footer/reshatot.png",
+      "IsStatic": true
+    }
+  ],
+  "menuItemLinks1": [
+    {
+      "Path": "https://www.health.gov.il/About/Pages/about_us.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "about",
+      "ImgUrl": null,
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/UnitsOffice/Pages/UnitsList.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "units",
+      "ImgUrl": null,
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/PniyotHazibur/Pages/default.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "publicInquiries",
+      "ImgUrl": null,
+      "IsStatic": true
+    }
+  ],
+  "menuItemLinks2": [
+    {
+      "Path": "https://www.health.gov.il/About/Pages/AccessibilityStatement.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "accessibility",
+      "ImgUrl": null,
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/About/Pages/TermsOfUse.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "usegeConditions",
+      "ImgUrl": null,
+      "IsStatic": true
+    },
+    {
+      "Path": "https://www.health.gov.il/Subjects/UninsuredRights/FreedomOfInformation/Pages/default.aspx",
+      "Controller": null,
+      "ComponentName": null,
+      "AuthRequired": false,
+      "TitleKey": "policyAndPrivacy",
+      "ImgUrl": null,
+      "IsStatic": true
+    }
+  ]
+}

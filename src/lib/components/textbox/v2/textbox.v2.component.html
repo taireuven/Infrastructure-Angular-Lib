@@ -1,0 +1,13 @@
+<div class="moh-v2-input">
+  <mat-form-field fxFlex="100" [floatLabel]="!labelText && !textKey ? 'never': 'auto'" [ngClass]="{'mat-input-invalid mat-form-field-invalid': markAsInvalid}" hideRequiredMarker>
+    <mat-label *ngIf="labelText || textKey">
+      {{ labelText || (textValue | async)}}
+      <span *ngIf="MarkAsRequired && (labelText || textKey)" class="requiredMarker"> *</span>
+    </mat-label>
+    <input #input matInput [formControl]="baseAbstractControl" type="{{type}}" (blur)="onBlur()" (focus)="onFocus()" maxlength="{{maxlength}}"
+           attr.aria-label="{{ariaLabel | async}}" autocomplete="off" [readonly]="isDisabled"
+           placeholder="{{placeholder || (placeholderValue | async)}}"
+           (keyup.enter)="onKeyUpEnter()"  />
+
+  </mat-form-field>
+</div>

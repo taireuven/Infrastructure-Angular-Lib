@@ -1,0 +1,20 @@
+<form [formGroup]="baseAbstractControl">
+  <div fxLayout="{{labelAbove?'column':'row'}}">
+    <moh-label-field id="dateSelect" *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired required="MarkAsRequired"></moh-label-field>
+    <div class="row-rtl" fxLayout="row" fxLayoutAlign="space-between">
+      <div [fxFlex]="fieldWidth" *ngIf="displayYear">
+        <moh-select *ngIf="!isInputYear" [minLength]="1" isAutoComplete="true" formControlName="year" [useDefaultKey]="false" placeholderKey="year" [options]="yearsList" ariaLabelKey="year" [isDisabled]="isDisabled" aria-describedby="dateSelect"></moh-select>
+        <moh-textbox *ngIf="isInputYear" formControlName="year" [useDefaultKey]="false" placeholderKey="year" ariaLabelKey="year" [isDisabled]="isDisabled" aria-describedby="dateSelect"></moh-textbox>
+      </div>
+      <div [fxFlex]="fieldWidth" *ngIf="displayMonth">
+        <moh-select [minLength]="1" formControlName="month" [useDefaultKey]="false" placeholderKey="month" [displayField]="'text'" [options]="monthesList" ariaLabelKey="month" [isDisabled]="isDisabled" aria-describedby="dateSelect"></moh-select>
+      </div>
+      <div [fxFlex]="fieldWidth" *ngIf="displayDay">
+        <moh-select [minLength]="1" formControlName="day" [useDefaultKey]="false" placeholderKey="day" [options]="daysList" ariaLabelKey="day" [isDisabled]="isDisabled" aria-describedby="dateSelect"></moh-select>
+      </div>
+    </div>
+    <moh-error-message *ngIf="showErrors()" [control]="baseAbstractControl"></moh-error-message>
+
+  </div>
+</form>
+

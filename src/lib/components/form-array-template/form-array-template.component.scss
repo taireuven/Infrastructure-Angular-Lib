@@ -1,0 +1,25 @@
+moh-form-array-template {
+  .removeRow {
+    cursor: pointer;
+
+    i.delete {
+      margin-top: 1.2em;
+    }
+  }
+
+  .addRow {
+    cursor: pointer;
+  }
+
+  .disableAdd {
+    cursor: auto;
+
+    i.delete {
+      color: grey;
+    }
+  }
+
+  .add-row-label {
+    padding: 0 0.6em;
+  }
+}

@@ -1,0 +1,59 @@
+<form [formGroup]="baseAbstractControl">
+  <div class="details-row" fxLayout="row wrap">
+    <div class="form-detail" fxFlex="30%" fxFlex.xs="auto" *ngIf="displayCity">
+
+      <div *ngIf="citiesList===null; else selectCityOptions">
+        <moh-textbox formControlName="cityId" [MarkAsRequired]="cityMarkAsRequired"></moh-textbox>
+      </div>
+
+      <ng-template #selectCityOptions>
+        <moh-select formControlName="cityId" [MarkAsRequired]="cityMarkAsRequired" [options]="citiesList" [forceSelect]="cityForceSelect" isAutoComplete="true"
+                    [displayField]="cityDisplayField" minLength="0"></moh-select>
+      </ng-template>
+      <moh-error-message *ngIf="baseAbstractControl.get('cityId').touched || formSubmitted" [control]="baseAbstractControl.get('cityId')"></moh-error-message>
+      <div *ngIf="this.errorflag">
+        <i class="moh-icon error"></i> <span class="error_det">{{errorListValue | async}}</span>
+      </div>
+    </div>
+    <div class="form-detail" fxFlex="30%" fxFlex.xs="auto" *ngIf="displayStreet">
+
+      <div *ngIf="streetsList===null || citiesList ===null; else selectStreetOptions">
+        <moh-textbox formControlName="streetId" [MarkAsRequired]="streetMarkAsRequired"></moh-textbox>
+      </div>
+
+      <ng-template #selectStreetOptions>
+        <moh-select formControlName="streetId" [options]="streetsList" [forceSelect]="streetForceSelect" [MarkAsRequired]="streetMarkAsRequired" isAutoComplete="true" [displayField]="streetDisplayField"
+                    [parentSelect]="baseAbstractControl.get('cityId')" [parentSortField]="'Code'" [childSortField]="'City_code'"></moh-select>
+      </ng-template>
+
+      <moh-error-message *ngIf="baseAbstractControl.get('streetId').touched || formSubmitted" [control]="baseAbstractControl.get('streetId')"></moh-error-message>
+    </div>
+    <div class="form-detail" fxFlex="9" fxFlex.xs="30" *ngIf="displayHouseNumber">
+      <moh-textbox type="text" id="houseNum" formControlName="houseNumber" [MarkAsRequired]="houseMarkAsRequired" mohNumbersOnly></moh-textbox>
+      <moh-error-message *ngIf="baseAbstractControl.get('houseNumber').touched || formSubmitted" [control]="baseAbstractControl.get('houseNumber')"></moh-error-message>
+    </div>
+    <div class="form-detail" fxFlex="9" fxFlex.xs="30" *ngIf="displayEntrance">
+      <moh-select formControlName="entrance" [options]="entranceList" [MarkAsRequired]="entranceMarkAsRequired" [displayField]="'text'"></moh-select>
+      <moh-error-message *ngIf="baseAbstractControl.get('entrance').touched || formSubmitted" [control]="baseAbstractControl.get('entrance')"></moh-error-message>
+    </div>
+    <div class="form-detail" fxFlex="9" fxFlex.xs="30" *ngIf="displayAppartment">
+      <moh-textbox type="text" id="appNum" formControlName="appartmentNumber" [MarkAsRequired]="appartmentMarkAsRequired" mohNumbersOnly></moh-textbox>
+      <moh-error-message *ngIf="baseAbstractControl.get('appartmentNumber').touched || formSubmitted" [control]="baseAbstractControl.get('appartmentNumber')"></moh-error-message>
+    </div>
+    <div class="form-detail" fxLayout="row" fxFlex="19" fxFlex.xs="63" *ngIf="displayZipCode">
+      <div fxFlex="50">
+        <moh-textbox formControlName="zipCode" id="zipCode" [MarkAsRequired]="zipCodeMarkAsRequired" mohNumbersOnly></moh-textbox>
+        <moh-error-message *ngIf="baseAbstractControl.get('zipCode').touched || formSubmitted" [control]="baseAbstractControl.get('zipCode')"></moh-error-message>
+      </div>
+      <div fxLayoutAlign="start center" class="select-zip-code">
+        <a href="http://www.israelpost.co.il/zipcode.nsf/demozip" target="_blank" class="link">{{zipCodeValue | async}}</a>
+      </div>
+    </div>
+    <div class="form-detail" fxFlex="9" fxFlex.xs="30" *ngIf="displayPostbox">
+      <moh-textbox id="mailBox" formControlName="postbox" [MarkAsRequired]="postboxMarkAsRequired" mohNumbersOnly></moh-textbox>
+      <moh-error-message *ngIf="baseAbstractControl.get('postbox').touched || formSubmitted" [control]="baseAbstractControl.get('postbox')"></moh-error-message>
+    </div>
+  </div>
+</form>
+
+

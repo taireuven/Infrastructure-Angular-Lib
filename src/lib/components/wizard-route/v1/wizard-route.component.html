@@ -1,0 +1,33 @@
+<div class="card" fxLayout="column">
+  <div class="card-header moh-row" role="navigation" attr.aria-label="{{wizardMainAriaLabelValue | async}}">
+    <div fxLayout="row" role="list">
+      <div fxLayout="row" fxFlex="100" role="listitem" *ngFor="let step of steps; let lastStep = last">
+        <a class="nav-item" fxFlex="100" attr.aria-disabled="{{isStepDisabled(step.path)}}"
+           [routerLink]="[step.path]" routerLinkActive="active" [ngClass]="{'beforeActive':isBeforActiveStep(step.path)}">
+          <div fxFlex="auto" fxLayout="row" fxLayoutAlign="center center" class="stepDiv">
+            <mat-icon *ngIf="step.icon">{{step.icon}}</mat-icon>
+            <span>{{step.title || (step.titleValue | async)}}</span>
+          </div>
+          <div class="arrow-border"  [ngClass]="{ 'lastArrowBorder': lastStep }">
+            <div class="arrow"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="card-block moh-row">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+  <div class="card-footer" fxLayout="row" fxLayoutAlign="space-between" mohFocusFirstInvalidControl mohFocusWizardForm>
+    <div class="form-detail" fxFlex="20%" fxFlex.xs="auto">
+      <moh-button [text]="prevButtonText" [textKey]="prevButtonTextKey" [iconName]="prevButtonIcon" *ngIf="hasPrevStep" (onButtonClick)="goToPrevious()"></moh-button>
+      <!-- [isDisabled]="!stepComponent.stepFormGroup.valid && this.prevIfValid" -->
+    </div>
+    <div class="form-detail" fxFlex="20%" fxFlex.xs="auto">
+      <moh-button class="submit" [text]="nextButtonText" [textKey]="nextButtonTextKey" [iconName]="nextButtonIcon" (onButtonClick)="goToNext()" *ngIf="hasNextStep"></moh-button>
+      <!-- [isDisabled]="!stepComponent.stepFormGroup.valid && this.nextIfValid" -->
+      <moh-submit-button textKey="save" [control]="stepComponent.stepFormGroup" (onButtonClick)="submit()" *ngIf="!hasNextStep"></moh-submit-button>
+      <!-- [isDisabled]="!isFormValid()" -->
+    </div>
+  </div>
+</div>

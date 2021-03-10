@@ -1,0 +1,65 @@
+<form [formGroup]="baseAbstractControl">
+  <div class="details-row" fxLayout="row" fxLayoutAlign="space-between" fxLayout.xs="column">
+    <div class="form-detail" fxFlex="30%" fxFlex.xs="auto">
+
+      <div *ngIf="citiesList===null; else selectCityOptions">
+        <moh-textbox formControlName="cityId" [MarkAsRequired]="cityMarkAsRequired"></moh-textbox>
+      </div>
+
+      <ng-template #selectCityOptions>
+        <moh-select formControlName="cityId" [MarkAsRequired]="cityMarkAsRequired" [options]="citiesList" [forceSelect]="cityForceSelect" isAutoComplete="true"
+                    [displayField]="cityDisplayField" minLength="0"></moh-select>
+      </ng-template>
+      <moh-error-message *ngIf="baseAbstractControl.get('cityId').touched || formSubmitted" [control]="baseAbstractControl.get('cityId')"></moh-error-message>
+      <div *ngIf="this.errorflag">
+        <mat-icon matPrefix class="error_icon">error</mat-icon> <span class="error_det">{{errorListValue | async}}</span>
+      </div>
+    </div>
+    <div class="form-detail" fxFlex="30%" fxFlex.xs="auto">
+
+      <div *ngIf="streetsList===null || citiesList ===null; else selectStreetOptions">
+        <moh-textbox formControlName="streetId" [MarkAsRequired]="streetMarkAsRequired"></moh-textbox>
+      </div>
+
+      <ng-template #selectStreetOptions>
+        <moh-select formControlName="streetId" [options]="streetsList" [forceSelect]="streetForceSelect" [MarkAsRequired]="streetMarkAsRequired" isAutoComplete="true" [displayField]="streetDisplayField"
+                    [parentSelect]="baseAbstractControl.get('cityId')" [parentSortField]="'Code'" [childSortField]="'City_code'"></moh-select>
+      </ng-template>
+
+      <moh-error-message *ngIf="baseAbstractControl.get('streetId').touched || formSubmitted" [control]="baseAbstractControl.get('streetId')"></moh-error-message>
+    </div>
+    <div fxFlex="30%" fxFlex.xs="auto" fxLayoutAlign="space-between">
+      <div class="form-detail" fxFlex="30%">
+        <moh-textbox type="text" id="houseNum" formControlName="houseNumber" [MarkAsRequired]="houseMarkAsRequired" mohNumbersOnly></moh-textbox>
+        <moh-error-message *ngIf="baseAbstractControl.get('houseNumber').touched || formSubmitted" [control]="baseAbstractControl.get('houseNumber')"></moh-error-message>
+      </div>
+      <div class="form-detail" fxFlex="30%">
+        <moh-select formControlName="entrance" [options]="entranceList" [MarkAsRequired]="entranceMarkAsRequired" [displayField]="'text'"></moh-select>
+        <moh-error-message *ngIf="baseAbstractControl.get('entrance').touched || formSubmitted" [control]="baseAbstractControl.get('entrance')"></moh-error-message>
+      </div>
+      <div class="form-detail" fxFlex="30%">
+        <moh-textbox type="text" id="appNum" formControlName="appartmentNumber" [MarkAsRequired]="appartmentMarkAsRequired" mohNumbersOnly></moh-textbox>
+        <moh-error-message *ngIf="baseAbstractControl.get('appartmentNumber').touched || formSubmitted" [control]="baseAbstractControl.get('appartmentNumber')"></moh-error-message>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-row" fxLayout="row" fxLayoutAlign="space-between">
+    <div fxFlex="30%" fxFlex.xs="100%" fxLayoutAlign="space-between">
+      <div class="form-detail" fxFlex="30%">
+        <moh-textbox formControlName="zipCode" id="zipCode" [MarkAsRequired]="zipCodeMarkAsRequired" mohNumbersOnly></moh-textbox>
+        <moh-error-message *ngIf="baseAbstractControl.get('zipCode').touched || formSubmitted" [control]="baseAbstractControl.get('zipCode')"></moh-error-message>
+      </div>
+      <div class="form-detail" fxFlex="30%" fxLayoutAlign="start center">
+        <a href="http://www.israelpost.co.il/zipcode.nsf/demozip" target="_blank" class="link">{{zipCodeValue | async}}</a>
+      </div>
+      <div class="form-detail" fxFlex="30%">
+        <moh-textbox id="mailBox" formControlName="postbox" [MarkAsRequired]="postboxMarkAsRequired" mohNumbersOnly></moh-textbox>
+        <moh-error-message *ngIf="baseAbstractControl.get('postbox').touched || formSubmitted" [control]="baseAbstractControl.get('postbox')"></moh-error-message>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+

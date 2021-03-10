@@ -1,0 +1,20 @@
+moh-info {
+
+  div {
+    align-items: center;
+    border-color: #c9d7d8;
+    border-width: 0.5px;
+    border-style: solid;
+    width: fit-content;
+    color: #012d54;
+    padding:0.6em;
+
+    span{
+      font-size:1.5em;
+    }
+
+    mat-icon {
+      color: #002D56
+    }
+  }
+}

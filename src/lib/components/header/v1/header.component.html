@@ -1,0 +1,28 @@
+<div class="moh-header" ngClass.xs="moh-header-xs" fxLayout="row" fxLayoutAlign="space-between">
+  <div fxFlex="47%">
+    <a href="http://www.health.gov.il">
+      <!--  title="משרד הבריאות" -->
+      <img class="main-logo" src="{{this.isLtr ? '/assets/images/MainLogo.png' : '/assets/images/MainLogo.png'}}" alt="{{mainLogoAltValue | async}}"/>
+    </a>
+  </div>
+  <div fxLayout="column" fxFlex="47%">
+    <div fxFlex="50" fxLayout="row" fxLayoutAlign="end center">
+      <div fxLayoutAlign="end" >
+        <a href="http://www.health.gov.il/PniyotHazibur/Pages/CallCenter.aspx" target="_blank">
+          <img class="icon-kol" src="{{this.isLtr ? '/assets/images/icon_kol.png' : '/assets/images/icon_kol.png'}}"  alt="*5400" attr.aria-label="{{kolHabriutAriaLabelValue | async}}">
+        </a>
+      </div>
+      <div fxLayoutAlign="end" *ngIf="showSelectLanguage" fxFlex="60" fxFlex.gt-xs="35">
+        <div fxFlex="90">
+          <moh-select-language [currentLang]="currentLang" [languagesListApps]="languagesListApps" [labelTextKey]="selectLanguageLabelKey"></moh-select-language>
+        </div>
+      </div>
+
+    </div>
+    <div fxFlex="50%" fxLayoutAlign="end center" *ngIf="showBackToHomeButton">
+      <moh-button textKey="healthHomePage" buttonStyle="moh-subBtn" (click)="redirectTolocalPath()" role="link"></moh-button><!--style="max-height:100%;font-size:3.2vmin"-->
+      <!--text="חזור לאתר משרד הבריאות" -->
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="card-footer wizard-footer" fxLayout="row" fxLayoutAlign="space-between" mohFocusFirstInvalidControl mohFocusWizardForm>
+  <div>
+    <moh-button [text]="wizardRoute.prevButtonText" [textKey]="wizardRoute.prevButtonTextKey" [position]="'right'" [iconName]="wizardRoute.prevButtonIcon" *ngIf="wizardRoute.hasPrevStep" (onButtonClick)="wizardRoute.goToPrevious()"></moh-button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center" class="next-area">
+    <moh-button [textKey]="wizardRoute.actionButtonTextKey" (onButtonClick)="wizardRoute.action()" *ngIf="wizardRoute.showActionButton"></moh-button>
+    <span class="confirm-message" *ngIf="wizardRoute.confirmed">{{wizardRoute.getLabelText('confirmNextMessage')|async}}</span>
+    <moh-button [textKey]="'confirmNextOk'" (onButtonClick)="wizardRoute.goToNext()" *ngIf="wizardRoute.hasNextStep && wizardRoute.confirmed"></moh-button>
+    <moh-button buttonStyle="basic" [textKey]="'confirmNextCancel'" (onButtonClick)="wizardRoute.confirm()" *ngIf="wizardRoute.confirmed"></moh-button>
+    <moh-button [text]="wizardRoute.nextButtonText" [textKey]="wizardRoute.nextButtonTextKey" (onButtonClick)="wizardRoute.goToNext()" [iconName]="wizardRoute.nextButtonIcon" *ngIf="wizardRoute.hasNextStep && !wizardRoute.confirmed"></moh-button>
+    <moh-submit-button [textKey]="wizardRoute.submitButtonTextKey" [control]="wizardRoute.stepComponent.stepFormGroup" [validateInvisibleRecaptcha]="wizardRoute.validateInvisibleRecaptcha" (onButtonClick)="wizardRoute.submit()" *ngIf="!wizardRoute.hasNextStep"></moh-submit-button>
+  </div>
+</div>

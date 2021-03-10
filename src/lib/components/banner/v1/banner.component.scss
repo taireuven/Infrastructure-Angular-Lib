@@ -1,0 +1,24 @@
+moh-banner {
+  .light {
+    color: #ffffff;
+  }
+
+  .dark {
+    color: #002D56;
+  }
+
+  >div{
+    padding: 2.5em 0;
+    background-position: top center;
+    background-size: cover;
+
+    label.main-title {
+      font-size: 4em;
+      font-family: Open Sans Bold;
+    }
+
+    span.sub-title {
+      font-size: 2.6em;
+    }
+  }
+}

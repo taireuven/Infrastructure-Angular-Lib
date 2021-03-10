@@ -1,0 +1,83 @@
+@import "../../../../styles/variables.scss";
+moh-rating {
+  .rating {
+    height: 6.2em;
+    padding-top: 1em;
+
+    :focus {
+      outline: none;
+
+      &:not(.focus-visible) {
+        box-shadow: none;
+      }
+    }
+
+    .focus-visible {
+      box-shadow: 0 0 0pt 9pt pink;
+    }
+
+    .label {
+      padding: 0.5em;
+    }
+
+    .rating-circle {
+      width: 3em;
+      height: 3em;
+      border: 1px solid $radio-blue;
+      border-radius: 50%;
+      background: $background-gray;
+      color: black;
+      transition: 0.6s;
+    }
+
+    .rating-circle-selected {
+      width: 3em;
+      height: 3em;
+      border: 1px solid $radio-blue;
+      border-radius: 50%;
+      color: $background-gray;
+      background: $radio-blue;
+      transition: 0.6s;
+    }
+
+    .rating-circle-selected[disabled],
+    .rating-circle[disabled] {
+      width: 3em;
+      height: 3em;
+      border: 1px solid $radio-blue;
+      border-radius: 50%;
+      background-color: rgb(235, 235, 228);
+      color: #252525;
+      transition: 0.6s;
+    }
+
+    .dots {
+      width: 0.2em;
+      height: 0.2em;
+      border: 1px solid $radio-blue;
+      background-color: $radio-blue;
+      border-radius: 50%;
+      margin: 0.08em;
+    }
+
+    .space {
+      width: 0.49em;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .optionLabel {
+      position: absolute;
+      top: 2.5em;
+      text-align: center;
+      margin: 0 -0.8em;
+      width: 4em;
+    }
+
+    .nrOption {
+      margin: 0 3em;
+    }
+  }
+}

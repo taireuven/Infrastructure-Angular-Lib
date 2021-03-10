@@ -1,0 +1,21 @@
+<div class="moh-menu-item-change-language">
+  <a mat-list-item (click)="openMenu()" (keydown.enter)="openMenu()"
+    [ngClass]="{'expanded': expanded}" id="mainMenu" tabindex="0">
+    <!-- <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="list-item-icon" /> -->
+    <i matPrefix class="moh-icon lang list-item-moh-icon"></i>
+
+
+    {{'Languages'}}
+    <!-- {{item.title || (item['titleValue'] | async)}} -->
+    <span fxFlex>
+      <span fxFlex></span>
+      <span class="activeLanguageTitle" *ngIf="activeLanguage">
+          {{activeLanguage.displayName}}
+      </span>
+      <i class="list-item-icon moh-icon expand_more" [@indicatorRotate]="expanded ? 'expanded': 'collapsed'" aria-hidden="true"> </i>
+    </span>
+  </a>
+  <div *ngIf="expanded">
+      <moh-menu-list-item class="moh-language-menu-item" [ngClass]="{'activeLanguage': activeLanguage.displayName === item.title}" *ngFor="let item of itemList" [item]="item" [showIcons]="true"></moh-menu-list-item>
+  </div>
+</div>

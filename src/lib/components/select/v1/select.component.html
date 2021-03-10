@@ -1,0 +1,60 @@
+  <!--<div>
+  <moh-label-field [text]="labelText" [isRequired]=required></moh-label-field>
+  <div *ngIf="isAutoComplete; else normalSelect">
+    <mat-form-field color="primary" (click)="removePlaceholder()">
+      <input type="text" placeholder="{{placeholder}}" matInput [formControl]="baseAbstractControl" [matAutocomplete]="auto" />
+      <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{ displayFn(option) }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+
+<ng-template #normalSelect>
+  <mat-form-field color="primary" (click)="removePlaceholder()">
+    <input type="text" placeholder="{{placeholder}}" matInput
+           [formControl]="baseAbstractControl" [matAutocomplete]="auto" (blur)="onTouched($event)"/>
+    <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ displayFn(option) }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</ng-template>-->
+
+<div>
+  <moh-label-field *ngIf="labelText || textKey" [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+
+  <!--<div *ngIf="isAutoComplete; else normalSelect">-->
+  <mat-form-field color="primary" (click)="removePlaceholder()" floatLabel="never" hideRequiredMarker>
+    <!---->
+    <!---->
+    <input (keypress)="isAutoComplete" placeholder="{{placeholder || (placeholderValue | async)}}" matInput (blur)="onTouched()"
+           [formControl]="baseAbstractControl" [matAutocomplete]="auto" attr.aria-label="{{ariaLabel | async}}"
+           [attr.aria-required]="MarkAsRequired" /> <!--(focus)="chooseFirstOption()"-->
+
+    <mat-icon *ngIf="!isAutoComplete" matSuffix>keyboard_arrow_down</mat-icon>
+
+
+
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWithFn.bind(this)">
+
+      <div *ngIf="isAutoComplete; else selectOptions">
+        <mat-option *ngFor="let option of options$ | async | filter: baseAbstractControl.value : displayField : minLength" [value]="valueField ? option[valueField] : option">
+          {{ getDisplayValue(option) }}
+        </mat-option>
+      </div>
+
+      <ng-template #selectOptions>
+        <mat-option *ngFor="let option of options$ | async" [value]="valueField ? option[valueField] : option">
+          {{ getDisplayValue(option) }}
+        </mat-option>
+      </ng-template>
+
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

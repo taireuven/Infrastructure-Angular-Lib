@@ -1,0 +1,10 @@
+<div  fxLayout="row"  role="heading" aria-level="4">
+  <div class=triangle ngClass.lt-lg="triangleXs" fxLayoutAlign="start start">
+    <img src={{imgSrc}} *ngIf="imgSrc!=null" />
+    <i *ngIf="icnName!=null" ngClass.lt-lg="mat-iconXs" class="moh-icon + {{icnName}}"></i>
+    <span *ngIf="number" ngClass.lt-lg="spanXs">{{number}}.</span>
+    <span ngClass.lt-lg="spanXs">{{title || (textValue| async)}} </span>
+    <span ngClass.lt-lg="spanXs">{{extention}}</span>
+  </div>
+ </div>
+

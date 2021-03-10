@@ -1,0 +1,14 @@
+<a mat-list-item [ngStyle]="{'padding-right': (depth * 12) + 'px'}" (click)="onItemSelected(item)" (keydown.enter)="onItemSelected(item)"
+   [ngClass]="{'active': item.url ? router.isActive(item.url, true): false, 'expanded': expanded}" id="mainMenu" tabindex="0">
+  <img *ngIf="showIcons && item.imageUrl" src="{{item.imageUrl}}" class="list-item-icon" />
+  <i *ngIf="showIcons && item.iconName" matPrefix class="moh-icon {{item.iconName}} list-item-moh-icon"></i>
+  {{item.title || (item['titleValue'] | async)}}
+  <span fxFlex *ngIf="item.children && item.children.length">
+    <span fxFlex></span>
+    <i class="list-item-icon moh-icon expand_more" [@indicatorRotate]="expanded ? 'expanded': 'collapsed'"  aria-hidden="true"> </i>
+  </span>
+</a>
+<div *ngIf="expanded">
+  <moh-menu-list-item class="sub-item" *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [showIcons]="showIcons">
+  </moh-menu-list-item>
+</div>

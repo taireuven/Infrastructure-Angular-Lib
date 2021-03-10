@@ -1,0 +1,5 @@
+<div fxLayout="row">
+  <span class="star" *ngIf="MarkAsRequired">*</span>
+  <re-captcha *ngIf="visible == true" [badge]="'inline'" [site_key]="'6LcufC0UAAAAANNJ76pbdle0eT0jIvNOZTBpgqyJ'" (captchaResponse)="handleCorrectCaptcha($event)" language="iw" [formControl]="baseAbstractControl"></re-captcha>
+  <re-captcha *ngIf="!visible" [size]="'invisible'" [badge]="'inline'" [site_key]="'6LevXzUUAAAAADiHnMv0-7R3ed-gwLSUz6ii_Ix7'" (captchaResponse)="handleCorrectCaptcha($event)" language="iw" [formControl]="baseAbstractControl"></re-captcha>
+</div>

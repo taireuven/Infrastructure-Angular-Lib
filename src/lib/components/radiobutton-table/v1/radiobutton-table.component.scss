@@ -1,0 +1,27 @@
+@import "../../../../styles/variables.scss";
+
+moh-radiobutton-table {
+  .mat-radio-button::after {
+    content: none;
+  }
+
+  .mat-radio-label-content {
+    padding: 0 !important;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $radio-blue;
+  }
+
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $radio-blue;
+  }
+
+  .mat-radio-outer-circle {
+    border-color: black;
+  }
+
+  mat-radio-group {
+    height: 6em;
+  }
+}

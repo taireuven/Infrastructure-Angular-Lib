@@ -1,0 +1,42 @@
+<form [formGroup]="baseAbstractControl">
+
+
+  <!--textbox filter-->
+  <div *ngIf="type ==='textbox'" class="filter-column moh-v2-input filter-container" fxLayout
+       fxLayout.xs="column">
+    <mat-form-field>
+      <input matInput type="text"
+             (input)="applyFilter($event.target.value)"
+             placeholder="{{(placeholderValue|async)||placeholder}}"
+             autocomplete="off"
+             formControlName="textbox">
+      <i matSuffix class="moh-icon grid_filtering"></i>
+    </mat-form-field>
+  </div>
+
+
+  <!--select filter-->
+  <div *ngIf="type ==='select'" class="filter-column moh-v2-input">
+    <mat-form-field floatLabel="never">
+      <mat-select multiple
+                  formControlName="select"
+                  placeholder="{{(placeholderValue|async) || placeholder}}">
+        <mat-option *ngFor="let option of options" [value]="valueField ? option[valueField] : option">
+          {{displayField ? option[displayField] : option}}
+        </mat-option>
+      </mat-select>
+      <i matSuffix class="moh-icon grid_ar_dropdown"></i>
+    </mat-form-field>
+  </div>
+
+  <!--datepicker filter-->
+  <div *ngIf="type ==='datepicker'" class="filter-column moh-v2-input filter-container">
+    <moh-datepicker formControlName="datepicker" [placeholderKey]="placeholder" [useDefaultKey]="false" [inputDisabled]="inputDisabled"></moh-datepicker>
+
+  </div>
+
+  <!--toggle filter-->
+  <div *ngIf="type ==='toggle'" class="filter-column moh-v2-input">
+    <moh-filter-slide-toggle  [options]="options" formControlName="toggle"></moh-filter-slide-toggle>
+  </div>
+</form>

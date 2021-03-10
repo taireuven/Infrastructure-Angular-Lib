@@ -1,0 +1,23 @@
+<form [formGroup]="baseAbstractControl">
+  <div fxLayout="{{labelAbove?'column':'row'}}">
+    <moh-label-field [text]="labelText" [textKey]=textKey [textParams]="textParams" [isRequired]=MarkAsRequired></moh-label-field>
+    <div class="row-rtl" fxLayout="row" fxLayoutAlign="space-between">
+      <moh-textbox fxFlex="65%" formControlName="phoneNumber" [useDefaultKey]="false" [maxlength]="7" ariaLabelKey="tel" mohNumbersOnly [MarkAsRequired]="MarkAsRequired"></moh-textbox>
+      <moh-select fxFlex="28%" formControlName="prefix" [useDefaultKey]="false" [displayField]="'text'" [forceSelect]=false [options]="codes" ariaLabelKey="prefix" [MarkAsRequired]="MarkAsRequired"></moh-select>
+    </div>
+    <moh-error-message *ngIf="baseAbstractControl.get('phoneNumber').touched || formSubmitted" [control]="baseAbstractControl.get('phoneNumber')"></moh-error-message>
+
+    <moh-error-message *ngIf="(
+                       formSubmitted
+                       ||
+                       (baseAbstractControl.get('phoneNumber').touched && baseAbstractControl.get('prefix').touched)
+                       ||
+                       (baseAbstractControl.touched&&!baseAbstractControl.get('phoneNumber').value&& !baseAbstractControl.get('prefix').value)
+                       )
+                       && !baseAbstractControl.get('phoneNumber').errors"
+                       [control]="baseAbstractControl"></moh-error-message>
+  </div>
+  <div *ngIf="this.errorflag">
+    <mat-icon matPrefix class="error_icon">error</mat-icon> <span class="error_det">{{errorGetListTextValue | async}}</span>
+  </div>
+</form>

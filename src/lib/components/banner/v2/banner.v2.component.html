@@ -1,0 +1,14 @@
+<div class="moh-banner-v2" ngClass.xs="moh-banner-xs" fxShow.xs="false" fxLayout="row" [ngStyle]="{'background-image': isLtr ? 'url(' + ltrImageUrl + ')' : 'url(' + imageUrl + ')'}">
+  <div [ngClass]="{ 'with-gradient': dynamicFadePic }" fxFlex="100" fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout="column" fxFlex="72%" fxFlex.xs="88%" role="heading" class="banner-content {{textType}}" fxLayoutAlign="space-between">
+      <div fxLayout="column" fxFlex="50" fxLayoutAlign="end">
+        <moh-breadcrumbs [staticBreadcrumbs]="staticBreadcrumbs" *ngIf="showBreadcrumbs"></moh-breadcrumbs>
+        <label aria-level="1" role="heading" class="main-title">{{mainText || (mainTextValue | async)}}</label>
+      </div>
+      <div fxLayout="column" fxFlex="48" fxLayoutAlign="start">
+        <span aria-level="2" class="sub-title">{{subText || (subTextValue | async)}}</span>
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

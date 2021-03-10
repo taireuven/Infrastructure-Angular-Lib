@@ -1,0 +1,139 @@
+<div fxLayout="column">
+  <div *ngIf="!miniContactState" fxFlex.gt-md=2 fxFlex=100 class="footerBox"></div>
+  <div *ngIf="!miniContactState" fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="space-around center" ngClass.gt-md="iconsRow">
+    <!-- fxFlex=100 fxFlex.gt-md -->
+    <div class="mohLogo" fxHide.lt-lg></div>
+    <div fxLayout=column fxFlex=2 fxFill fxLayoutAlign="space-around center">
+      <div fxHide.xs fxFlex=70 fxLayout=column class="lineBetween">
+      </div>
+    </div>
+    <div fxFlex=66 fxFill fxLayout.lt-lg="column" fxLayoutAlign="space-around center">
+      <div fxFlexOrder.lt-lg=2 fxFlex=100 fxFlex.gt-md=10 fxLayoutAlign="space-around center" aria-level="4">
+        <label class="contactUs moh-bold" ngClass.lt-lg="contactUsXs">
+          {{contactUsV2TextValue | async}}
+        </label>
+      </div>
+      <div fxLayout=row fxFlexOrder.lt-lg=3 fxFill fxFlex=100 fxLayoutAlign="space-around center">
+        <div fxLayout="row" fxFill fxFlex=100 fxLayoutAlign.lt-lg="space-around baseline" class="paddingXs footer-wrapper" fxLayoutAlign="space-around center">
+          <ul>
+            <li fxFill fxFlex=25 fxFlex.gt-sm=20 fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let menuItem of menuLinks; let i = index">
+              <div fxLayout="column" fxFill fxFlex=100 fxFlex.gt-sm=75 fxLayoutAlign="space-around center">
+
+                <div fxLayout="column" fxFlex=70 ngClass.gt-md=menuItemBox fxLayoutAlign="space-evenly none" fxFill>
+                  <div fxLayoutAlign="center end" fxLayout="row" fxFlex=60>
+                    <div fxFlex=70 fxLayoutAlign="center center" fxFlex.gt-sm=100>
+                      <a href="{{menuItem.Path}}" attr.aria-label="{{menuItem.IsStatic ? (menuItem.titleValue | async) : (menuItem.titleValue | async) +' ' + ( externalSiteTextValue | async) }}" target="_blank">
+                        <img alt="{{menuItem.titleValue | async}}" src="{{this.isLtr ? menuItem.ImgUrlLtr : menuItem.ImgUrl}}" />
+                      </a>
+                    </div>
+                  </div>
+                  <div fxFlex=40 fxLayoutAlign="center start">
+                    <label class=privacyPolicy ngClass.xs=privacyPolicyXs ngClass.lt-lg=privacyPolicyMd>
+                      {{ menuItem.titleValue |async }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div fxLayout.lt-lg="row" fxFill fxFlex=100 fxFlex.gt-md=20 fxLayoutAlign="space-around">
+        <div fxFlexOrder.lt-lg=1 fxFlex=100 fxFlex.gt-md=70 ngClass.lt-lg="paddingXs lineXs" fxLayout.lt-lg="row" fxLayout="column"
+             fxLayoutAlign="center center">
+          <div fxFlex.lt-lg=36 fxFlex=20 fxLayoutAlign="center center" aria-level="5">
+            <label class="searchUs moh-bold" ngClass.md="searchUsMd" ngClass.sm="searchUsMd"> {{searchUsTextValue | async}}</label>
+          </div>
+          <div fxLayout="row" fxFlex.lt-lg=60 fxFlex=20 fxFill fxLayoutAlign="space-around center">
+            <div *ngFor="let network of networks; let i = index" fxFlex=25 fxLayoutAlign="center center">
+              <a href="{{network.Path}}" attr.aria-label="{{network.titleValue | async}} {{externalSiteTextValue | async}}" title="{{network.titleValue | async}}"
+                 target="{{network.IsStatic?'_blank':'_self'}}">
+                <!-- class="moh-icons {{ network.IconName}}" ngClass.gt-lg=networkLg ngClass.gt-xs=networkMd ngClass.xs=networkXs-->
+                <i (mouseleave)="network.hovered=false" (mouseenter)="network.hovered=true"
+                   class="{{network.hovered?('moh-icon '+ network.IconName +'_hover'):'moh-icon '+ network.IconName}}"
+                   ngClass.gt-md=networkLg ngClass.gt-xs=networkMd ngClass.xs=networkXs>
+                </i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footerLine" ngClass.xs="footerLineMobile"></div>
+
+  <div [ngClass.lt-lg]="{'footerPpBox': true, 'miniContactFooter': miniContactState}" fxLayoutAlign="space-around center"
+       fxLayout="row" ngClass.gt-md="pPPadding">
+    <!--  fxLayout.lt-lg="column"  -->
+    <div fxFlex=94 fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="space-around center" role="navigation" attr.aria-label="{{footerLinksAriaLabelValue | async}}">
+      <div fxLayout="row" fxLayout.lt-lg="column" ngClass.xs="pPNoPadding" fxLayoutAlign.lt-lg="space-around center" fxFlex="auto">
+        <div fxFlexOrder.lt-lg=2 ngClass.lt-md="mohPrivacyPolicyMd" ngClass.xs="mohPrivacyPolicyXs">
+          <label ngClass.gt-xs="privacyPolicyMd moh-bold" ngClass.xs="privacyPolicyXs moh-bold" ngClass.gt-md="privacyPolicy moh-bold">
+            {{copyrightTextValue | async}}
+          </label>
+        </div>
+        <div fxFlexOrder.lt-lg="1"  class="pPBetweenPadding" fxFlex="auto">
+          <ul fxLayout="row" fxLayoutWrap="wrap">
+            <li *ngFor="let genaralMenuItem of genaralMenuLinks2; last as isLast">
+              <a ngClass.xs="privacyPolicyXs" ngClass.gt-xs="privacyPolicyMd" ngClass.gt-md="privacyPolicy" href="{{genaralMenuItem.Path}}"
+                 title="{{genaralMenuItem.titleValue | async}}" target="{{genaralMenuItem.IsStatic?'_blank':'_self'}}">
+                {{genaralMenuItem.titleValue | async}}
+              </a>
+              <span *ngIf="!isLast" ngClass.gt-xs="privacyPolicyMd" ngClass.xs="privacyPolicyXs" ngClass.gt-md="privacyPolicy"></span>
+            </li>
+            <li *ngIf="miniContactState" fxHide.xs>
+              <div fxLayout=column fxFlex=2 fxFill fxLayoutAlign="space-around center" class="miniContentPadding">
+                <div fxFlex=70 fxLayout=column class="lineBetween">
+                </div>
+              </div>
+            </li>
+            <li *ngIf="miniContactState" fxHide.xs fxLayoutAlign="center center">
+              <!--<div *ngIf="miniContactState" fxLayout="row" fxFlex=100 ngClass.gt-md=menuItemBox fxLayoutAlign="space-evenly none" fxFill>-->
+              <div fxLayoutAlign="center center" fxLayout="row" class="pPBetweenPadding">
+                <!--<div fxFlex=100 fxLayoutAlign="start center" fxFlex.gt-sm=100>-->
+                <a href="{{miniContactLinkValue | async}}" attr.aria-label="{{miniContactUsTextValue | async}}" target="_blank">
+                  <!-- <img alt="{{miniContactUsTextValue | async}}" src="{{miniContactIcon}}" />-->
+                  <i class="moh-icon {{miniContactIcon}}"></i>
+                </a>
+                <!--</div>-->
+              </div>
+            </li>
+            <li *ngIf="miniContactState" fxLayoutAlign="center center">
+              <div fxLayoutAlign.gt-xs="center center" class="pPBetweenPadding">
+                <span fxHide fxShow.xs ngClass.gt-xs="privacyPolicyMd" ngClass.xs="privacyPolicyXs" ngClass.gt-md="privacyPolicy"></span>
+                <a href="{{miniContactLinkValue | async}}" attr.aria-label="{{miniContactUsTextValue | async}}" target="_blank" title="{{miniContactUsTextValue | async}}">
+                  <label class="privacyPolicy" ngClass.xs="privacyPolicyXs" ngClass.lt-lg="privacyPolicyMd">
+                    {{ miniContactUsTextValue | async }}
+                  </label>
+                </a>
+              </div>
+              <!--</div>-->
+            </li>
+            <li *ngIf="miniContactState"></li>
+          </ul>
+        </div>
+        <!--<div *ngIf="miniContactState">-->
+        <!--</div>-->
+      </div>
+
+      <div *ngIf="!miniContactState" ngClass.lt-lg="pPNoPadding" fxFlexOrder.lt-lg=1 fxFlex.lt-lg="100" fxFlex=100>
+        <ul fxLayout="row wrap" fxLayoutWrap="wrap" fxLayoutAlign="end center" fxLayoutAlign.lt-lg="center none">
+          <li *ngFor="let genaralMenuItem of genaralMenuLinks1">
+            <a ngClass.gt-xs="privacyPolicyMd" ngClass.xs="privacyPolicyXs" ngClass.gt-md="privacyPolicy" href="{{genaralMenuItem.Path}}"
+               title="{{genaralMenuItem.titleValue | async}}" target="{{genaralMenuItem.IsStatic?'_blank':'_self'}}">
+              {{genaralMenuItem.titleValue | async }}
+            </a>
+            <span ngClass.gt-xs="privacyPolicyMd" ngClass.xs="privacyPolicyXs" ngClass.gt-md="privacyPolicy"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div fxLayoutAlign="center center" fxLayout=row fxHide.gt-md>
+    <div fxFlex=70 fxLayoutAlign="space-around center" class="paddingXs mohLogoXs">
+    </div>
+  </div>
+</div>

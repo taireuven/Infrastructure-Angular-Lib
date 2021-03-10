@@ -1,0 +1,16 @@
+  <div fxFill class="chart-wrapper">
+  <!-- <div fxFill class="chart-wrapper" [ngStyle.lt-md]="{ 'min-height': this.mobileHeight + 'px' }" [ngStyle.gt-sm]="{ 'min-height': this.height + 'px' }" > -->
+  <!-- <div fxFill class="chart-wrapper" [ngStyle]="{ 'min-height': this.minHeight + 'px' }" > -->
+
+
+    <canvas [ngStyle]="{ 'min-height': this.minHeight + 'px' }" baseChart
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [colors]="chartColors"
+    [legend]="chartLegend"
+    [chartType]="chartType"
+    [plugins]="chartPlugins">
+    </canvas>
+
+  </div>

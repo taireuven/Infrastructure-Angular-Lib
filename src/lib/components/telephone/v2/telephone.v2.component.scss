@@ -1,0 +1,64 @@
+@import "../../../../styles/variables.v2.scss";
+
+moh-telephone {
+
+  moh-textbox input {
+    text-align: left;
+  }
+
+  .telephone-header {
+    font-size: 0.85em;
+    margin-top: 0em;
+    font-weight: 400;
+    position: initial;
+    color: $placeholder-active-color;
+    opacity: 0.9;
+
+    .requiredMarker {
+      color: $required-color;
+    }
+  }
+
+  div.row-rtl.moh-v2-input{
+    margin-top: -1em;
+  }
+
+  .error {
+    color: $invalid-color;
+  }
+
+  .invalid-phone {
+    color: $invalid-color;
+  }
+
+  .telephone-header.disabled-phone {
+    color: $disabled-text-color;
+
+    .requiredMarker {
+      color: $disabled-text-color;
+    }
+  }
+}
+
+[dir="ltr"] {
+  moh-telephone div.row-rtl {
+    flex-direction: row-reverse !important;
+  }
+
+  .row-rtl {
+    direction: rtl;
+  }
+
+  .mat-form-field-flex {
+    direction: ltr;
+  }
+}
+[dir="rtl"] {
+  .row-rtl {
+    direction: ltr
+  }
+
+  .mat-form-field-flex{
+    direction:rtl;
+  }
+}

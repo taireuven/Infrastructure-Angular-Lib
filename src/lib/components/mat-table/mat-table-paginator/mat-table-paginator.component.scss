@@ -1,0 +1,69 @@
+.paginator {
+  width: 100%;
+  padding:1%;
+}
+.page-button {
+  background-color: transparent; /* Green */
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 0.25em;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.selected-page-button {
+  border: solid;
+  border-width: 1px;
+  border-color: #6A6868;
+}
+
+button.moh-icon.grid_ar_next {
+  font-size: 24px !important;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: #a9d0da;
+  padding: 0;
+  border: none;
+  margin:0.25em;
+}
+
+button.moh-icon.grid_ar_next2 {
+font-size: 24px !important;
+color: black;
+cursor: pointer;
+text-decoration: none;
+border-radius: 50%;
+background-color: #a9d0da;
+padding: 0;
+border: none;
+margin: 0.25em;
+}
+
+button.moh-icon.grid_ar_prev {
+font-size: 24px !important;
+color: black;
+cursor: pointer;
+text-decoration: none;
+border-radius: 50%;
+background-color: #a9d0da;
+padding: 0;
+border: none;
+margin: 0.25em;
+}
+
+button.moh-icon.grid_ar_prev2 {
+font-size: 24px !important;
+color: black;
+cursor: pointer;
+text-decoration: none;
+border-radius: 50%;
+background-color: #a9d0da;
+padding: 0;
+border: none;
+margin: 0.25em;
+}

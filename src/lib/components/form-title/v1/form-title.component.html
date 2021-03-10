@@ -1,0 +1,28 @@
+<div fxLayout="column">
+  <moh-banner [imageUrl]=imageUrl [textType]=imageTextType
+              [mainText]=mainImageText [mainTextKey]=mainImageTextKey [mainTextParams]="mainImageTextParams"
+              [subText]=subImageText [subTextKey]=subImageTextKey [subTextParams]="subImageTextParams">
+    <ng-content></ng-content>
+  </moh-banner>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div fxLayout="column">
+      <moh-breadcrumbs></moh-breadcrumbs>
+      <label class="pageTitle" role="heading" aria-level="3">{{titleUnderImage || (titleUnderImageTextValue | async)}}</label>
+
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <span class="bold">
+        {{date| date: 'dd/MM/yyyy'}}
+      </span>
+      <span>
+        {{hebDate}}
+      </span>
+    </div>
+
+  </div>
+  <div flexLayout="row" *ngIf="showRequiredFieldsMessage" class="requiredMessageDiv">
+    <label>{{headerRequiredMessageValue1 | async}}</label>
+    <label class="requiredStar"> * </label>
+    <label>{{headerRequiredMessageValue2 | async}}</label>
+  </div>
+</div>
